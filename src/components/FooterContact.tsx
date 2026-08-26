@@ -31,7 +31,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
                 key={idx}
                 className="display inline-block text-[clamp(2.5rem,8vw,10rem)] tracking-[-0.03em] px-8 text-white"
               >
-                VENI VIDI VICI &bull; I CAN I SAW I WON &bull; UNAI TECH &bull;&nbsp;
+                NEHEMIAH NESANATHAN &bull; CEO &bull; UNAI TECH PVT LTD &bull; ENTREPRENEUR &bull;&nbsp;
               </span>
             ))}
           </div>
