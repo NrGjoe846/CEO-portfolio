@@ -14,6 +14,7 @@ export interface AccordionGalleryItem {
 export interface AccordionGalleryProps {
   items?: AccordionGalleryItem[];
   defaultIndex?: number;
+  selectedIndex?: number;
   accentColor?: string;
   overlayColor?: string;
   textColor?: string;
@@ -44,7 +45,8 @@ const DEFAULT_ITEMS: AccordionGalleryItem[] = [
 
 export const AccordionGallery: React.FC<AccordionGalleryProps> = ({
   items = DEFAULT_ITEMS,
-  defaultIndex = 2,
+  defaultIndex = 0,
+  selectedIndex,
   accentColor = '#38bdf8',
   overlayColor = '#060b19',
   textColor = '#ffffff',
@@ -75,7 +77,14 @@ export const AccordionGallery: React.FC<AccordionGalleryProps> = ({
 
   const vertical = orientation === 'vertical';
   const count = items.length;
-  const [active, setActive] = useState(Math.min(Math.max(defaultIndex, 0), count - 1));
+  const initialIndex = selectedIndex !== undefined ? selectedIndex : defaultIndex;
+  const [active, setActive] = useState(Math.min(Math.max(initialIndex, 0), count - 1));
+
+  useEffect(() => {
+    if (selectedIndex !== undefined && selectedIndex >= 0 && selectedIndex < count) {
+      setActive(selectedIndex);
+    }
+  }, [selectedIndex, count]);
 
   const prefersReduced =
     typeof window !== 'undefined' && window.matchMedia
