@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
+import { sound } from '../utils/audio';
 import './AccordionGallery.css';
 
 export interface AccordionGalleryItem {
@@ -196,6 +197,14 @@ export const AccordionGallery: React.FC<AccordionGalleryProps> = ({
   };
 
   const handleClick = (i: number, e: React.MouseEvent) => {
+    if (items[i]?.link && items[i].link !== '#' && items[i].link !== '') {
+      sound.playClick();
+      setActive(i);
+      if (onItemSelect) onItemSelect(items[i], i);
+      window.open(items[i].link, '_blank', 'noopener,noreferrer');
+      e.preventDefault();
+      return;
+    }
     if (i !== active) {
       e.preventDefault();
       setActive(i);
@@ -236,6 +245,7 @@ export const AccordionGallery: React.FC<AccordionGalleryProps> = ({
       {items.map((item, i) => {
         const isActive = i === active;
         const Tag = item.link ? 'a' : 'div';
+        const hasExternalLink = item.link && item.link !== '#' && item.link !== '';
         return (
           // @ts-ignore
           <Tag
@@ -244,6 +254,8 @@ export const AccordionGallery: React.FC<AccordionGalleryProps> = ({
             className={`ag-panel${isActive ? ' ag-panel--active' : ''}`}
             style={{ borderRadius: `${radius}px` }}
             href={item.link || undefined}
+            target={hasExternalLink ? '_blank' : undefined}
+            rel={hasExternalLink ? 'noopener noreferrer' : undefined}
             onClick={(e: React.MouseEvent) => handleClick(i, e)}
             onMouseEnter={() => handleEnter(i)}
             onFocus={() => {

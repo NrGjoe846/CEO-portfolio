@@ -34,10 +34,17 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
     "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80"  // Cloud Infrastructure
   ];
 
+  const productLinks: Record<string, string> = {
+    "my-vidyon": "https://www.myvidyon.in/",
+    "postsapp": "https://postsapp.in/",
+    "vidyo-ai": "https://unaitech.com",
+    "unai-eleven": "https://unaitech.com"
+  };
+
   const galleryItems: AccordionGalleryItem[] = PRODUCTS_AND_VENTURES.map((prod, idx) => ({
     image: galleryImages[idx % galleryImages.length],
     label: `${prod.name} — ${prod.tagline}`,
-    link: "#",
+    link: productLinks[prod.id] || "https://unaitech.com",
     alt: prod.name,
     category: prod.status,
     description: prod.description
