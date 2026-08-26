@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { sound } from "../utils/audio";
 import { CEO_PROFILE } from "../data/portfolioData";
-import { X, Check } from "lucide-react";
+import { X, Check, Phone, Send } from "lucide-react";
 import confetti from "canvas-confetti";
 
 interface ExecutiveBookingModalProps {
@@ -141,27 +141,33 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
                 />
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="text-[11px] text-zinc-500 font-semibold">
-                  Direct WhatsApp: <a href={CEO_PROFILE.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">8428293603</a>
-                </div>
+              <div className="pt-2 flex items-center justify-between gap-3">
+                <span className="text-xs text-zinc-500 font-semibold">
+                  Direct Executive Session
+                </span>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
+                  {/* WhatsApp Quick Icon Button */}
                   <a
                     href={`https://wa.me/918428293603?text=${encodeURIComponent(`Hi Nehemiah, my name is ${name || "a portfolio visitor"}${organization ? ` from ${organization}` : ""}. I'd like to discuss ${topic}: ${notes || "UNAI TECH collaboration"}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => sound.playClick()}
-                    className="px-4 py-2.5 rounded-full bg-[#25D366] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-black hover:text-white transition-all shadow-md cursor-pointer flex items-center gap-1.5"
+                    title="Direct WhatsApp Chat"
+                    aria-label="Direct WhatsApp Chat"
+                    className="w-11 h-11 rounded-full bg-[#25D366] text-black flex items-center justify-center shadow-md hover:scale-110 hover:bg-black hover:text-white transition-all cursor-pointer"
                   >
-                    <span>WHATSAPP CHAT</span>
+                    <Phone className="w-5 h-5 fill-current" />
                   </a>
 
+                  {/* Submit Request Icon Button */}
                   <button
                     type="submit"
-                    className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] text-white text-xs font-black uppercase tracking-wider hover:from-[#2563eb] hover:to-[#38bdf8] transition-all shadow-md cursor-pointer"
+                    title="Submit Request"
+                    aria-label="Submit Request"
+                    className="w-11 h-11 rounded-full bg-[#1d4ed8] text-white flex items-center justify-center shadow-md hover:scale-110 hover:bg-[#38bdf8] hover:text-black transition-all cursor-pointer"
                   >
-                    SUBMIT &rarr;
+                    <Send className="w-5 h-5" />
                   </button>
                 </div>
               </div>
@@ -178,7 +184,7 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
             </h3>
 
             <p className="body-copy text-sm text-zinc-600 max-w-md mx-auto">
-              Thank you for reaching out, <strong>{name}</strong>. You can also chat directly on WhatsApp at <strong>8428293603</strong>.
+              Thank you for reaching out, <strong>{name}</strong>. Nehemiah's executive team will follow up shortly.
             </p>
 
             <div className="pt-4 flex items-center justify-center gap-3">
@@ -186,9 +192,11 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
                 href={`https://wa.me/918428293603?text=${encodeURIComponent(`Hi Nehemiah, my name is ${name} from ${organization}. I submitted a collaboration request regarding ${topic}.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-full bg-[#25D366] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-black hover:text-white transition-colors cursor-pointer shadow-md"
+                title="Open WhatsApp"
+                aria-label="Open WhatsApp"
+                className="w-11 h-11 rounded-full bg-[#25D366] text-black flex items-center justify-center hover:scale-110 transition-all cursor-pointer shadow-md"
               >
-                OPEN IN WHATSAPP
+                <Phone className="w-5 h-5 fill-current" />
               </a>
 
               <button
@@ -198,9 +206,11 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
                   setSubmitted(false);
                   onClose();
                 }}
-                className="px-5 py-2.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors cursor-pointer"
+                className="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center hover:bg-[#1d4ed8] transition-colors cursor-pointer shadow-md"
+                title="Close"
+                aria-label="Close"
               >
-                DONE
+                <Check className="w-5 h-5" />
               </button>
             </div>
           </div>

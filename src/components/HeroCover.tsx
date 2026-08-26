@@ -109,57 +109,58 @@ export const HeroCover: React.FC<HeroCoverProps> = () => {
           UNAI
         </div>
 
-        {/* BEGIN: Header Section */}
-        <header className="w-full flex justify-between items-center px-6 sm:px-12 lg:px-24 py-8 z-50 relative" data-purpose="site-header">
+        {/* BEGIN: Header Section - Bigger Executive Navbar */}
+        <header className="w-full flex justify-between items-center px-6 sm:px-12 lg:px-24 py-10 z-50 relative" data-purpose="site-header">
           {/* UNAI Navbar Logo & Brand */}
           <a
             href="#hero-cover"
-            className="flex items-center gap-3 group cursor-pointer"
+            className="flex items-center gap-4 group cursor-pointer"
             onClick={() => sound.playClick()}
           >
-            <div className="h-9 px-2.5 py-1 bg-white/95 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.4)] border border-cyan-400/40">
+            <div className="h-12 sm:h-14 px-3.5 sm:px-4 py-2 bg-white/95 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(56,189,248,0.45)] border border-cyan-400/50 transition-transform group-hover:scale-105">
               <img
                 src="/images/unai-logo.png"
                 alt="UNAI Logo"
-                className="h-6 w-auto object-contain"
+                className="h-7 sm:h-9 w-auto object-contain"
               />
             </div>
-            <span className="text-2xl font-black tracking-wider text-white group-hover:text-[#38bdf8] transition-colors" style={{ fontFamily: "'Archivo Black', sans-serif" }}>
+            <span className="text-2xl sm:text-4xl font-black tracking-wider text-white group-hover:text-[#38bdf8] transition-colors" style={{ fontFamily: "'Archivo Black', sans-serif" }}>
               UNAI
             </span>
           </a>
 
-          <nav className="hidden md:flex space-x-8 lg:space-x-12 text-sm font-medium">
+          {/* Nav Links - Bigger Font and Spacing */}
+          <nav className="hidden md:flex space-x-8 lg:space-x-14 text-base lg:text-lg font-bold">
             <a
-              className="relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[1px] after:bg-[#38bdf8] text-white hover:text-[#38bdf8] transition-colors"
+              className="relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-[#38bdf8] text-white hover:text-[#38bdf8] transition-colors tracking-wide"
               href="#hero-cover"
               onClick={() => sound.playPaperRustle()}
             >
               Hero
             </a>
             <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors"
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
               href="#about"
               onClick={() => sound.playPaperRustle()}
             >
               About
             </a>
             <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors"
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
               href="#ventures"
               onClick={() => sound.playPaperRustle()}
             >
               Work <span className="opacity-50 text-xs ml-1 text-cyan-300">(12)</span>
             </a>
             <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors"
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
               href="#services"
               onClick={() => sound.playPaperRustle()}
             >
               Services <span className="opacity-50 text-xs ml-1 text-cyan-300">(08)</span>
             </a>
             <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors"
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
               href="#contact"
               onClick={() => sound.playPaperRustle()}
             >
@@ -167,100 +168,154 @@ export const HeroCover: React.FC<HeroCoverProps> = () => {
             </a>
           </nav>
 
+          {/* Social Icon CTA Buttons (Icon Only - No numbers or text) */}
           <div className="flex items-center gap-3">
-            {/* Quick WhatsApp Connect Pill */}
+            {/* WhatsApp Icon Button */}
             <a
               href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => sound.playClick()}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#25D366] text-black text-xs font-extrabold uppercase tracking-wider hover:bg-white transition-all shadow-[0_0_15px_rgba(37,211,102,0.4)]"
+              title="Connect on WhatsApp"
+              aria-label="Connect on WhatsApp"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#25D366] text-black flex items-center justify-center shadow-[0_0_18px_rgba(37,211,102,0.45)] hover:scale-110 hover:bg-white transition-all cursor-pointer"
             >
-              <span>WHATSAPP</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <Phone className="w-5 h-5 fill-current" />
+            </a>
+
+            {/* Instagram Icon Button */}
+            <a
+              href="https://www.instagram.com/nehemiah_ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => sound.playClick()}
+              title="Follow on Instagram (@nehemiah_ai)"
+              aria-label="Follow on Instagram"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center shadow-[0_0_18px_rgba(220,39,67,0.35)] hover:scale-110 transition-all cursor-pointer"
+            >
+              <Globe className="w-5 h-5" />
+            </a>
+
+            {/* LinkedIn Icon Button */}
+            <a
+              href="https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => sound.playClick()}
+              title="Connect on LinkedIn"
+              aria-label="Connect on LinkedIn"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0A66C2] text-white flex items-center justify-center shadow-[0_0_18px_rgba(10,102,194,0.35)] hover:scale-110 transition-all cursor-pointer"
+            >
+              <Linkedin className="w-5 h-5 fill-current" />
             </a>
 
             {/* Mobile Menu Button */}
             <button
               aria-label="Menu"
-              className="flex flex-col space-y-[6px] group cursor-pointer p-1 md:hidden"
+              className="flex flex-col space-y-[6px] group cursor-pointer p-2 md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               data-purpose="mobile-menu-button"
             >
-              <span className="w-8 h-[2px] bg-white group-hover:bg-[#38bdf8] transition-colors"></span>
-              <span className="w-8 h-[2px] bg-white group-hover:bg-[#38bdf8] transition-colors"></span>
+              <span className="w-8 h-[2.5px] bg-white group-hover:bg-[#38bdf8] transition-colors"></span>
+              <span className="w-8 h-[2.5px] bg-white group-hover:bg-[#38bdf8] transition-colors"></span>
             </button>
           </div>
         </header>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden relative z-50 mx-6 mb-4 p-5 bg-[#0e1a38] rounded-2xl border border-cyan-500/30 shadow-2xl flex flex-col gap-4">
+          <div className="md:hidden relative z-50 mx-6 mb-4 p-6 bg-[#0e1a38] rounded-2xl border border-cyan-500/30 shadow-2xl flex flex-col gap-4">
             <a
               href="#hero-cover"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-bold text-cyan-400"
+              className="text-lg font-bold text-cyan-400"
             >
               Hero
             </a>
             <a
               href="#about"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-white/90 hover:text-cyan-300"
+              className="text-lg font-medium text-white/90 hover:text-cyan-300"
             >
               About
             </a>
             <a
               href="#ventures"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-white/90 hover:text-cyan-300"
+              className="text-lg font-medium text-white/90 hover:text-cyan-300"
             >
               Work (12)
             </a>
             <a
               href="#services"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-white/90 hover:text-cyan-300"
+              className="text-lg font-medium text-white/90 hover:text-cyan-300"
             >
               Services (08)
             </a>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-white/90 hover:text-cyan-300"
+              className="text-lg font-medium text-white/90 hover:text-cyan-300"
             >
               Contact
             </a>
-            <a
-              href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 py-2 px-4 rounded-xl bg-[#25D366] text-black font-extrabold text-xs text-center uppercase"
-            >
-              Chat on WhatsApp (8428293603)
-            </a>
+
+            {/* Mobile Social Icons Row */}
+            <div className="flex items-center justify-around pt-3 border-t border-cyan-500/20">
+              <a
+                href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-full bg-[#25D366] text-black flex items-center justify-center"
+                title="WhatsApp"
+              >
+                <Phone className="w-5 h-5 fill-current" />
+              </a>
+              <a
+                href="https://www.instagram.com/nehemiah_ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center"
+                title="Instagram"
+              >
+                <Globe className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-full bg-[#0A66C2] text-white flex items-center justify-center"
+                title="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5 fill-current" />
+              </a>
+            </div>
           </div>
         )}
 
         {/* BEGIN: Main Content Area */}
         <section className="flex-grow relative flex w-full max-w-[1600px] mx-auto px-6 sm:px-12 lg:px-24 z-20 py-4" data-purpose="main-content">
           
-          {/* Central Character Image Container with Smooth Scroll Animation: Nehemiah */}
+          {/* Central Character Image Container with Smooth Scroll Animation & Behind Glow: Nehemiah */}
           <div
-            className="absolute bottom-0 left-1/2 w-full max-w-[700px] h-[82vh] max-h-[780px] z-10 pointer-events-none flex items-end justify-center transition-transform duration-100 ease-out"
+            className="absolute -bottom-6 sm:-bottom-8 left-1/2 w-full max-w-[660px] h-[78vh] max-h-[720px] z-10 pointer-events-none flex items-end justify-center transition-transform duration-100 ease-out"
             style={{
-              transform: `translateX(-50%) translateY(${Math.min(scrollY * 0.22, 180)}px) scale(${Math.max(0.93, 1 - scrollY * 0.0002)})`,
+              transform: `translateX(-50%) translateY(${24 + Math.min(scrollY * 0.22, 160)}px) scale(${Math.max(0.93, 1 - scrollY * 0.0002)})`,
               willChange: "transform"
             }}
             data-purpose="hero-image-container"
           >
+            {/* Cyber Aura Glow behind the character */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[380px] sm:w-[480px] h-[420px] bg-gradient-to-t from-[#1d4ed8]/35 via-[#38bdf8]/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+
             <img
               alt="Nehemiah - CEO & Founder @ UNAI TECH"
-              className="w-auto h-full max-h-[82vh] object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
+              className="w-auto h-full max-h-[78vh] object-contain object-bottom drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)] drop-shadow-[0_0_30px_rgba(56,189,248,0.15)]"
               src="/images/nehemiah-hero.png"
               style={{
-                maskImage: "linear-gradient(to bottom, black 84%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, black 84%, transparent 100%)"
+                maskImage: "linear-gradient(to bottom, black 86%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 86%, transparent 100%)"
               }}
             />
           </div>

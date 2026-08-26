@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { PRODUCTS_AND_VENTURES } from "../data/portfolioData";
 import { FlagshipProduct } from "../types";
 import { sound } from "../utils/audio";
+import { AccordionGallery, AccordionGalleryItem } from "./AccordionGallery";
 import { 
   Sparkles, 
   ArrowRight, 
@@ -25,6 +26,39 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
   const [selectedProduct, setSelectedProduct] = useState<FlagshipProduct | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
+  const galleryItems: AccordionGalleryItem[] = [
+    {
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80",
+      label: "My Vidyon — Autonomous EdTech AI",
+      link: "#",
+      alt: "My Vidyon EdTech AI"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&q=80",
+      label: "PostsApp — Autonomous Journalism",
+      link: "#",
+      alt: "PostsApp Journalism AI"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80",
+      label: "Vidyo AI — Next-Gen Neural Engine",
+      link: "#",
+      alt: "Vidyo AI"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80",
+      label: "UNAI Eleven — Cloud Infrastructure",
+      link: "#",
+      alt: "UNAI Eleven Cloud"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=900&q=80",
+      label: "UEOS — Enterprise AI OS",
+      link: "#",
+      alt: "UEOS Platform"
+    }
+  ];
+
   const getProductIcon = (id: string) => {
     switch (id) {
       case "my-vidyon": return <GraduationCap className="w-6 h-6" />;
@@ -38,6 +72,13 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
   const handleOpenModal = (p: FlagshipProduct) => {
     sound.playCameraShutter();
     setSelectedProduct(p);
+  };
+
+  const handleGallerySelect = (_item: AccordionGalleryItem, index: number) => {
+    sound.playClick();
+    if (PRODUCTS_AND_VENTURES[index]) {
+      setSelectedProduct(PRODUCTS_AND_VENTURES[index]);
+    }
   };
 
   const handleScroll = (direction: "left" | "right") => {
@@ -76,7 +117,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
           {/* Right Header: Subtitle & Navigation Buttons */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 justify-between md:justify-end">
             <p className="eyebrow text-xs text-cyan-200/80 max-w-xs font-bold">
-              Swipe or scroll horizontally to explore flagship platforms across education, journalism, and enterprise AI.
+              Explore interactive 3D visual panels or swipe horizontally across enterprise AI platforms.
             </p>
 
             {/* Horizontal Scroll Arrows */}
@@ -103,13 +144,43 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
           </div>
         </div>
 
+        {/* React Bits Interactive Accordion Gallery Showcase */}
+        <div className="mt-8 mb-10">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse shadow-[0_0_8px_#38bdf8]" />
+              <span className="eyebrow text-xs font-mono text-cyan-300 font-bold uppercase tracking-wider">
+                INTERACTIVE 3D VENTURE SHOWCASE (HOVER TO EXPAND)
+              </span>
+            </div>
+            <span className="hidden sm:inline-block text-[11px] font-mono text-cyan-200/60 uppercase">
+              CLICK ANY PANEL TO VIEW DOSSIER
+            </span>
+          </div>
+
+          <AccordionGallery
+            items={galleryItems}
+            defaultIndex={2}
+            accentColor="#38bdf8"
+            overlayColor="#060b19"
+            textColor="#ffffff"
+            height={420}
+            gap={12}
+            radius={20}
+            expandRatio={0.52}
+            trigger="hover"
+            grayscale={true}
+            onItemSelect={handleGallerySelect}
+          />
+        </div>
+
         {/* Scroll Helper Track Pill */}
-        <div className="mt-6 flex items-center justify-between text-xs text-cyan-200/80 font-mono">
+        <div className="mt-8 flex items-center justify-between text-xs text-cyan-200/80 font-mono">
           <span className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse shadow-[0_0_8px_#38bdf8]" />
-            <span>HORIZONTAL SCROLL ENABLED &bull; {PRODUCTS_AND_VENTURES.length} VENTURES</span>
+            <span>VENTURE DOSSIER CARDS &bull; {PRODUCTS_AND_VENTURES.length} PLATFORMS</span>
           </span>
-          <span className="hidden sm:inline-block">DRAG / SWIPE / CLICK TO NAVIGATE &rarr;</span>
+          <span className="hidden sm:inline-block">HORIZONTAL SCROLL &bull; DRAG / SWIPE / CLICK TO EXPLORE &rarr;</span>
         </div>
 
         {/* Horizontal Products Scroll Carousel Track */}

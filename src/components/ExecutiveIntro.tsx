@@ -19,8 +19,14 @@ import {
   Layers,
   CheckCircle,
   ArrowRight,
-  TrendingUp
+  TrendingUp,
+  Phone,
+  Globe,
+  Linkedin,
+  Mail
 } from "lucide-react";
+import ProfileCard from "./ProfileCard";
+import SpotlightCard from "./SpotlightCard";
 
 interface ExecutiveIntroProps {
   onOpenAdvisorWithPrompt: (prompt: string) => void;
@@ -33,6 +39,23 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
     <Lightbulb className="w-5 h-5" />,
     <Users className="w-5 h-5" />,
     <Clock className="w-5 h-5" />
+  ];
+
+  const principleSpotlightColors = [
+    "rgba(56, 189, 248, 0.4)",  // Cyan (Vision)
+    "rgba(37, 211, 102, 0.4)",  // Emerald (Execution)
+    "rgba(168, 85, 247, 0.4)",  // Purple (Innovation)
+    "rgba(244, 63, 94, 0.4)",   // Rose (People)
+    "rgba(234, 179, 8, 0.4)"    // Amber (Long-Term Thinking)
+  ];
+
+  const responsibilitySpotlightColors = [
+    "rgba(56, 189, 248, 0.3)",
+    "rgba(37, 211, 102, 0.3)",
+    "rgba(168, 85, 247, 0.3)",
+    "rgba(244, 63, 94, 0.3)",
+    "rgba(234, 179, 8, 0.3)",
+    "rgba(56, 189, 248, 0.3)"
   ];
 
   const visionIcons = [
@@ -52,10 +75,10 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
         aria-label="About Nehemiah Nesanathan"
       >
         <div className="relative z-10 mx-auto max-w-[112rem] px-[max(1.5rem,7vw)]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Column 1: Executive Operating Identity Console (No duplicate photo) */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
+            {/* Column 1: React Bits 3D Interactive ProfileCard */}
+            <div className="lg:col-span-5 flex flex-col items-center lg:items-start gap-4">
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="h-2 w-8 bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.8)]" />
@@ -68,85 +91,30 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
                 </h2>
               </div>
 
-              {/* Executive Holographic Card */}
-              <div className="relative rounded-2xl bg-gradient-to-br from-[#0e1a38] to-[#0a1226] border-2 border-cyan-500/30 p-6 shadow-2xl space-y-5">
-                <div className="flex items-center justify-between border-b border-cyan-500/20 pb-4">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#38bdf8] animate-pulse shadow-[0_0_8px_#38bdf8]" />
-                    <span className="eyebrow text-xs font-mono font-bold text-cyan-300">
-                      NEHEMIAH NESANATHAN
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono font-black uppercase px-2.5 py-1 rounded-full bg-[#1d4ed8] text-white">
-                    CEO &bull; UNAI TECH
-                  </span>
-                </div>
-
-                <div>
-                  <p className="eyebrow text-[10px] text-cyan-400 font-bold uppercase tracking-wider mb-1">
-                    CORE OPERATING MAXIM
-                  </p>
-                  <p className="font-serif-italic text-lg sm:text-xl text-white font-semibold leading-snug">
-                    "{ABOUT_ME_DATA.coreMaxim}"
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-cyan-500/20 text-xs font-mono">
-                  <div className="p-3 rounded-xl bg-[#060b19]/80 border border-cyan-500/20">
-                    <span className="text-[10px] text-cyan-400 block font-bold">SPECIALIZATION</span>
-                    <span className="text-white font-black text-xs">AI-Native Systems</span>
-                  </div>
-                  <div className="p-3 rounded-xl bg-[#060b19]/80 border border-cyan-500/20">
-                    <span className="text-[10px] text-cyan-400 block font-bold">PLATFORM</span>
-                    <span className="text-white font-black text-xs">UNAI TECH</span>
-                  </div>
-                </div>
-
-                {/* Direct Connect CTA Buttons: WhatsApp, LinkedIn, Instagram */}
-                <div className="space-y-2 pt-2">
-                  <p className="eyebrow text-[10px] text-zinc-400 font-bold uppercase tracking-wider">
-                    DIRECT EXECUTIVE CONNECT:
-                  </p>
-                  <div className="flex flex-col gap-2">
-                    <a
-                      href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => sound.playClick()}
-                      className="w-full py-2.5 px-4 rounded-xl bg-[#25D366] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-white transition-all flex items-center justify-between shadow-[0_0_15px_rgba(37,211,102,0.3)]"
-                    >
-                      <span className="flex items-center gap-2">
-                        <Zap className="w-4 h-4" />
-                        <span>WHATSAPP CONNECT (8428293603)</span>
-                      </span>
-                      <span>↗</span>
-                    </a>
-
-                    <div className="grid grid-cols-2 gap-2">
-                      <a
-                        href="https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => sound.playClick()}
-                        className="py-2 px-3 rounded-xl bg-[#0e1a38] hover:bg-[#0A66C2] text-white border border-cyan-500/30 text-[11px] font-bold tracking-wide flex items-center justify-center gap-1.5 transition-colors"
-                      >
-                        <span>LINKEDIN</span>
-                        <span>↗</span>
-                      </a>
-
-                      <a
-                        href="https://www.instagram.com/nehemiah_ai/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => sound.playClick()}
-                        className="py-2 px-3 rounded-xl bg-[#0e1a38] hover:bg-[#E1306C] text-white border border-cyan-500/30 text-[11px] font-bold tracking-wide flex items-center justify-center gap-1.5 transition-colors"
-                      >
-                        <span>INSTAGRAM</span>
-                        <span>↗</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+              {/* 3D Holographic ProfileCard */}
+              <div className="w-full flex justify-center lg:justify-start pt-2">
+                <ProfileCard
+                  name="Nehemiah Nesanathan"
+                  title="CEO • Entrepreneur • AI Leader"
+                  handle="nehemiah_ai"
+                  status="Online • UNAI TECH"
+                  contactText="Connect"
+                  avatarUrl="/images/nehemiah-hero.png"
+                  miniAvatarUrl="/images/nehemiah-avatar.png"
+                  showUserInfo={true}
+                  enableTilt={true}
+                  enableMobileTilt={false}
+                  onContactClick={() => {
+                    sound.playClick();
+                    window.open(
+                      "https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH.",
+                      "_blank"
+                    );
+                  }}
+                  behindGlowEnabled={true}
+                  behindGlowColor="rgba(56, 189, 248, 0.7)"
+                  innerGradient="linear-gradient(145deg, rgba(14, 26, 56, 0.95) 0%, rgba(56, 189, 248, 0.25) 100%)"
+                />
               </div>
             </div>
 
@@ -178,17 +146,42 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
                 </p>
               </div>
 
-              <div className="pt-2 flex flex-wrap items-center gap-3">
+              {/* Action Buttons (Icon-Only Quick Actions) */}
+              <div className="pt-2 flex items-center gap-3">
                 <a
                   href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => sound.playClick()}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] text-black text-xs font-extrabold uppercase tracking-wider hover:bg-white transition-colors cursor-pointer shadow-md shadow-green-500/20"
+                  title="WhatsApp"
+                  aria-label="WhatsApp"
+                  className="w-12 h-12 rounded-full bg-[#25D366] text-black flex items-center justify-center shadow-[0_0_18px_rgba(37,211,102,0.4)] hover:scale-110 hover:bg-white transition-all cursor-pointer"
                 >
-                  <Zap className="w-3.5 h-3.5" />
-                  <span>CHAT ON WHATSAPP</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <Phone className="w-5 h-5 fill-current" />
+                </a>
+
+                <a
+                  href="https://www.instagram.com/nehemiah_ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => sound.playClick()}
+                  title="Instagram"
+                  aria-label="Instagram"
+                  className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center shadow-[0_0_18px_rgba(220,39,67,0.3)] hover:scale-110 transition-all cursor-pointer"
+                >
+                  <Globe className="w-5 h-5" />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => sound.playClick()}
+                  title="LinkedIn"
+                  aria-label="LinkedIn"
+                  className="w-12 h-12 rounded-full bg-[#0A66C2] text-white flex items-center justify-center shadow-[0_0_18px_rgba(10,102,194,0.3)] hover:scale-110 transition-all cursor-pointer"
+                >
+                  <Linkedin className="w-5 h-5 fill-current" />
                 </a>
 
                 <button
@@ -197,10 +190,11 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
                     sound.playClick();
                     onOpenAdvisorWithPrompt("Tell me more about Nehemiah's background and vision for building beyond conventional technology at UNAI TECH.");
                   }}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#38bdf8] text-[#0a1226] text-xs font-black uppercase tracking-wider hover:bg-white transition-colors cursor-pointer shadow-md shadow-cyan-500/20"
+                  title="Ask Nehemiah AI"
+                  aria-label="Ask Nehemiah AI"
+                  className="w-12 h-12 rounded-full bg-[#38bdf8] text-[#0a1226] flex items-center justify-center shadow-[0_0_18px_rgba(56,189,248,0.4)] hover:scale-110 hover:bg-white transition-all cursor-pointer"
                 >
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>ASK NEHEMIAH AI</span>
+                  <Sparkles className="w-5 h-5" />
                 </button>
               </div>
             </div>
@@ -233,29 +227,30 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
             </p>
           </div>
 
-          {/* Core Responsibilities Grid */}
+          {/* Core Responsibilities Grid with Spotlight Cards */}
           <div className="mt-8">
             <h3 className="eyebrow text-xs font-black text-cyan-400 tracking-widest uppercase mb-4">
               WHAT BEING A CEO IS TRULY ABOUT:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
               {LEADERSHIP_PHILOSOPHY.coreResponsibilities.map((item, idx) => (
-                <div
+                <SpotlightCard
                   key={idx}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-[#0a1226]/80 border border-cyan-500/20 shadow-2xs hover:border-cyan-400 transition-all backdrop-blur-xs"
+                  spotlightColor={responsibilitySpotlightColors[idx % responsibilitySpotlightColors.length]}
+                  className="!p-4 !rounded-xl !bg-[#0a1226]/90 !border-cyan-500/25 hover:!border-cyan-400 transition-all flex items-center gap-3 backdrop-blur-xs"
                 >
-                  <span className="w-6 h-6 rounded-full bg-cyan-400 text-[#0a1226] text-xs font-black flex items-center justify-center shrink-0">
+                  <span className="w-6 h-6 rounded-full bg-cyan-400 text-[#0a1226] text-xs font-black flex items-center justify-center shrink-0 shadow-[0_0_8px_rgba(56,189,248,0.6)]">
                     {idx + 1}
                   </span>
                   <span className="body-copy font-extrabold text-sm sm:text-base text-white">
                     {item}
                   </span>
-                </div>
+                </SpotlightCard>
               ))}
             </div>
           </div>
 
-          {/* 5 Leadership Principles */}
+          {/* 5 Leadership Principles with Respective Gradient Spotlight Colors */}
           <div className="mt-12">
             <h3 className="section-head text-white mb-6 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-cyan-300" />
@@ -264,12 +259,13 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {LEADERSHIP_PHILOSOPHY.principles.map((pr, idx) => (
-                <div
+                <SpotlightCard
                   key={idx}
-                  className="p-5 rounded-2xl bg-[#0a1226] border border-cyan-500/20 shadow-md hover:border-cyan-400 hover:bg-[#060b19] transition-all flex flex-col justify-between backdrop-blur-xs"
+                  spotlightColor={principleSpotlightColors[idx % principleSpotlightColors.length]}
+                  className="!p-5 !rounded-2xl !bg-[#0a1226] !border-cyan-500/25 hover:!border-cyan-400 flex flex-col justify-between backdrop-blur-xs transition-all"
                 >
                   <div>
-                    <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-300 flex items-center justify-center mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-300 flex items-center justify-center mb-3 border border-cyan-400/20 shadow-xs">
                       {principleIcons[idx % principleIcons.length]}
                     </div>
                     <span className="eyebrow text-[10px] text-cyan-400 font-bold block mb-1">
@@ -279,10 +275,10 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
                       {pr.title}
                     </h4>
                   </div>
-                  <p className="body-copy text-xs sm:text-sm text-white/80 font-medium leading-relaxed">
+                  <p className="body-copy text-xs sm:text-sm text-white/80 font-medium leading-relaxed mt-2">
                     {pr.description}
                   </p>
-                </div>
+                </SpotlightCard>
               ))}
             </div>
           </div>

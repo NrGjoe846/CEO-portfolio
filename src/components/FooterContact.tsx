@@ -80,7 +80,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
             ))}
           </div>
 
-          {/* CTA Box */}
+          {/* CTA Box - Icon-Only Action Buttons */}
           <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-[#0e1a38] text-white border-2 border-cyan-500/40 max-w-3xl shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 backdrop-blur-xs">
             <div>
               <p className="eyebrow text-xs text-cyan-300 font-bold mb-1">
@@ -91,27 +91,58 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-3">
+              {/* WhatsApp Icon CTA */}
               <a
                 href={CONNECT_WITH_ME.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => sound.playClick()}
-                className="px-6 py-3 rounded-full bg-[#25D366] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-white hover:text-black transition-all shadow-[0_0_20px_rgba(37,211,102,0.4)] flex items-center gap-2 cursor-pointer"
+                title="Connect on WhatsApp"
+                aria-label="Connect on WhatsApp"
+                className="w-12 h-12 rounded-full bg-[#25D366] text-black flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:bg-white transition-all cursor-pointer"
               >
-                <span>CONNECT ON WHATSAPP (8428293603)</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <Phone className="w-5 h-5 fill-current" />
               </a>
 
+              {/* Instagram Icon CTA */}
+              <a
+                href={CONNECT_WITH_ME.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => sound.playClick()}
+                title="Follow on Instagram (@nehemiah_ai)"
+                aria-label="Follow on Instagram"
+                className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center shadow-[0_0_20px_rgba(220,39,67,0.35)] hover:scale-110 transition-all cursor-pointer"
+              >
+                <Globe className="w-5 h-5" />
+              </a>
+
+              {/* LinkedIn Icon CTA */}
+              <a
+                href={CONNECT_WITH_ME.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => sound.playClick()}
+                title="Connect on LinkedIn"
+                aria-label="Connect on LinkedIn"
+                className="w-12 h-12 rounded-full bg-[#0A66C2] text-white flex items-center justify-center shadow-[0_0_20px_rgba(10,102,194,0.35)] hover:scale-110 transition-all cursor-pointer"
+              >
+                <Linkedin className="w-5 h-5 fill-current" />
+              </a>
+
+              {/* Schedule Booking Icon CTA */}
               <button
                 type="button"
                 onClick={() => {
                   sound.playClick();
                   onOpenBooking();
                 }}
-                className="px-5 py-3 rounded-full bg-[#1d4ed8] text-white text-xs font-black uppercase tracking-wider hover:bg-[#38bdf8] hover:text-black transition-all shadow-md cursor-pointer shrink-0"
+                title="Schedule Strategic Session"
+                aria-label="Schedule Strategic Session"
+                className="w-12 h-12 rounded-full bg-[#1d4ed8] text-white flex items-center justify-center shadow-[0_0_20px_rgba(29,78,216,0.35)] hover:scale-110 hover:bg-[#38bdf8] hover:text-black transition-all cursor-pointer"
               >
-                SCHEDULE SESSION
+                <ArrowUpRight className="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -127,8 +158,8 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
                 rel="noopener noreferrer"
                 className="body-copy text-sm font-black text-black hover:text-[#25D366] transition-colors inline-flex items-center gap-1.5"
               >
-                <Phone className="w-3.5 h-3.5 text-[#25D366]" />
-                <span>8428293603</span>
+                <Phone className="w-4 h-4 text-[#25D366]" />
+                <span>DIRECT CHAT</span>
               </a>
             </div>
 
@@ -141,7 +172,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
                 rel="noopener noreferrer"
                 className="body-copy text-sm font-black text-black hover:text-[#E1306C] transition-colors inline-flex items-center gap-1.5"
               >
-                <Globe className="w-3.5 h-3.5 text-[#E1306C]" />
+                <Globe className="w-4 h-4 text-[#E1306C]" />
                 <span>@nehemiah_ai</span>
               </a>
             </div>
@@ -155,8 +186,8 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
                 rel="noopener noreferrer"
                 className="body-copy text-sm font-black text-black hover:text-[#0A66C2] transition-colors inline-flex items-center gap-1.5"
               >
-                <Linkedin className="w-3.5 h-3.5 text-[#0A66C2]" />
-                <span>Nehemiah N.</span>
+                <Linkedin className="w-4 h-4 text-[#0A66C2]" />
+                <span>NEHEMIAH N.</span>
               </a>
             </div>
 
@@ -167,7 +198,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
                 href={`mailto:${CONNECT_WITH_ME.email}`}
                 className="body-copy text-sm font-black text-black hover:text-[#1d4ed8] transition-colors inline-flex items-center gap-1.5"
               >
-                <Mail className="w-3.5 h-3.5 text-[#1d4ed8]" />
+                <Mail className="w-4 h-4 text-[#1d4ed8]" />
                 <span>{CONNECT_WITH_ME.email}</span>
               </a>
             </div>
@@ -181,7 +212,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
                 rel="noopener noreferrer"
                 className="body-copy text-sm font-black text-black hover:text-[#38bdf8] transition-colors inline-flex items-center gap-1.5"
               >
-                <Globe className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <Globe className="w-4 h-4 text-[#38bdf8]" />
                 <span>{CONNECT_WITH_ME.website}</span>
               </a>
             </div>
@@ -202,42 +233,55 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-3">
+              {/* WhatsApp Icon */}
               <a
                 href={CONNECT_WITH_ME.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => sound.playClick()}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#25D366]/40 bg-[#0e1a38] text-xs font-bold uppercase tracking-wider text-[#25D366] hover:bg-[#25D366] hover:text-black transition-all shadow-md cursor-pointer"
+                title="WhatsApp"
+                aria-label="WhatsApp"
+                className="w-11 h-11 rounded-full bg-[#25D366] text-black flex items-center justify-center shadow-md hover:scale-110 hover:bg-white transition-all cursor-pointer"
               >
-                <span>WHATSAPP</span>
+                <Phone className="w-5 h-5 fill-current" />
               </a>
+
+              {/* Instagram Icon */}
               <a
                 href={CONNECT_WITH_ME.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => sound.playClick()}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-pink-400/40 bg-[#0e1a38] text-xs font-bold uppercase tracking-wider text-pink-300 hover:bg-pink-500 hover:text-white transition-all shadow-md cursor-pointer"
+                title="Instagram"
+                aria-label="Instagram"
+                className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center shadow-md hover:scale-110 transition-all cursor-pointer"
               >
-                <span>INSTAGRAM</span>
+                <Globe className="w-5 h-5" />
               </a>
+
+              {/* LinkedIn Icon */}
               <a
                 href={CONNECT_WITH_ME.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => sound.playClick()}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-blue-400/40 bg-[#0e1a38] text-xs font-bold uppercase tracking-wider text-blue-300 hover:bg-[#0A66C2] hover:text-white transition-all shadow-md cursor-pointer"
+                title="LinkedIn"
+                aria-label="LinkedIn"
+                className="w-11 h-11 rounded-full bg-[#0A66C2] text-white flex items-center justify-center shadow-md hover:scale-110 transition-all cursor-pointer"
               >
-                <span>LINKEDIN</span>
+                <Linkedin className="w-5 h-5 fill-current" />
               </a>
+
+              {/* Export Dossier Icon Button */}
               <button
                 type="button"
                 onClick={handleDownloadDossier}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-cyan-400/50 bg-[#0e1a38] text-xs font-black uppercase tracking-wider text-cyan-300 hover:bg-[#1d4ed8] hover:text-white transition-all shadow-md cursor-pointer"
-                title="Print or Save Executive Portfolio"
+                className="w-11 h-11 rounded-full border-2 border-cyan-400/50 bg-[#0e1a38] text-cyan-300 flex items-center justify-center hover:bg-[#1d4ed8] hover:text-white transition-all shadow-md cursor-pointer"
+                title="Export Dossier"
+                aria-label="Export Dossier"
               >
-                <Download className="w-3.5 h-3.5 text-cyan-300" />
-                <span>EXPORT DOSSIER</span>
+                <Download className="w-5 h-5 text-cyan-300" />
               </button>
             </div>
           </div>
