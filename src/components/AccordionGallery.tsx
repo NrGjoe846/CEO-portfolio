@@ -40,7 +40,7 @@ const DEFAULT_ITEMS: AccordionGalleryItem[] = [
   { image: '/images/my-vidyon.jpg', label: 'My Vidyon (EdTech AI)', link: '#' },
   { image: '/images/postsapp.jpg', label: 'PostsApp (Intelligent News)', link: '#' },
   { image: '/images/vidyo-ai.jpg', label: 'Vidyo AI (Neural Engine)', link: '#' },
-  { image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80', label: 'UNAI Eleven (Cloud Infrastructure)', link: '#' }
+  { image: '/images/unai-11.jpg', label: 'UNAI 11 UEOS (Enterprise OS)', link: '#' }
 ];
 
 export const AccordionGallery: React.FC<AccordionGalleryProps> = ({

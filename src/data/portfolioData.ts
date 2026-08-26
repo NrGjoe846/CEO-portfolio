@@ -230,20 +230,20 @@ export const PRODUCTS_AND_VENTURES: FlagshipProduct[] = [
   },
   {
     id: "unai-eleven",
-    name: "UNAI ELEVEN",
-    tagline: "Intelligent Cloud & Systems Infrastructure",
+    name: "UNAI 11 (UEOS)",
+    tagline: "Unified Enterprise Operating System",
     description:
-      "UNAI Eleven is the resilient cloud infrastructure fabric powering autonomous microservices, real-time inference pipelines, and scalable enterprise deployments.",
+      "UEOS by UNAI 11 is the all-in-one platform that unifies IT operations and business management to drive efficiency, visibility, and growth.",
     points: [
-      "Distributed Compute",
-      "Low-Latency Inference",
-      "Cloud Infrastructure",
-      "Microservice Orchestration",
-      "Security & Reliability",
-      "Multi-Region Scalability"
+      "Automate IT Operations",
+      "Streamline Management",
+      "Real-time Insights",
+      "Secure by Design",
+      "Integrated & Unified",
+      "Built for Scale"
     ],
-    opportunityOrVisionLabel: "Infrastructure Vision",
-    opportunityOrVisionText: "High-performance, fault-tolerant infrastructure built for modern AI workloads.",
+    opportunityOrVisionLabel: "Enterprise Vision",
+    opportunityOrVisionText: "One system. Every operation. Limitless growth.",
     accent: "rgba(56, 189, 248, 1)",
     status: "Active Platform"
   }
