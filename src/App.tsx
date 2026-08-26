@@ -11,6 +11,7 @@ import { TornPaperMarquee } from "./components/TornPaperMarquee";
 import { UnaiTechSection } from "./components/UnaiTechSection";
 import { VenturesBento } from "./components/VenturesBento";
 import { TechThinkingAndIndustries } from "./components/TechThinkingAndIndustries";
+import { VideoPlayerSection } from "./components/VideoPlayerSection";
 import { PhilosophyRoadmapPrinciples } from "./components/PhilosophyRoadmapPrinciples";
 import { FooterContact } from "./components/FooterContact";
 import { CeoAdvisorModal } from "./components/CeoAdvisorModal";
@@ -86,17 +87,22 @@ export default function App() {
           <UnaiTechSection onOpenAdvisorWithPrompt={handleOpenAdvisorWithPrompt} />
         </RevealSection>
 
-        {/* 5. Products & Ventures: My Vidyon, PostsApp, Vidyo AI, UNAI Eleven/UEOS */}
+        {/* 5. Executive Vision & Systems Video Player Demo */}
+        <RevealSection delay={0.08} threshold={0.08} direction="up">
+          <VideoPlayerSection />
+        </RevealSection>
+
+        {/* 6. Products & Ventures: My Vidyon, PostsApp, Vidyo AI, UNAI Eleven/UEOS */}
         <RevealSection delay={0.08} threshold={0.08} direction="scale">
           <VenturesBento onOpenAdvisorWithVenture={handleOpenAdvisorWithVenture} />
         </RevealSection>
 
-        {/* 6. Technology Thinking, Moat & Industries of Impact */}
+        {/* 7. Technology Thinking, Moat & Industries of Impact */}
         <RevealSection delay={0.08} threshold={0.08} direction="up">
           <TechThinkingAndIndustries />
         </RevealSection>
 
-        {/* 7. Business Philosophy, Roadmap (2026-2030+), CEO Principles & Mission */}
+        {/* 8. Business Philosophy, Roadmap (2026-2030+), CEO Principles & Mission */}
         <RevealSection delay={0.08} threshold={0.08} direction="up">
           <PhilosophyRoadmapPrinciples />
         </RevealSection>

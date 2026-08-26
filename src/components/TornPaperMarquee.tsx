@@ -50,14 +50,14 @@ export const TornPaperMarquee: React.FC = () => {
         {/* Ambient Cyan/Blue Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-cyan-500/15 blur-3xl pointer-events-none rounded-full" />
 
-        {/* Marquee Ticker Track 1: NEHEMIAH • UNAI TECH • CEO • */}
+        {/* Marquee Ticker Track 1: VENI VIDI VICI - I CAN I SAW I WON */}
         <div className="marquee-track flex items-center whitespace-nowrap" style={{ ["--marquee-duration" as any]: "20s" }}>
           {[...Array(6)].map((_, i) => (
             <span
               key={i}
               className="display inline-block text-[clamp(2.5rem,8vw,9.5rem)] tracking-[-0.04em] font-black px-6 text-white transition-colors hover:text-[#38bdf8]"
             >
-              NEHEMIAH <span className="text-[#38bdf8]">&bull;</span> UNAI TECH <span className="text-[#38bdf8]">&bull;</span> CEO <span className="text-[#38bdf8]">&bull;</span>&nbsp;
+              VENI VIDI VICI <span className="text-[#38bdf8]">&bull;</span> I CAN I SAW I WON <span className="text-[#38bdf8]">&bull;</span>&nbsp;
             </span>
           ))}
         </div>
@@ -70,7 +70,7 @@ export const TornPaperMarquee: React.FC = () => {
             <div className="relative px-6 py-2 rounded-full border border-cyan-400/40 bg-[#0a1226]/90 backdrop-blur-md flex items-center gap-3 shadow-[0_0_20px_rgba(56,189,248,0.35)]">
               <span className="h-2.5 w-2.5 rounded-full bg-[#38bdf8] animate-pulse shadow-[0_0_8px_#38bdf8]" />
               <span className="eyebrow text-xs sm:text-sm tracking-[0.25em] text-white font-black">
-                NEHEMIAH &bull; UNAI TECH &bull; CEO &bull; SCALE &bull; GOVERNANCE
+                VENI VIDI VICI &bull; I CAN I SAW I WON &bull; UNAI TECH
               </span>
               <span className="h-2.5 w-2.5 rounded-full bg-[#38bdf8] animate-pulse shadow-[0_0_8px_#38bdf8]" />
             </div>
@@ -90,7 +90,7 @@ export const TornPaperMarquee: React.FC = () => {
               key={i}
               className="display inline-block text-[clamp(1.75rem,5.5vw,5.5rem)] tracking-[-0.03em] font-bold px-6 text-white/70 hover:text-cyan-300 transition-colors"
             >
-              nehemiah <span className="text-[#38bdf8]">,</span> UNAI TECH <span className="text-[#38bdf8]">,</span> CEO <span className="text-[#38bdf8]">,</span>&nbsp;
+              veni vidi vici <span className="text-[#38bdf8]">,</span> i can i saw i won <span className="text-[#38bdf8]">,</span> UNAI TECH <span className="text-[#38bdf8]">,</span>&nbsp;
             </span>
           ))}
         </div>

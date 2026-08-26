@@ -145,58 +145,6 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
                   {ABOUT_ME_DATA.unaiTechVision}
                 </p>
               </div>
-
-              {/* Action Buttons (Icon-Only Quick Actions) */}
-              <div className="pt-2 flex items-center gap-3">
-                <a
-                  href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => sound.playClick()}
-                  title="WhatsApp"
-                  aria-label="WhatsApp"
-                  className="w-12 h-12 rounded-full bg-[#25D366] text-black flex items-center justify-center shadow-[0_0_18px_rgba(37,211,102,0.4)] hover:scale-110 hover:bg-white transition-all cursor-pointer"
-                >
-                  <Phone className="w-5 h-5 fill-current" />
-                </a>
-
-                <a
-                  href="https://www.instagram.com/nehemiah_ai/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => sound.playClick()}
-                  title="Instagram"
-                  aria-label="Instagram"
-                  className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center shadow-[0_0_18px_rgba(220,39,67,0.3)] hover:scale-110 transition-all cursor-pointer"
-                >
-                  <Globe className="w-5 h-5" />
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => sound.playClick()}
-                  title="LinkedIn"
-                  aria-label="LinkedIn"
-                  className="w-12 h-12 rounded-full bg-[#0A66C2] text-white flex items-center justify-center shadow-[0_0_18px_rgba(10,102,194,0.3)] hover:scale-110 transition-all cursor-pointer"
-                >
-                  <Linkedin className="w-5 h-5 fill-current" />
-                </a>
-
-                <button
-                  type="button"
-                  onClick={() => {
-                    sound.playClick();
-                    onOpenAdvisorWithPrompt("Tell me more about Nehemiah's background and vision for building beyond conventional technology at UNAI TECH.");
-                  }}
-                  title="Ask Nehemiah AI"
-                  aria-label="Ask Nehemiah AI"
-                  className="w-12 h-12 rounded-full bg-[#38bdf8] text-[#0a1226] flex items-center justify-center shadow-[0_0_18px_rgba(56,189,248,0.4)] hover:scale-110 hover:bg-white transition-all cursor-pointer"
-                >
-                  <Sparkles className="w-5 h-5" />
-                </button>
-              </div>
             </div>
 
           </div>
