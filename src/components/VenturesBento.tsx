@@ -65,6 +65,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
       case "postsapp": return <MessageSquareShare className="w-6 h-6" />;
       case "vidyo-ai": return <Cpu className="w-6 h-6" />;
       case "unai-eleven": return <Server className="w-6 h-6" />;
+      case "ueos": return <Target className="w-6 h-6" />;
       default: return <Layers className="w-6 h-6" />;
     }
   };
@@ -183,7 +184,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
           <span className="hidden sm:inline-block">HORIZONTAL SCROLL &bull; DRAG / SWIPE / CLICK TO EXPLORE &rarr;</span>
         </div>
 
-        {/* Horizontal Products Scroll Carousel Track */}
+        {/* Horizontal Products Scroll Carousel Track (Unified UNAI Cyber Theme) */}
         <div
           ref={scrollContainerRef}
           className="mt-6 flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 pt-2 no-scrollbar scroll-smooth focus:outline-none"
@@ -194,44 +195,44 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
             <div
               key={prod.id}
               onClick={() => handleOpenModal(prod)}
-              className="group cursor-pointer rounded-2xl bg-white text-black p-6 sm:p-8 shadow-2xl border-2 border-cyan-400/30 hover:border-[#1d4ed8] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between w-[85vw] sm:w-[460px] lg:w-[500px] shrink-0 snap-start select-none"
+              className="group cursor-pointer rounded-2xl bg-[#0a1226]/95 text-white p-6 sm:p-8 shadow-2xl border-2 border-cyan-500/30 hover:border-[#38bdf8] hover:shadow-[0_0_30px_rgba(56,189,248,0.25)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between w-[85vw] sm:w-[460px] lg:w-[500px] shrink-0 snap-start select-none backdrop-blur-md"
             >
               <div>
                 {/* Header Row */}
                 <div className="flex items-center justify-between gap-4 mb-4">
-                  <div className="p-3 rounded-xl bg-blue-50 text-[#1d4ed8] group-hover:bg-[#1d4ed8] group-hover:text-white transition-colors shadow-xs">
+                  <div className="p-3 rounded-xl bg-[#0e1a38] text-[#38bdf8] border border-cyan-500/30 group-hover:bg-[#1d4ed8] group-hover:text-white transition-colors shadow-xs">
                     {getProductIcon(prod.id)}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-mono text-zinc-400 font-bold">0{idx + 1} / 0{PRODUCTS_AND_VENTURES.length}</span>
-                    <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-[#0a1226] text-cyan-300 shadow-xs border border-cyan-500/30">
+                    <span className="text-[11px] font-mono text-cyan-300/70 font-bold">0{idx + 1} / 0{PRODUCTS_AND_VENTURES.length}</span>
+                    <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-[#060b19] text-cyan-300 shadow-xs border border-cyan-500/40">
                       {prod.status}
                     </span>
                   </div>
                 </div>
 
-                <h3 className="display text-2xl sm:text-3xl font-black text-black group-hover:text-[#1d4ed8] transition-colors leading-tight">
+                <h3 className="display text-2xl sm:text-3xl font-black text-white group-hover:text-[#38bdf8] transition-colors leading-tight">
                   {prod.name}
                 </h3>
-                <p className="eyebrow text-xs text-[#1d4ed8] font-extrabold tracking-wider mt-1 mb-4">
+                <p className="eyebrow text-xs text-cyan-400 font-extrabold tracking-wider mt-1 mb-4">
                   {prod.tagline}
                 </p>
 
-                <p className="body-copy text-sm sm:text-base text-zinc-700 font-medium leading-relaxed mb-6">
+                <p className="body-copy text-sm sm:text-base text-cyan-100/80 font-medium leading-relaxed mb-6">
                   {prod.description}
                 </p>
 
                 {/* Points / Stakeholder Chips */}
                 {prod.points && prod.points.length > 0 && (
                   <div className="mb-6">
-                    <p className="eyebrow text-[10px] text-zinc-500 font-bold uppercase tracking-wider mb-2">
+                    <p className="eyebrow text-[10px] text-cyan-300/70 font-bold uppercase tracking-wider mb-2">
                       KEY CAPABILITIES / STAKEHOLDERS:
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {prod.points.map((pt, pIdx) => (
                         <span
                           key={pIdx}
-                          className="px-2.5 py-1 rounded-md text-xs font-bold bg-zinc-100 text-black border border-zinc-200"
+                          className="px-2.5 py-1 rounded-md text-xs font-bold bg-[#060b19] text-cyan-200 border border-cyan-500/25"
                         >
                           {pt}
                         </span>
@@ -242,17 +243,17 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
               </div>
 
               {/* Opportunity / Vision Card Footer */}
-              <div className="pt-4 border-t border-zinc-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="pt-4 border-t border-cyan-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                  <span className="eyebrow text-[10px] text-[#1d4ed8] font-black uppercase block">
+                  <span className="eyebrow text-[10px] text-cyan-400 font-black uppercase block">
                     {prod.opportunityOrVisionLabel || "OPPORTUNITY"}
                   </span>
-                  <span className="body-copy text-xs sm:text-sm font-bold text-black">
+                  <span className="body-copy text-xs sm:text-sm font-bold text-white">
                     {prod.opportunityOrVisionText}
                   </span>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase text-[#1d4ed8] group-hover:text-[#2563eb] transition-colors shrink-0">
+                <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase text-cyan-300 group-hover:text-white transition-colors shrink-0">
                   <span>EXPAND DOSSIER</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -263,14 +264,14 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
 
       </div>
 
-      {/* Modal for In-Depth Venture Details */}
+      {/* Modal for In-Depth Venture Details (Unified UNAI Theme) */}
       {selectedProduct && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#060b19]/90 backdrop-blur-md animate-in fade-in duration-200"
           onClick={() => setSelectedProduct(null)}
         >
           <div
-            className="relative w-full max-w-3xl rounded-2xl bg-white text-black border-2 border-cyan-400/50 shadow-2xl p-6 sm:p-10 max-h-[85vh] overflow-y-auto"
+            className="relative w-full max-w-3xl rounded-2xl bg-[#0a1226]/95 text-white border-2 border-cyan-400/50 shadow-[0_0_60px_rgba(0,0,0,0.85)] p-6 sm:p-10 max-h-[85vh] overflow-y-auto backdrop-blur-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -279,58 +280,58 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
                 sound.playClick();
                 setSelectedProduct(null);
               }}
-              className="absolute top-6 right-6 p-2 rounded-full bg-[#0a1226] text-white hover:bg-[#1d4ed8] transition-colors cursor-pointer"
+              className="absolute top-6 right-6 p-2 rounded-full bg-[#0e1a38] text-white border border-cyan-500/30 hover:bg-[#1d4ed8] transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-2 mb-2">
-              <span className="px-3 py-1 rounded-full text-xs font-black bg-[#1d4ed8] text-white">
+              <span className="px-3 py-1 rounded-full text-xs font-black bg-[#1d4ed8] text-white border border-cyan-400/30">
                 {selectedProduct.status}
               </span>
-              <span className="eyebrow text-xs text-zinc-500 font-bold">
+              <span className="eyebrow text-xs text-cyan-300 font-bold">
                 UNAI TECH VENTURE ECOSYSTEM
               </span>
             </div>
 
-            <h2 className="display text-3xl sm:text-4xl font-black text-black mt-2 mb-1">
+            <h2 className="display text-3xl sm:text-4xl font-black text-white mt-2 mb-1">
               {selectedProduct.name}
             </h2>
-            <p className="eyebrow text-xs sm:text-sm text-[#1d4ed8] font-extrabold mb-6">
+            <p className="eyebrow text-xs sm:text-sm text-cyan-400 font-extrabold mb-6">
               {selectedProduct.tagline}
             </p>
 
-            <div className="p-5 rounded-xl bg-blue-50/50 border border-blue-100 mb-6">
-              <h4 className="eyebrow text-xs font-black text-black mb-2 uppercase">OVERVIEW & PURPOSE</h4>
-              <p className="body-copy text-base text-zinc-700 font-medium leading-relaxed">
+            <div className="p-5 rounded-xl bg-[#060b19]/90 border border-cyan-500/30 mb-6">
+              <h4 className="eyebrow text-xs font-black text-cyan-300 mb-2 uppercase">OVERVIEW & PURPOSE</h4>
+              <p className="body-copy text-base text-cyan-100/90 font-medium leading-relaxed">
                 {selectedProduct.description}
               </p>
             </div>
 
             {selectedProduct.points && (
               <div className="mb-6">
-                <h4 className="eyebrow text-xs font-black text-black mb-3 uppercase">CORE CAPABILITIES & SCOPE</h4>
+                <h4 className="eyebrow text-xs font-black text-cyan-300 mb-3 uppercase">CORE CAPABILITIES & SCOPE</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {selectedProduct.points.map((pt, i) => (
-                    <div key={i} className="flex items-center gap-2.5 p-3 rounded-lg bg-white border border-zinc-200">
-                      <CheckCircle2 className="w-4 h-4 text-[#1d4ed8] shrink-0" />
-                      <span className="body-copy text-xs sm:text-sm font-bold text-black">{pt}</span>
+                    <div key={i} className="flex items-center gap-2.5 p-3 rounded-lg bg-[#0e1a38] border border-cyan-500/25">
+                      <CheckCircle2 className="w-4 h-4 text-[#38bdf8] shrink-0" />
+                      <span className="body-copy text-xs sm:text-sm font-bold text-white">{pt}</span>
                     </div>
                   ))}
                 </div>
               </div>
             )}
 
-            <div className="p-5 rounded-xl bg-blue-50 border-2 border-blue-200 mb-8">
-              <span className="eyebrow text-xs text-[#1d4ed8] font-black uppercase block mb-1">
+            <div className="p-5 rounded-xl bg-gradient-to-br from-[#0e1a38] to-[#060b19] border-2 border-cyan-400/40 mb-8">
+              <span className="eyebrow text-xs text-cyan-400 font-black uppercase block mb-1">
                 {selectedProduct.opportunityOrVisionLabel || "OPPORTUNITY / VISION"}
               </span>
-              <p className="display text-lg sm:text-xl font-black text-black">
+              <p className="display text-lg sm:text-xl font-black text-cyan-200">
                 "{selectedProduct.opportunityOrVisionText}"
               </p>
             </div>
 
-            <div className="pt-4 border-t border-zinc-200 flex flex-wrap items-center justify-between gap-4">
+            <div className="pt-4 border-t border-cyan-500/25 flex flex-wrap items-center justify-between gap-4">
               <button
                 type="button"
                 onClick={() => {
@@ -338,7 +339,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
                   onOpenAdvisorWithVenture(selectedProduct.name);
                   setSelectedProduct(null);
                 }}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] text-white text-xs font-black uppercase tracking-wider hover:from-[#2563eb] hover:to-[#38bdf8] transition-all shadow-md cursor-pointer"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#38bdf8] text-[#060b19] text-xs font-black uppercase tracking-wider hover:opacity-90 transition-all shadow-[0_0_20px_rgba(56,189,248,0.4)] cursor-pointer font-bold"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>DISCUSS {selectedProduct.name} WITH NEHEMIAH AI</span>
@@ -347,7 +348,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
               <button
                 type="button"
                 onClick={() => setSelectedProduct(null)}
-                className="px-5 py-2.5 rounded-full bg-[#0a1226] text-white text-xs font-black uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors cursor-pointer"
+                className="px-5 py-2.5 rounded-full bg-[#060b19] text-white border border-cyan-500/30 text-xs font-black uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors cursor-pointer"
               >
                 CLOSE
               </button>

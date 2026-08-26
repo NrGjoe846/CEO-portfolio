@@ -171,9 +171,9 @@ export const PRODUCTS_AND_VENTURES: FlagshipProduct[] = [
   {
     id: "my-vidyon",
     name: "MY VIDYON",
-    tagline: "AI-Powered Education Ecosystem",
+    tagline: "Autonomous AI Education Ecosystem",
     description:
-      "My Vidyon is a unified, mobile-first education management platform designed to connect school stakeholders through a cloud-synchronized environment.",
+      "My Vidyon is a unified, cloud-native education management platform designed to connect school stakeholders through an adaptive learning environment.",
     points: [
       "Administrators",
       "Faculty",
@@ -183,66 +183,85 @@ export const PRODUCTS_AND_VENTURES: FlagshipProduct[] = [
       "Finance teams"
     ],
     opportunityOrVisionLabel: "Opportunity",
-    opportunityOrVisionText: "Education + AI + Learning Intelligence",
-    accent: "rgba(73, 84, 250, 1)",
+    opportunityOrVisionText: "Education + AI + Adaptive Learning Intelligence",
+    accent: "rgba(56, 189, 248, 1)",
     status: "Active Platform"
   },
   {
     id: "postsapp",
     name: "POSTSAPP",
-    tagline: "Political Social & Citizen Journalism Platform",
+    tagline: "Autonomous Citizen Journalism & Media",
     description:
-      "PostsApp is a political-focused, real-time citizen journalism and social/content platform designed around local information, citizen participation, political communication, and authentic content discovery.",
+      "PostsApp is a political-focused, real-time citizen journalism and social content platform designed around local intelligence, civic participation, and authentic media discovery.",
     points: [
       "Real-time content",
       "Citizen participation",
       "Local information",
       "Political communication",
       "Social interaction",
-      "Authentic content discovery"
+      "Authentic discovery"
     ],
     opportunityOrVisionLabel: "Opportunity",
-    opportunityOrVisionText: "Political Social Platforms + AI + Authentic Content",
-    accent: "rgba(73, 84, 250, 1)",
+    opportunityOrVisionText: "Civic Social Media + AI + Authentic Content",
+    accent: "rgba(56, 189, 248, 1)",
     status: "Active Platform"
   },
   {
     id: "vidyo-ai",
     name: "VIDYO AI",
-    tagline: "AI-Powered Learning Intelligence",
+    tagline: "Cognitive Neural Engine & Learning Intelligence",
     description:
-      "Vidyo AI is being developed to transform static educational content into interactive knowledge experiences.",
+      "Vidyo AI transforms static educational assets and institutional data into interactive, conversational knowledge experiences.",
     points: [
       "Document intelligence",
       "AI tutoring",
       "Knowledge extraction",
       "Conversational learning",
       "Personalized assistance",
-      "Intelligent assessment"
+      "Adaptive assessment"
     ],
     opportunityOrVisionLabel: "Vision",
     opportunityOrVisionText:
-      "Transform static educational content into interactive, intelligent and personalized learning experiences.",
-    accent: "rgba(73, 84, 250, 1)",
+      "Transform static educational content into interactive, intelligent, and personalized learning experiences.",
+    accent: "rgba(56, 189, 248, 1)",
     status: "In Development"
   },
   {
     id: "unai-eleven",
-    name: "UNAI ELEVEN / UEOS",
+    name: "UNAI ELEVEN",
+    tagline: "Intelligent Cloud & Systems Infrastructure",
+    description:
+      "UNAI Eleven is the resilient cloud infrastructure fabric powering autonomous microservices, real-time inference pipelines, and scalable enterprise deployments.",
+    points: [
+      "Distributed Compute",
+      "Low-Latency Inference",
+      "Cloud Infrastructure",
+      "Microservice Orchestration",
+      "Security & Reliability",
+      "Multi-Region Scalability"
+    ],
+    opportunityOrVisionLabel: "Infrastructure Vision",
+    opportunityOrVisionText: "High-performance, fault-tolerant infrastructure built for modern AI workloads.",
+    accent: "rgba(56, 189, 248, 1)",
+    status: "Active Platform"
+  },
+  {
+    id: "ueos",
+    name: "UEOS",
     tagline: "UNAI Enterprise Operating System",
     description:
-      "UEOS is envisioned as an AI-powered unified enterprise platform combining: AI Agents + Automation + Intelligent Applications + Enterprise Workflows + Multi-Tenant Infrastructure + Autonomous Operations.",
+      "UEOS is an AI-powered unified enterprise OS orchestrating autonomous agents, workflow automation, multi-tenant governance, and intelligent business applications.",
     points: [
-      "AI Agents",
-      "Automation",
+      "Autonomous Agents",
+      "Workflow Automation",
       "Intelligent Applications",
       "Enterprise Workflows",
       "Multi-Tenant Infrastructure",
       "Autonomous Operations"
     ],
     opportunityOrVisionLabel: "Strategic Objective",
-    opportunityOrVisionText: "An intelligent operating layer for modern organizations.",
-    accent: "rgba(73, 84, 250, 1)",
+    opportunityOrVisionText: "An intelligent operating layer powering modern enterprises.",
+    accent: "rgba(56, 189, 248, 1)",
     status: "Frontier Architecture"
   }
 ];
