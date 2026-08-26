@@ -28,7 +28,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const galleryImages = [
-    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80", // EdTech
+    "/images/my-vidyon.jpg", // My Vidyon - India's First All in one ERP
     "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&q=80", // Journalism / Media
     "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80", // Neural Engine
     "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80", // Cloud Infrastructure
