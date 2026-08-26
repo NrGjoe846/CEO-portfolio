@@ -38,9 +38,8 @@ export interface AccordionGalleryProps {
 const DEFAULT_ITEMS: AccordionGalleryItem[] = [
   { image: '/images/my-vidyon.jpg', label: 'My Vidyon (EdTech AI)', link: '#' },
   { image: '/images/postsapp.jpg', label: 'PostsApp (Intelligent News)', link: '#' },
-  { image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&q=80', label: 'UNAI Eleven (Cloud Infrastructure)', link: '#' },
-  { image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=900&q=80', label: 'Vidyo AI (Neural Engine)', link: '#' },
-  { image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80', label: 'UEOS (Enterprise AI OS)', link: '#' }
+  { image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80', label: 'Vidyo AI (Neural Engine)', link: '#' },
+  { image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80', label: 'UNAI Eleven (Cloud Infrastructure)', link: '#' }
 ];
 
 export const AccordionGallery: React.FC<AccordionGalleryProps> = ({
@@ -98,7 +97,6 @@ export const AccordionGallery: React.FC<AccordionGalleryProps> = ({
 
       const r = Math.min(Math.max(expandRatio, 0.2), 0.9);
       const grow = count > 1 ? (r * (count - 1)) / (1 - r) : 1;
-      const mediaSize = mediaSizeRef.current;
 
       tlRef.current?.kill();
       const dur = animate && !prefersReduced ? duration : 0;
@@ -117,18 +115,13 @@ export const AccordionGallery: React.FC<AccordionGalleryProps> = ({
         tl.to(panel, { flexGrow: isActive ? grow : 1, ...rotProp, duration: dur, ease }, 0);
 
         if (media) {
-          const drift = Math.max(-1.5, Math.min(1.5, active - i));
-          const shift = drift * parallax * mediaSize * 0.06;
-          const gray = grayscale ? (isActive ? 0 : 1) : 0;
+          const gray = grayscale ? (isActive ? 0 : 0.8) : 0;
           tl.to(
             media,
             {
-              xPercent: -50,
-              yPercent: -50,
-              x: vertical ? 0 : isActive ? 0 : shift,
-              y: vertical ? (isActive ? 0 : shift) : 0,
               '--ag-gray': gray,
               '--ag-dim': isActive ? 0 : 0.35,
+              scale: isActive ? 1 : 1.03,
               duration: dur,
               ease
             },

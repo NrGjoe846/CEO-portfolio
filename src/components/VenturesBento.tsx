@@ -31,8 +31,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
     "/images/my-vidyon.jpg", // My Vidyon - India's First All in one ERP
     "/images/postsapp.jpg", // PostsApp - Political Social & Citizen Journalism Platform
     "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80", // Neural Engine
-    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80", // Cloud Infrastructure
-    "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=900&q=80"  // Enterprise OS
+    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80"  // Cloud Infrastructure
   ];
 
   const galleryItems: AccordionGalleryItem[] = PRODUCTS_AND_VENTURES.map((prod, idx) => ({

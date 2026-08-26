@@ -244,25 +244,6 @@ export const PRODUCTS_AND_VENTURES: FlagshipProduct[] = [
     opportunityOrVisionText: "High-performance, fault-tolerant infrastructure built for modern AI workloads.",
     accent: "rgba(56, 189, 248, 1)",
     status: "Active Platform"
-  },
-  {
-    id: "ueos",
-    name: "UEOS",
-    tagline: "UNAI Enterprise Operating System",
-    description:
-      "UEOS is an AI-powered unified enterprise OS orchestrating autonomous agents, workflow automation, multi-tenant governance, and intelligent business applications.",
-    points: [
-      "Autonomous Agents",
-      "Workflow Automation",
-      "Intelligent Applications",
-      "Enterprise Workflows",
-      "Multi-Tenant Infrastructure",
-      "Autonomous Operations"
-    ],
-    opportunityOrVisionLabel: "Strategic Objective",
-    opportunityOrVisionText: "An intelligent operating layer powering modern enterprises.",
-    accent: "rgba(56, 189, 248, 1)",
-    status: "Frontier Architecture"
   }
 ];
 
