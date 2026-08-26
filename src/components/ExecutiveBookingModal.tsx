@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { sound } from "../utils/audio";
 import { CEO_PROFILE } from "../data/portfolioData";
-import { Calendar, Clock, User, Mail, MessageSquare, X, Check, Sparkles } from "lucide-react";
+import { X, Check } from "lucide-react";
 import confetti from "canvas-confetti";
 
 interface ExecutiveBookingModalProps {
@@ -141,17 +141,29 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
                 />
               </div>
 
-              <div className="pt-2 flex items-center justify-between">
+              <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="text-[11px] text-zinc-500 font-semibold">
-                  Direct: <span className="text-[#1d4ed8] font-bold">{CEO_PROFILE.contactEmail}</span>
+                  Direct WhatsApp: <a href={CEO_PROFILE.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">8428293603</a>
                 </div>
 
-                <button
-                  type="submit"
-                  className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] text-white text-xs font-black uppercase tracking-wider hover:from-[#2563eb] hover:to-[#38bdf8] transition-all shadow-md cursor-pointer"
-                >
-                  TRANSMIT REQUEST &rarr;
-                </button>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={`https://wa.me/918428293603?text=${encodeURIComponent(`Hi Nehemiah, my name is ${name || "a portfolio visitor"}${organization ? ` from ${organization}` : ""}. I'd like to discuss ${topic}: ${notes || "UNAI TECH collaboration"}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => sound.playClick()}
+                    className="px-4 py-2.5 rounded-full bg-[#25D366] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-black hover:text-white transition-all shadow-md cursor-pointer flex items-center gap-1.5"
+                  >
+                    <span>WHATSAPP CHAT</span>
+                  </a>
+
+                  <button
+                    type="submit"
+                    className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] text-white text-xs font-black uppercase tracking-wider hover:from-[#2563eb] hover:to-[#38bdf8] transition-all shadow-md cursor-pointer"
+                  >
+                    SUBMIT &rarr;
+                  </button>
+                </div>
               </div>
             </form>
           </div>
@@ -166,10 +178,19 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
             </h3>
 
             <p className="body-copy text-sm text-zinc-600 max-w-md mx-auto">
-              Thank you for reaching out, <strong>{name}</strong>. Nehemiah's executive team will review your inquiry and follow up within 24-48 hours.
+              Thank you for reaching out, <strong>{name}</strong>. You can also chat directly on WhatsApp at <strong>8428293603</strong>.
             </p>
 
-            <div className="pt-4">
+            <div className="pt-4 flex items-center justify-center gap-3">
+              <a
+                href={`https://wa.me/918428293603?text=${encodeURIComponent(`Hi Nehemiah, my name is ${name} from ${organization}. I submitted a collaboration request regarding ${topic}.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 rounded-full bg-[#25D366] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-black hover:text-white transition-colors cursor-pointer shadow-md"
+              >
+                OPEN IN WHATSAPP
+              </a>
+
               <button
                 type="button"
                 onClick={() => {
@@ -177,7 +198,7 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
                   setSubmitted(false);
                   onClose();
                 }}
-                className="px-6 py-2 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors cursor-pointer"
+                className="px-5 py-2.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors cursor-pointer"
               >
                 DONE
               </button>

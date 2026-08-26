@@ -54,7 +54,7 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
         <div className="relative z-10 mx-auto max-w-[112rem] px-[max(1.5rem,7vw)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Column 1: Portrait & Operating Banner */}
+            {/* Column 1: Executive Operating Identity Console (No duplicate photo) */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
@@ -68,35 +68,83 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
                 </h2>
               </div>
 
-              {/* Portrait Frame */}
-              <div className="relative mt-2">
-                <div className="relative overflow-hidden rounded-2xl bg-black/40 border-2 border-cyan-500/30 shadow-2xl group">
-                  <img
-                    src="/images/nehemiah-hero.png"
-                    alt="Nehemiah Nesanathan portrait"
-                    className="w-full aspect-[4/5] object-cover object-top contrast-105 group-hover:scale-105 transition-all duration-700 ease-out"
-                  />
-                  <div className="absolute top-4 right-4 bg-[#0a1226]/90 text-white px-3.5 py-1.5 rounded-md border border-cyan-400/40 shadow-lg backdrop-blur-xs">
-                    <p className="eyebrow m-0 text-[10px] tracking-widest font-black text-cyan-300">
-                      CEO &bull; UNAI TECH
-                    </p>
+              {/* Executive Holographic Card */}
+              <div className="relative rounded-2xl bg-gradient-to-br from-[#0e1a38] to-[#0a1226] border-2 border-cyan-500/30 p-6 shadow-2xl space-y-5">
+                <div className="flex items-center justify-between border-b border-cyan-500/20 pb-4">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#38bdf8] animate-pulse shadow-[0_0_8px_#38bdf8]" />
+                    <span className="eyebrow text-xs font-mono font-bold text-cyan-300">
+                      NEHEMIAH NESANATHAN
+                    </span>
                   </div>
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#060b19]/95 via-[#060b19]/70 to-transparent p-5 text-white">
-                    <p className="eyebrow text-xs tracking-widest text-cyan-300 font-bold">CORE MAXIM</p>
-                    <p className="font-hand text-lg sm:text-xl text-white mt-0.5 font-bold leading-snug">
-                      "{ABOUT_ME_DATA.coreMaxim}"
-                    </p>
+                  <span className="text-[10px] font-mono font-black uppercase px-2.5 py-1 rounded-full bg-[#1d4ed8] text-white">
+                    CEO &bull; UNAI TECH
+                  </span>
+                </div>
+
+                <div>
+                  <p className="eyebrow text-[10px] text-cyan-400 font-bold uppercase tracking-wider mb-1">
+                    CORE OPERATING MAXIM
+                  </p>
+                  <p className="font-serif-italic text-lg sm:text-xl text-white font-semibold leading-snug">
+                    "{ABOUT_ME_DATA.coreMaxim}"
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-cyan-500/20 text-xs font-mono">
+                  <div className="p-3 rounded-xl bg-[#060b19]/80 border border-cyan-500/20">
+                    <span className="text-[10px] text-cyan-400 block font-bold">SPECIALIZATION</span>
+                    <span className="text-white font-black text-xs">AI-Native Systems</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#060b19]/80 border border-cyan-500/20">
+                    <span className="text-[10px] text-cyan-400 block font-bold">PLATFORM</span>
+                    <span className="text-white font-black text-xs">UNAI TECH</span>
                   </div>
                 </div>
 
-                {/* Floating Pill */}
-                <div className="absolute -bottom-4 -left-3 bg-[#0a1226] text-white border-2 border-cyan-500/40 p-3 rounded-xl shadow-xl flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#2563eb] text-white flex items-center justify-center font-black text-xs shadow-[0_0_12px_rgba(56,189,248,0.8)]">
-                    AI
-                  </div>
-                  <div>
-                    <p className="eyebrow text-[9px] text-cyan-300 font-bold">FOCUS</p>
-                    <p className="display text-xs font-black text-white">INTELLIGENT SYSTEMS</p>
+                {/* Direct Connect CTA Buttons: WhatsApp, LinkedIn, Instagram */}
+                <div className="space-y-2 pt-2">
+                  <p className="eyebrow text-[10px] text-zinc-400 font-bold uppercase tracking-wider">
+                    DIRECT EXECUTIVE CONNECT:
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    <a
+                      href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => sound.playClick()}
+                      className="w-full py-2.5 px-4 rounded-xl bg-[#25D366] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-white transition-all flex items-center justify-between shadow-[0_0_15px_rgba(37,211,102,0.3)]"
+                    >
+                      <span className="flex items-center gap-2">
+                        <Zap className="w-4 h-4" />
+                        <span>WHATSAPP CONNECT (8428293603)</span>
+                      </span>
+                      <span>↗</span>
+                    </a>
+
+                    <div className="grid grid-cols-2 gap-2">
+                      <a
+                        href="https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => sound.playClick()}
+                        className="py-2 px-3 rounded-xl bg-[#0e1a38] hover:bg-[#0A66C2] text-white border border-cyan-500/30 text-[11px] font-bold tracking-wide flex items-center justify-center gap-1.5 transition-colors"
+                      >
+                        <span>LINKEDIN</span>
+                        <span>↗</span>
+                      </a>
+
+                      <a
+                        href="https://www.instagram.com/nehemiah_ai/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => sound.playClick()}
+                        className="py-2 px-3 rounded-xl bg-[#0e1a38] hover:bg-[#E1306C] text-white border border-cyan-500/30 text-[11px] font-bold tracking-wide flex items-center justify-center gap-1.5 transition-colors"
+                      >
+                        <span>INSTAGRAM</span>
+                        <span>↗</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -130,7 +178,19 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
                 </p>
               </div>
 
-              <div className="pt-2 flex items-center gap-4">
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => sound.playClick()}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] text-black text-xs font-extrabold uppercase tracking-wider hover:bg-white transition-colors cursor-pointer shadow-md shadow-green-500/20"
+                >
+                  <Zap className="w-3.5 h-3.5" />
+                  <span>CHAT ON WHATSAPP</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+
                 <button
                   type="button"
                   onClick={() => {
@@ -140,7 +200,7 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#38bdf8] text-[#0a1226] text-xs font-black uppercase tracking-wider hover:bg-white transition-colors cursor-pointer shadow-md shadow-cyan-500/20"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>ASK NEHEMIAH ABOUT HIS JOURNEY</span>
+                  <span>ASK NEHEMIAH AI</span>
                 </button>
               </div>
             </div>

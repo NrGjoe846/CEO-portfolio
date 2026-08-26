@@ -89,7 +89,7 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
         ...prev,
         {
           role: "ceo",
-          text: "At UNAI TECH, we don't just add AI to software — we build software around intelligence. Feel free to connect directly with Nehemiah at ceo@unaitech.com or +91 84282 93603.",
+          text: "At UNAI TECH, we don't just add AI to software — we build software around intelligence. Feel free to connect directly with Nehemiah on WhatsApp at 8428293603 (https://wa.me/918428293603) or email ceo@unaitech.com.",
           timestamp: "Just now"
         }
       ]);

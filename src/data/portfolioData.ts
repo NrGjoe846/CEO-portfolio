@@ -28,9 +28,14 @@ export const CEO_PROFILE = {
   coreBeliefPunchline: "They will be built around intelligence.",
   contactPhone: "8428293603",
   contactPhoneFormatted: "+91 84282 93603",
+  whatsappNumber: "8428293603",
+  whatsappUrl: "https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH.",
+  instagramUrl: "https://www.instagram.com/nehemiah_ai/",
+  instagramHandle: "@nehemiah_ai",
+  linkedinUrl: "https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/",
+  linkedinHandle: "Nehemiah Nesanathan",
   contactEmail: "ceo@unaitech.com",
   website: "unaitech.com",
-  linkedinUrl: "https://linkedin.com",
   year: "2026",
   location: "GLOBAL & AI NATIVE"
 };
@@ -555,6 +560,10 @@ export const CONNECT_WITH_ME = {
   ctaPunch: "Let's Turn It Into Reality.",
   email: "ceo@unaitech.com",
   phone: "+91 84282 93603",
-  website: "unaitech.com",
-  linkedin: "Nehemiah Nesanathan"
+  whatsappUrl: "https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH.",
+  instagramUrl: "https://www.instagram.com/nehemiah_ai/",
+  instagram: "@nehemiah_ai",
+  linkedinUrl: "https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/",
+  linkedin: "Nehemiah Nesanathan",
+  website: "unaitech.com"
 };

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { sound } from "../utils/audio";
+import { Phone, Globe, Linkedin, ArrowUpRight } from "lucide-react";
 
 interface HeroCoverProps {
   onOpenAdvisor: () => void;
@@ -10,6 +11,15 @@ interface HeroCoverProps {
 
 export const HeroCover: React.FC<HeroCoverProps> = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section
@@ -158,6 +168,18 @@ export const HeroCover: React.FC<HeroCoverProps> = () => {
           </nav>
 
           <div className="flex items-center gap-3">
+            {/* Quick WhatsApp Connect Pill */}
+            <a
+              href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => sound.playClick()}
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#25D366] text-black text-xs font-extrabold uppercase tracking-wider hover:bg-white transition-all shadow-[0_0_15px_rgba(37,211,102,0.4)]"
+            >
+              <span>WHATSAPP</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+
             {/* Mobile Menu Button */}
             <button
               aria-label="Menu"
@@ -209,14 +231,29 @@ export const HeroCover: React.FC<HeroCoverProps> = () => {
             >
               Contact
             </a>
+            <a
+              href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 py-2 px-4 rounded-xl bg-[#25D366] text-black font-extrabold text-xs text-center uppercase"
+            >
+              Chat on WhatsApp (8428293603)
+            </a>
           </div>
         )}
 
         {/* BEGIN: Main Content Area */}
         <section className="flex-grow relative flex w-full max-w-[1600px] mx-auto px-6 sm:px-12 lg:px-24 z-20 py-4" data-purpose="main-content">
           
-          {/* Central Character Image Container: Nehemiah */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[700px] h-[82vh] max-h-[780px] z-10 pointer-events-none flex items-end justify-center" data-purpose="hero-image-container">
+          {/* Central Character Image Container with Smooth Scroll Animation: Nehemiah */}
+          <div
+            className="absolute bottom-0 left-1/2 w-full max-w-[700px] h-[82vh] max-h-[780px] z-10 pointer-events-none flex items-end justify-center transition-transform duration-100 ease-out"
+            style={{
+              transform: `translateX(-50%) translateY(${Math.min(scrollY * 0.22, 180)}px) scale(${Math.max(0.93, 1 - scrollY * 0.0002)})`,
+              willChange: "transform"
+            }}
+            data-purpose="hero-image-container"
+          >
             <img
               alt="Nehemiah - CEO & Founder @ UNAI TECH"
               className="w-auto h-full max-h-[82vh] object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"

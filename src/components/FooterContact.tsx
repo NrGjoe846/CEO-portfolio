@@ -48,7 +48,9 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
           {/* Oversized Connect Headline */}
           <div>
             <a
-              href={`mailto:${CONNECT_WITH_ME.email}`}
+              href={CONNECT_WITH_ME.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => sound.playPaperRustle()}
               className="connect-cta display m-0 text-[clamp(2.8rem,7vw,8.5rem)] tracking-[-0.045em] leading-[0.92] text-white hover:text-cyan-300 transition-colors"
             >
@@ -79,7 +81,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
           </div>
 
           {/* CTA Box */}
-          <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-[#0e1a38] text-white border-2 border-cyan-500/40 max-w-2xl shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 backdrop-blur-xs">
+          <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-[#0e1a38] text-white border-2 border-cyan-500/40 max-w-3xl shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 backdrop-blur-xs">
             <div>
               <p className="eyebrow text-xs text-cyan-300 font-bold mb-1">
                 {CONNECT_WITH_ME.ctaHeadline}
@@ -89,21 +91,77 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
               </p>
             </div>
 
-            <button
-              type="button"
-              onClick={() => {
-                sound.playClick();
-                onOpenBooking();
-              }}
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] text-white text-xs font-black uppercase tracking-widest hover:from-[#2563eb] hover:to-[#38bdf8] transition-all shadow-[0_0_15px_rgba(56,189,248,0.3)] cursor-pointer shrink-0"
-            >
-              START A CONVERSATION &rarr;
-            </button>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href={CONNECT_WITH_ME.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => sound.playClick()}
+                className="px-6 py-3 rounded-full bg-[#25D366] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-white hover:text-black transition-all shadow-[0_0_20px_rgba(37,211,102,0.4)] flex items-center gap-2 cursor-pointer"
+              >
+                <span>CONNECT ON WHATSAPP (8428293603)</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+
+              <button
+                type="button"
+                onClick={() => {
+                  sound.playClick();
+                  onOpenBooking();
+                }}
+                className="px-5 py-3 rounded-full bg-[#1d4ed8] text-white text-xs font-black uppercase tracking-wider hover:bg-[#38bdf8] hover:text-black transition-all shadow-md cursor-pointer shrink-0"
+              >
+                SCHEDULE SESSION
+              </button>
+            </div>
           </div>
 
           {/* Contact Details Grid */}
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl">
-            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-cyan-400/30">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl">
+            {/* WhatsApp CTA Card */}
+            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-cyan-400/30 hover:border-[#25D366] transition-all">
+              <span className="eyebrow text-[10px] text-zinc-500 block mb-1 font-bold">WHATSAPP</span>
+              <a
+                href={CONNECT_WITH_ME.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="body-copy text-sm font-black text-black hover:text-[#25D366] transition-colors inline-flex items-center gap-1.5"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#25D366]" />
+                <span>8428293603</span>
+              </a>
+            </div>
+
+            {/* Instagram CTA Card */}
+            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-cyan-400/30 hover:border-[#E1306C] transition-all">
+              <span className="eyebrow text-[10px] text-zinc-500 block mb-1 font-bold">INSTAGRAM</span>
+              <a
+                href={CONNECT_WITH_ME.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="body-copy text-sm font-black text-black hover:text-[#E1306C] transition-colors inline-flex items-center gap-1.5"
+              >
+                <Globe className="w-3.5 h-3.5 text-[#E1306C]" />
+                <span>@nehemiah_ai</span>
+              </a>
+            </div>
+
+            {/* LinkedIn CTA Card */}
+            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-cyan-400/30 hover:border-[#0A66C2] transition-all">
+              <span className="eyebrow text-[10px] text-zinc-500 block mb-1 font-bold">LINKEDIN</span>
+              <a
+                href={CONNECT_WITH_ME.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="body-copy text-sm font-black text-black hover:text-[#0A66C2] transition-colors inline-flex items-center gap-1.5"
+              >
+                <Linkedin className="w-3.5 h-3.5 text-[#0A66C2]" />
+                <span>Nehemiah N.</span>
+              </a>
+            </div>
+
+            {/* Email Card */}
+            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-cyan-400/30 hover:border-[#1d4ed8] transition-all">
               <span className="eyebrow text-[10px] text-zinc-500 block mb-1 font-bold">EMAIL</span>
               <a
                 href={`mailto:${CONNECT_WITH_ME.email}`}
@@ -114,40 +172,17 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
               </a>
             </div>
 
-            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-cyan-400/30">
-              <span className="eyebrow text-[10px] text-zinc-500 block mb-1 font-bold">PHONE</span>
-              <a
-                href={`tel:${CEO_PROFILE.contactPhone}`}
-                className="body-copy text-sm font-black text-black hover:text-[#1d4ed8] transition-colors inline-flex items-center gap-1.5"
-              >
-                <Phone className="w-3.5 h-3.5 text-[#1d4ed8]" />
-                <span>{CONNECT_WITH_ME.phone}</span>
-              </a>
-            </div>
-
-            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-cyan-400/30">
+            {/* Website Card */}
+            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-cyan-400/30 hover:border-[#38bdf8] transition-all">
               <span className="eyebrow text-[10px] text-zinc-500 block mb-1 font-bold">WEBSITE</span>
               <a
                 href={`https://${CONNECT_WITH_ME.website}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="body-copy text-sm font-black text-black hover:text-[#1d4ed8] transition-colors inline-flex items-center gap-1.5"
+                className="body-copy text-sm font-black text-black hover:text-[#38bdf8] transition-colors inline-flex items-center gap-1.5"
               >
-                <Globe className="w-3.5 h-3.5 text-[#1d4ed8]" />
+                <Globe className="w-3.5 h-3.5 text-[#38bdf8]" />
                 <span>{CONNECT_WITH_ME.website}</span>
-              </a>
-            </div>
-
-            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-cyan-400/30">
-              <span className="eyebrow text-[10px] text-zinc-500 block mb-1 font-bold">LINKEDIN</span>
-              <a
-                href={CEO_PROFILE.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="body-copy text-sm font-black text-black hover:text-[#1d4ed8] transition-colors inline-flex items-center gap-1.5"
-              >
-                <Linkedin className="w-3.5 h-3.5 text-[#1d4ed8]" />
-                <span>{CONNECT_WITH_ME.linkedin}</span>
               </a>
             </div>
           </div>
@@ -167,7 +202,34 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
               </p>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href={CONNECT_WITH_ME.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => sound.playClick()}
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#25D366]/40 bg-[#0e1a38] text-xs font-bold uppercase tracking-wider text-[#25D366] hover:bg-[#25D366] hover:text-black transition-all shadow-md cursor-pointer"
+              >
+                <span>WHATSAPP</span>
+              </a>
+              <a
+                href={CONNECT_WITH_ME.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => sound.playClick()}
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-pink-400/40 bg-[#0e1a38] text-xs font-bold uppercase tracking-wider text-pink-300 hover:bg-pink-500 hover:text-white transition-all shadow-md cursor-pointer"
+              >
+                <span>INSTAGRAM</span>
+              </a>
+              <a
+                href={CONNECT_WITH_ME.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => sound.playClick()}
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-blue-400/40 bg-[#0e1a38] text-xs font-bold uppercase tracking-wider text-blue-300 hover:bg-[#0A66C2] hover:text-white transition-all shadow-md cursor-pointer"
+              >
+                <span>LINKEDIN</span>
+              </a>
               <button
                 type="button"
                 onClick={handleDownloadDossier}
@@ -175,7 +237,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
                 title="Print or Save Executive Portfolio"
               >
                 <Download className="w-3.5 h-3.5 text-cyan-300" />
-                <span>EXPORT PORTFOLIO DOSSIER</span>
+                <span>EXPORT DOSSIER</span>
               </button>
             </div>
           </div>
