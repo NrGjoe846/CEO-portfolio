@@ -44,7 +44,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#ea431b] text-white overflow-x-hidden selection:bg-white selection:text-[#ea431b]">
+    <div className="relative min-h-screen bg-[#0a1226] text-white overflow-x-hidden selection:bg-[#2563eb] selection:text-white">
       {/* Custom Interactive Cursor */}
       <CustomCursor />
 

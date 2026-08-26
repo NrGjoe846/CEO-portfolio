@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { sound } from "../utils/audio";
-import { Volume2, VolumeX, Sparkles } from "lucide-react";
 
 interface HeroCoverProps {
   onOpenAdvisor: () => void;
@@ -9,27 +8,21 @@ interface HeroCoverProps {
   onToggleSound: () => void;
 }
 
-export const HeroCover: React.FC<HeroCoverProps> = ({
-  onOpenAdvisor,
-  onOpenBooking,
-  soundEnabled,
-  onToggleSound,
-}) => {
-  const [isWidgetVisible, setIsWidgetVisible] = useState(true);
+export const HeroCover: React.FC<HeroCoverProps> = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <section
       id="hero-cover"
-      className="relative min-h-screen overflow-hidden flex flex-col items-center justify-center bg-[#E54823] text-white select-none font-['Inter',sans-serif]"
+      className="relative min-h-screen overflow-hidden flex flex-col items-center justify-center bg-[#0a1226] text-white select-none font-['Inter',sans-serif]"
       aria-label="Nehemiah Portfolio Hero Section"
     >
       {/* Custom Styles for Hero Grid & Effects */}
       <style>{`
         .hero-grid-bg {
           background-image: 
-            linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px);
+            linear-gradient(to right, rgba(56, 189, 248, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.1) 1px, transparent 1px);
           background-size: calc(33.33vw) calc(33.33vh);
           background-position: center;
         }
@@ -37,7 +30,7 @@ export const HeroCover: React.FC<HeroCoverProps> = ({
           position: absolute;
           width: 10px;
           height: 10px;
-          color: rgba(255,255,255,0.5);
+          color: rgba(56, 189, 248, 0.5);
           font-weight: 300;
           font-size: 14px;
           line-height: 1;
@@ -62,8 +55,8 @@ export const HeroCover: React.FC<HeroCoverProps> = ({
         .hero-crosshair:nth-child(10) { top: 90%; left: 91%; }
 
         .hero-bg-text {
-          color: rgba(255, 255, 255, 0.08);
-          font-size: 20vw;
+          color: rgba(56, 189, 248, 0.04);
+          font-size: 24vw;
           font-weight: 900;
           line-height: 0.8;
           position: absolute;
@@ -82,9 +75,13 @@ export const HeroCover: React.FC<HeroCoverProps> = ({
         }
       `}</style>
 
-      {/* Main Container with Grid Background */}
-      <div className="relative w-full max-w-[1920px] min-h-screen hero-grid-bg overflow-hidden flex flex-col justify-between z-10">
+      {/* Main Container with Grid Background & Ambient Lighting */}
+      <div className="relative w-full max-w-[1920px] min-h-screen hero-grid-bg overflow-hidden flex flex-col justify-between z-10 bg-gradient-to-b from-[#060b19] via-[#0a1226] to-[#0e1a38]">
         
+        {/* Ambient Top Cyber Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-b from-[#1d4ed8]/25 to-transparent blur-3xl pointer-events-none rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[300px] bg-[#38bdf8]/10 blur-3xl pointer-events-none rounded-full" />
+
         {/* Crosshairs for Grid Intersections */}
         <div className="hero-crosshair">+</div>
         <div className="hero-crosshair">+</div>
@@ -97,48 +94,62 @@ export const HeroCover: React.FC<HeroCoverProps> = ({
         <div className="hero-crosshair">+</div>
         <div className="hero-crosshair">+</div>
 
-        {/* Background Large Watermark Text 'NEHEMIAH' */}
+        {/* Background Large Watermark Text 'UNAI' */}
         <div className="hero-bg-text tracking-tighter select-none" aria-hidden="true">
-          NEHEMIAH
+          UNAI
         </div>
 
         {/* BEGIN: Header Section */}
         <header className="w-full flex justify-between items-center px-6 sm:px-12 lg:px-24 py-8 z-50 relative" data-purpose="site-header">
-          <div className="text-2xl font-bold tracking-tight">
-            Portfolioa<sup className="text-xs font-medium ml-0.5">®</sup>
-          </div>
+          {/* UNAI Navbar Logo & Brand */}
+          <a
+            href="#hero-cover"
+            className="flex items-center gap-3 group cursor-pointer"
+            onClick={() => sound.playClick()}
+          >
+            <div className="h-9 px-2.5 py-1 bg-white/95 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.4)] border border-cyan-400/40">
+              <img
+                src="/images/unai-logo.png"
+                alt="UNAI Logo"
+                className="h-6 w-auto object-contain"
+              />
+            </div>
+            <span className="text-2xl font-black tracking-wider text-white group-hover:text-[#38bdf8] transition-colors" style={{ fontFamily: "'Archivo Black', sans-serif" }}>
+              UNAI
+            </span>
+          </a>
 
           <nav className="hidden md:flex space-x-8 lg:space-x-12 text-sm font-medium">
             <a
-              className="relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[1px] after:bg-white hover:opacity-80 transition-opacity"
+              className="relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[1px] after:bg-[#38bdf8] text-white hover:text-[#38bdf8] transition-colors"
               href="#hero-cover"
               onClick={() => sound.playPaperRustle()}
             >
               Hero
             </a>
             <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-white transition-opacity"
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors"
               href="#about"
               onClick={() => sound.playPaperRustle()}
             >
               About
             </a>
             <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-white transition-opacity"
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors"
               href="#ventures"
               onClick={() => sound.playPaperRustle()}
             >
-              Work <span className="opacity-50 text-xs ml-1">(12)</span>
+              Work <span className="opacity-50 text-xs ml-1 text-cyan-300">(12)</span>
             </a>
             <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-white transition-opacity"
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors"
               href="#services"
               onClick={() => sound.playPaperRustle()}
             >
-              Services <span className="opacity-50 text-xs ml-1">(08)</span>
+              Services <span className="opacity-50 text-xs ml-1 text-cyan-300">(08)</span>
             </a>
             <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-white transition-opacity"
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors"
               href="#contact"
               onClick={() => sound.playPaperRustle()}
             >
@@ -154,47 +165,47 @@ export const HeroCover: React.FC<HeroCoverProps> = ({
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               data-purpose="mobile-menu-button"
             >
-              <span className="w-8 h-[2px] bg-white group-hover:bg-gray-200 transition-colors"></span>
-              <span className="w-8 h-[2px] bg-white group-hover:bg-gray-200 transition-colors"></span>
+              <span className="w-8 h-[2px] bg-white group-hover:bg-[#38bdf8] transition-colors"></span>
+              <span className="w-8 h-[2px] bg-white group-hover:bg-[#38bdf8] transition-colors"></span>
             </button>
           </div>
         </header>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden relative z-50 mx-6 mb-4 p-5 bg-[#c7310e] rounded-2xl border border-white/20 shadow-xl flex flex-col gap-4">
+          <div className="md:hidden relative z-50 mx-6 mb-4 p-5 bg-[#0e1a38] rounded-2xl border border-cyan-500/30 shadow-2xl flex flex-col gap-4">
             <a
               href="#hero-cover"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-bold text-white"
+              className="text-base font-bold text-cyan-400"
             >
               Hero
             </a>
             <a
               href="#about"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-white/90"
+              className="text-base font-medium text-white/90 hover:text-cyan-300"
             >
               About
             </a>
             <a
               href="#ventures"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-white/90"
+              className="text-base font-medium text-white/90 hover:text-cyan-300"
             >
               Work (12)
             </a>
             <a
               href="#services"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-white/90"
+              className="text-base font-medium text-white/90 hover:text-cyan-300"
             >
               Services (08)
             </a>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-white/90"
+              className="text-base font-medium text-white/90 hover:text-cyan-300"
             >
               Contact
             </a>
@@ -208,11 +219,11 @@ export const HeroCover: React.FC<HeroCoverProps> = ({
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[700px] h-[82vh] max-h-[780px] z-10 pointer-events-none flex items-end justify-center" data-purpose="hero-image-container">
             <img
               alt="Nehemiah - CEO & Founder @ UNAI TECH"
-              className="w-auto h-full max-h-[82vh] object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+              className="w-auto h-full max-h-[82vh] object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
               src="/images/nehemiah-hero.png"
               style={{
-                maskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, black 82%, transparent 100%)"
+                maskImage: "linear-gradient(to bottom, black 84%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 84%, transparent 100%)"
               }}
             />
           </div>
@@ -235,49 +246,47 @@ export const HeroCover: React.FC<HeroCoverProps> = ({
           
           {/* Foreground Name */}
           <div className="flex flex-col justify-end">
-            <span className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 text-white/80">©2026</span>
+            <span className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 text-cyan-300/80">©2026</span>
             <h1 className="hero-main-title text-white">NEHEMIAH</h1>
           </div>
 
-          {/* UNAI TECH Hyperlink Floating Element (Replaces Let's Talk Button) */}
+          {/* UNAI TECH Hyperlink Floating Element with Official UNAI Logo */}
           <a
             href="https://unaitech.com"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => sound.playClick()}
-            className="group block bg-black/80 hover:bg-black text-white p-3.5 rounded-2xl border border-white/25 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:border-[#ea431b] w-full sm:w-[320px] self-end cursor-pointer"
+            className="group block bg-[#0a1226]/90 hover:bg-[#0e1a38] text-white p-3 rounded-2xl border border-cyan-500/30 shadow-[0_10px_35px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:border-[#38bdf8] hover:shadow-[0_0_25px_rgba(56,189,248,0.3)] w-full sm:w-[330px] self-end cursor-pointer"
             title="Visit UNAI TECH Official Platform (unaitech.com)"
             data-purpose="unai-floating-widget"
           >
-            <div className="flex items-center space-x-3.5">
-              {/* UNAI TECH Logo Badge */}
-              <div className="w-13 h-13 rounded-xl bg-gradient-to-tr from-[#ea431b] to-[#ff7347] flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(234,67,27,0.7)] border border-white/20">
-                <svg viewBox="0 0 48 48" fill="none" className="w-7 h-7 text-white">
-                  <polygon points="24,6 42,16 42,32 24,42 6,32 6,16" stroke="white" strokeWidth="2.5" strokeLinejoin="round" fill="none" opacity="0.9" />
-                  <circle cx="24" cy="24" r="5" fill="white" />
-                  <line x1="24" y1="6" x2="24" y2="18" stroke="white" strokeWidth="2" strokeDasharray="2 2" />
-                  <line x1="42" y1="32" x2="30" y2="28" stroke="white" strokeWidth="2" strokeDasharray="2 2" />
-                  <line x1="6" y1="32" x2="18" y2="28" stroke="white" strokeWidth="2" strokeDasharray="2 2" />
-                </svg>
+            <div className="flex items-center space-x-3">
+              {/* UNAI Official Image Logo Box */}
+              <div className="h-12 w-20 bg-white/95 rounded-xl p-1.5 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.4)] border border-cyan-400/40">
+                <img
+                  src="/images/unai-logo.png"
+                  alt="UNAI Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
 
               {/* Info Text */}
               <div className="flex-grow min-w-0">
                 <div className="flex items-center gap-1.5 mb-0.5">
-                  <span className="w-2 h-2 rounded-full bg-[#ea431b] animate-pulse" />
-                  <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider">OFFICIAL PLATFORM</span>
+                  <span className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse shadow-[0_0_8px_#38bdf8]" />
+                  <span className="text-[10px] font-mono text-cyan-300 uppercase tracking-wider font-bold">OFFICIAL PLATFORM</span>
                 </div>
                 <p className="font-black text-sm text-white tracking-wide truncate" style={{ fontFamily: "'Archivo Black', sans-serif" }}>
                   UNAI TECH
                 </p>
-                <p className="text-[11px] font-mono text-amber-300 group-hover:text-white transition-colors truncate flex items-center gap-1">
+                <p className="text-[11px] font-mono text-cyan-300 group-hover:text-white transition-colors truncate flex items-center gap-1">
                   <span>unaitech.com</span>
-                  <span className="text-xs">↗</span>
+                  <span className="text-xs text-[#38bdf8]">↗</span>
                 </p>
               </div>
 
               {/* Arrow Action Button */}
-              <div className="w-9 h-9 bg-white/10 group-hover:bg-[#ea431b] text-white rounded-xl flex items-center justify-center transition-colors shrink-0 border border-white/15">
+              <div className="w-9 h-9 bg-cyan-500/20 group-hover:bg-[#2563eb] text-white rounded-xl flex items-center justify-center transition-colors shrink-0 border border-cyan-500/30">
                 <svg fill="none" height="16" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" viewBox="0 0 24 24" width="16">
                   <line x1="7" x2="17" y1="17" y2="7"></line>
                   <polyline points="7 7 17 7 17 17"></polyline>

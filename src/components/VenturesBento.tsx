@@ -54,17 +54,17 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
   return (
     <section
       id="ventures"
-      className="relative w-full pt-[clamp(3.5rem,8vw,6rem)] pb-[clamp(3.5rem,10vw,8rem)] bg-[#ea431b] text-white border-b border-white/15 overflow-hidden"
+      className="relative w-full pt-[clamp(3.5rem,8vw,6rem)] pb-[clamp(3.5rem,10vw,8rem)] bg-[#0e1a38] text-white border-b border-cyan-500/15 overflow-hidden"
       aria-label="Products & Ventures"
     >
       <div className="relative z-10 mx-auto max-w-[112rem] px-[max(1.5rem,7vw)]">
         
         {/* Section Header with Horizontal Carousel Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b-2 border-white/20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b-2 border-cyan-500/20">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="h-2 w-8 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.7)]" />
-              <span className="eyebrow text-xs tracking-widest text-white/80 font-bold">
+              <span className="h-2 w-8 bg-[#38bdf8] rounded-full shadow-[0_0_8px_rgba(56,189,248,0.7)]" />
+              <span className="eyebrow text-xs tracking-widest text-cyan-300 font-bold">
                 PORTFOLIO OF INNOVATION
               </span>
             </div>
@@ -75,7 +75,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
 
           {/* Right Header: Subtitle & Navigation Buttons */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 justify-between md:justify-end">
-            <p className="eyebrow text-xs text-white/80 max-w-xs font-bold">
+            <p className="eyebrow text-xs text-cyan-200/80 max-w-xs font-bold">
               Swipe or scroll horizontally to explore flagship platforms across education, journalism, and enterprise AI.
             </p>
 
@@ -84,7 +84,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
               <button
                 type="button"
                 onClick={() => handleScroll("left")}
-                className="w-11 h-11 rounded-full bg-black/40 hover:bg-black text-white border border-white/25 flex items-center justify-center transition-all shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
+                className="w-11 h-11 rounded-full bg-[#0a1226] hover:bg-[#2563eb] text-white border border-cyan-400/40 flex items-center justify-center transition-all shadow-[0_0_15px_rgba(56,189,248,0.2)] hover:scale-105 active:scale-95 cursor-pointer"
                 title="Scroll Left"
                 aria-label="Scroll products left"
               >
@@ -93,7 +93,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
               <button
                 type="button"
                 onClick={() => handleScroll("right")}
-                className="w-11 h-11 rounded-full bg-black/40 hover:bg-black text-white border border-white/25 flex items-center justify-center transition-all shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
+                className="w-11 h-11 rounded-full bg-[#0a1226] hover:bg-[#2563eb] text-white border border-cyan-400/40 flex items-center justify-center transition-all shadow-[0_0_15px_rgba(56,189,248,0.2)] hover:scale-105 active:scale-95 cursor-pointer"
                 title="Scroll Right"
                 aria-label="Scroll products right"
               >
@@ -104,9 +104,9 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
         </div>
 
         {/* Scroll Helper Track Pill */}
-        <div className="mt-6 flex items-center justify-between text-xs text-white/75 font-mono">
+        <div className="mt-6 flex items-center justify-between text-xs text-cyan-200/80 font-mono">
           <span className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-amber-300 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse shadow-[0_0_8px_#38bdf8]" />
             <span>HORIZONTAL SCROLL ENABLED &bull; {PRODUCTS_AND_VENTURES.length} VENTURES</span>
           </span>
           <span className="hidden sm:inline-block">DRAG / SWIPE / CLICK TO NAVIGATE &rarr;</span>
@@ -123,26 +123,26 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
             <div
               key={prod.id}
               onClick={() => handleOpenModal(prod)}
-              className="group cursor-pointer rounded-2xl bg-white text-black p-6 sm:p-8 shadow-2xl border-2 border-white/40 hover:border-black hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between w-[85vw] sm:w-[460px] lg:w-[500px] shrink-0 snap-start select-none"
+              className="group cursor-pointer rounded-2xl bg-white text-black p-6 sm:p-8 shadow-2xl border-2 border-cyan-400/30 hover:border-[#1d4ed8] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between w-[85vw] sm:w-[460px] lg:w-[500px] shrink-0 snap-start select-none"
             >
               <div>
                 {/* Header Row */}
                 <div className="flex items-center justify-between gap-4 mb-4">
-                  <div className="p-3 rounded-xl bg-[#ea431b]/10 text-[#ea431b] group-hover:bg-[#ea431b] group-hover:text-white transition-colors shadow-xs">
+                  <div className="p-3 rounded-xl bg-blue-50 text-[#1d4ed8] group-hover:bg-[#1d4ed8] group-hover:text-white transition-colors shadow-xs">
                     {getProductIcon(prod.id)}
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] font-mono text-zinc-400 font-bold">0{idx + 1} / 0{PRODUCTS_AND_VENTURES.length}</span>
-                    <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-black text-white shadow-xs">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-[#0a1226] text-cyan-300 shadow-xs border border-cyan-500/30">
                       {prod.status}
                     </span>
                   </div>
                 </div>
 
-                <h3 className="display text-2xl sm:text-3xl font-black text-black group-hover:text-[#ea431b] transition-colors leading-tight">
+                <h3 className="display text-2xl sm:text-3xl font-black text-black group-hover:text-[#1d4ed8] transition-colors leading-tight">
                   {prod.name}
                 </h3>
-                <p className="eyebrow text-xs text-[#ea431b] font-extrabold tracking-wider mt-1 mb-4">
+                <p className="eyebrow text-xs text-[#1d4ed8] font-extrabold tracking-wider mt-1 mb-4">
                   {prod.tagline}
                 </p>
 
@@ -173,7 +173,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
               {/* Opportunity / Vision Card Footer */}
               <div className="pt-4 border-t border-zinc-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                  <span className="eyebrow text-[10px] text-[#ea431b] font-black uppercase block">
+                  <span className="eyebrow text-[10px] text-[#1d4ed8] font-black uppercase block">
                     {prod.opportunityOrVisionLabel || "OPPORTUNITY"}
                   </span>
                   <span className="body-copy text-xs sm:text-sm font-bold text-black">
@@ -181,7 +181,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
                   </span>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase text-black group-hover:text-[#ea431b] transition-colors shrink-0">
+                <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase text-[#1d4ed8] group-hover:text-[#2563eb] transition-colors shrink-0">
                   <span>EXPAND DOSSIER</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -195,11 +195,11 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
       {/* Modal for In-Depth Venture Details */}
       {selectedProduct && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#060b19]/90 backdrop-blur-md animate-in fade-in duration-200"
           onClick={() => setSelectedProduct(null)}
         >
           <div
-            className="relative w-full max-w-3xl rounded-2xl bg-white text-black border-2 border-white/40 shadow-2xl p-6 sm:p-10 max-h-[85vh] overflow-y-auto"
+            className="relative w-full max-w-3xl rounded-2xl bg-white text-black border-2 border-cyan-400/50 shadow-2xl p-6 sm:p-10 max-h-[85vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -208,13 +208,13 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
                 sound.playClick();
                 setSelectedProduct(null);
               }}
-              className="absolute top-6 right-6 p-2 rounded-full bg-black text-white hover:bg-[#ea431b] transition-colors cursor-pointer"
+              className="absolute top-6 right-6 p-2 rounded-full bg-[#0a1226] text-white hover:bg-[#1d4ed8] transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-2 mb-2">
-              <span className="px-3 py-1 rounded-full text-xs font-black bg-[#ea431b] text-white">
+              <span className="px-3 py-1 rounded-full text-xs font-black bg-[#1d4ed8] text-white">
                 {selectedProduct.status}
               </span>
               <span className="eyebrow text-xs text-zinc-500 font-bold">
@@ -225,11 +225,11 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
             <h2 className="display text-3xl sm:text-4xl font-black text-black mt-2 mb-1">
               {selectedProduct.name}
             </h2>
-            <p className="eyebrow text-xs sm:text-sm text-[#ea431b] font-extrabold mb-6">
+            <p className="eyebrow text-xs sm:text-sm text-[#1d4ed8] font-extrabold mb-6">
               {selectedProduct.tagline}
             </p>
 
-            <div className="p-5 rounded-xl bg-zinc-50 border border-zinc-200 mb-6">
+            <div className="p-5 rounded-xl bg-blue-50/50 border border-blue-100 mb-6">
               <h4 className="eyebrow text-xs font-black text-black mb-2 uppercase">OVERVIEW & PURPOSE</h4>
               <p className="body-copy text-base text-zinc-700 font-medium leading-relaxed">
                 {selectedProduct.description}
@@ -242,7 +242,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {selectedProduct.points.map((pt, i) => (
                     <div key={i} className="flex items-center gap-2.5 p-3 rounded-lg bg-white border border-zinc-200">
-                      <CheckCircle2 className="w-4 h-4 text-[#ea431b] shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-[#1d4ed8] shrink-0" />
                       <span className="body-copy text-xs sm:text-sm font-bold text-black">{pt}</span>
                     </div>
                   ))}
@@ -250,8 +250,8 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
               </div>
             )}
 
-            <div className="p-5 rounded-xl bg-[#ea431b]/10 border-2 border-[#ea431b]/30 mb-8">
-              <span className="eyebrow text-xs text-[#ea431b] font-black uppercase block mb-1">
+            <div className="p-5 rounded-xl bg-blue-50 border-2 border-blue-200 mb-8">
+              <span className="eyebrow text-xs text-[#1d4ed8] font-black uppercase block mb-1">
                 {selectedProduct.opportunityOrVisionLabel || "OPPORTUNITY / VISION"}
               </span>
               <p className="display text-lg sm:text-xl font-black text-black">
@@ -267,7 +267,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
                   onOpenAdvisorWithVenture(selectedProduct.name);
                   setSelectedProduct(null);
                 }}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#ea431b] text-white text-xs font-black uppercase tracking-wider hover:bg-black transition-colors shadow-md cursor-pointer"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] text-white text-xs font-black uppercase tracking-wider hover:from-[#2563eb] hover:to-[#38bdf8] transition-all shadow-md cursor-pointer"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>DISCUSS {selectedProduct.name} WITH NEHEMIAH AI</span>
@@ -276,7 +276,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
               <button
                 type="button"
                 onClick={() => setSelectedProduct(null)}
-                className="px-5 py-2.5 rounded-full bg-black text-white text-xs font-black uppercase tracking-wider hover:bg-[#ea431b] transition-colors cursor-pointer"
+                className="px-5 py-2.5 rounded-full bg-[#0a1226] text-white text-xs font-black uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors cursor-pointer"
               >
                 CLOSE
               </button>

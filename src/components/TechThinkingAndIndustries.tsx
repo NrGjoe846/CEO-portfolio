@@ -35,7 +35,7 @@ export const TechThinkingAndIndustries: React.FC = () => {
       {/* SECTION 1: HOW I THINK ABOUT TECHNOLOGY & MOAT */}
       <section
         id="tech-moat"
-        className="relative w-full pt-[clamp(3.5rem,8vh,6rem)] pb-[clamp(3.5rem,8vh,6rem)] bg-[#d83d16] text-white border-b border-white/15"
+        className="relative w-full pt-[clamp(3.5rem,8vh,6rem)] pb-[clamp(3.5rem,8vh,6rem)] bg-[#0e1a38] text-white border-b border-cyan-500/15"
         aria-label="Technology Thinking & Moat"
       >
         <div className="relative z-10 mx-auto max-w-[112rem] px-[max(1.5rem,7vw)]">
@@ -44,7 +44,7 @@ export const TechThinkingAndIndustries: React.FC = () => {
             {/* Left Column: Technology Evolution Waterfall */}
             <div className="lg:col-span-6 flex flex-col gap-6">
               <div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/25 text-white text-xs font-black tracking-widest uppercase mb-3 border border-white/20">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0a1226] text-cyan-300 text-xs font-black tracking-widest uppercase mb-3 border border-cyan-500/30">
                   {TECH_THINKING.badge}
                 </div>
                 <h2 className="display m-0 text-white text-[clamp(2.2rem,4vw,4rem)] tracking-[-0.04em] leading-tight">
@@ -58,29 +58,29 @@ export const TechThinkingAndIndustries: React.FC = () => {
                     <div
                       className={`w-full p-4 rounded-xl border flex items-center justify-between transition-all ${
                         idx === TECH_THINKING.evolutionSteps.length - 1
-                          ? "bg-white text-[#ea431b] border-white shadow-xl"
-                          : "bg-black/25 text-white border-white/15 backdrop-blur-xs"
+                          ? "bg-white text-[#0a1226] border-cyan-400 shadow-xl"
+                          : "bg-[#0a1226]/80 text-white border-cyan-500/20 backdrop-blur-xs"
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span
                           className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black ${
                             idx === TECH_THINKING.evolutionSteps.length - 1
-                              ? "bg-[#ea431b] text-white"
-                              : "bg-white/20 text-white"
+                              ? "bg-[#1d4ed8] text-white"
+                              : "bg-cyan-500/20 text-cyan-300"
                           }`}
                         >
                           {idx + 1}
                         </span>
                         <span className="display text-base font-black">{step.name}</span>
                       </div>
-                      <span className={`text-xs font-semibold ${idx === TECH_THINKING.evolutionSteps.length - 1 ? "text-zinc-700" : "text-white/80"}`}>
+                      <span className={`text-xs font-semibold ${idx === TECH_THINKING.evolutionSteps.length - 1 ? "text-zinc-600" : "text-cyan-200/80"}`}>
                         {step.desc}
                       </span>
                     </div>
 
                     {idx < TECH_THINKING.evolutionSteps.length - 1 && (
-                      <ArrowDown className="w-4 h-4 text-white/80 my-1" />
+                      <ArrowDown className="w-4 h-4 text-cyan-400/80 my-1" />
                     )}
                   </div>
                 ))}
@@ -94,7 +94,7 @@ export const TechThinkingAndIndustries: React.FC = () => {
             {/* Right Column: Technology Moat */}
             <div className="lg:col-span-6 flex flex-col gap-6 lg:pl-4">
               <div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0a0403] text-white text-xs font-black tracking-widest uppercase mb-3 border border-white/20">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0a1226] text-cyan-300 text-xs font-black tracking-widest uppercase mb-3 border border-cyan-500/30">
                   {TECH_MOAT.badge}
                 </div>
                 <h3 className="display text-2xl sm:text-3xl font-black text-white leading-snug">
@@ -111,9 +111,9 @@ export const TechThinkingAndIndustries: React.FC = () => {
                 {TECH_MOAT.pillars.map((pil, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-black/30 border border-white/20 text-center shadow-md hover:border-white/60 hover:bg-black/40 transition-all flex flex-col items-center justify-center gap-2 backdrop-blur-xs"
+                    className="p-4 rounded-xl bg-[#0a1226] border border-cyan-500/20 text-center shadow-md hover:border-cyan-400 hover:bg-[#060b19] transition-all flex flex-col items-center justify-center gap-2 backdrop-blur-xs"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-white/15 text-amber-300 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-cyan-500/15 text-cyan-300 flex items-center justify-center">
                       <ShieldCheck className="w-4 h-4" />
                     </div>
                     <span className="display text-xs font-black text-white">
@@ -123,8 +123,8 @@ export const TechThinkingAndIndustries: React.FC = () => {
                 ))}
               </div>
 
-              <div className="p-5 rounded-2xl bg-white text-black border-2 border-white text-center shadow-xl mt-2">
-                <p className="font-serif-italic text-lg text-[#ea431b] font-bold">
+              <div className="p-5 rounded-2xl bg-white text-black border-2 border-cyan-400/40 text-center shadow-xl mt-2">
+                <p className="font-serif-italic text-lg text-[#1d4ed8] font-bold">
                   "{TECH_MOAT.punchline}"
                 </p>
               </div>
@@ -137,12 +137,12 @@ export const TechThinkingAndIndustries: React.FC = () => {
       {/* SECTION 2: INDUSTRIES OF IMPACT */}
       <section
         id="industries"
-        className="relative w-full pt-[clamp(3.5rem,8vh,6rem)] pb-[clamp(3.5rem,8vh,6rem)] bg-[#ea431b] text-white border-b border-white/15"
+        className="relative w-full pt-[clamp(3.5rem,8vh,6rem)] pb-[clamp(3.5rem,8vh,6rem)] bg-[#0a1226] text-white border-b border-cyan-500/15"
         aria-label="Industries Where Intelligent Systems Create Impact"
       >
         <div className="relative z-10 mx-auto max-w-[112rem] px-[max(1.5rem,7vw)]">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/25 text-white text-xs font-black tracking-widest uppercase mb-3 border border-white/25">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0e1a38] text-cyan-300 text-xs font-black tracking-widest uppercase mb-3 border border-cyan-500/30">
               INDUSTRIES
             </div>
             <h2 className="display m-0 text-white text-[clamp(2.2rem,4.5vw,4.5rem)] tracking-[-0.04em]">
@@ -158,10 +158,10 @@ export const TechThinkingAndIndustries: React.FC = () => {
             {INDUSTRIES_DATA.map((ind, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-black/30 border border-white/20 shadow-md hover:border-white/60 hover:bg-black/40 transition-all flex flex-col justify-between backdrop-blur-xs"
+                className="p-5 rounded-2xl bg-[#0e1a38] border border-cyan-500/20 shadow-md hover:border-cyan-400 hover:bg-[#11224d] transition-all flex flex-col justify-between backdrop-blur-xs"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-white/15 text-amber-300 flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-300 flex items-center justify-center mb-3">
                     {getIndustryIcon(ind.title)}
                   </div>
                   <h3 className="display text-base font-black text-white mb-2 tracking-wider">

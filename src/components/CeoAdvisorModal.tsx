@@ -102,17 +102,17 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#060010]/85 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#060b19]/85 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl h-[640px] max-h-[90vh] flex flex-col rounded-2xl bg-white border-3 border-[#060010] shadow-2xl overflow-hidden"
+        className="relative w-full max-w-2xl h-[640px] max-h-[90vh] flex flex-col rounded-2xl bg-white border-2 border-cyan-400/40 shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-4 sm:p-5 bg-[#0a0403] text-white flex items-center justify-between border-b border-[#ea431b]/40">
+        <div className="p-4 sm:p-5 bg-[#0a1226] text-white flex items-center justify-between border-b border-cyan-500/30">
           <div className="flex items-center gap-3">
-            <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-[#ea431b] shadow-[0_0_12px_rgba(234,67,27,0.7)] shrink-0">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-cyan-400 shadow-[0_0_12px_rgba(56,189,248,0.7)] shrink-0">
               <img
                 src="/images/nehemiah-avatar.png"
                 alt="Nehemiah AI"
@@ -122,11 +122,11 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="display text-base font-black text-white m-0">NEHEMIAH AI</h3>
-                <span className="eyebrow text-[9px] bg-[#ea431b] text-white px-2 py-0.5 rounded-full font-bold border border-white/20">
+                <span className="eyebrow text-[9px] bg-[#1d4ed8] text-cyan-200 px-2 py-0.5 rounded-full font-bold border border-cyan-400/30">
                   CEO DIGITAL TWIN
                 </span>
               </div>
-              <p className="eyebrow text-[10px] text-zinc-300 m-0">UNAI TECH &bull; STRATEGY & ADVISORY DESK</p>
+              <p className="eyebrow text-[10px] text-cyan-200/70 m-0">UNAI TECH &bull; STRATEGY & ADVISORY DESK</p>
             </div>
           </div>
 
@@ -136,7 +136,7 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
               sound.playClick();
               onClose();
             }}
-            className="p-2 rounded-full bg-white/10 hover:bg-[rgba(234, 67, 27,1)] text-white transition-colors cursor-pointer"
+            className="p-2 rounded-full bg-white/10 hover:bg-[#1d4ed8] text-white transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -152,7 +152,7 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
               <div
                 className={`max-w-[85%] rounded-2xl p-4 text-xs sm:text-sm leading-relaxed shadow-xs ${
                   msg.role === "user"
-                    ? "bg-[#ea431b] text-white rounded-br-xs"
+                    ? "bg-[#1d4ed8] text-white rounded-br-xs"
                     : "bg-white text-black border-2 border-zinc-200 rounded-bl-xs shadow-sm font-medium"
                 }`}
               >
@@ -168,7 +168,7 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
           ))}
 
           {loading && (
-            <div className="flex items-center gap-2 text-xs font-bold text-[#ea431b] bg-white p-3 rounded-xl border border-zinc-200 w-fit shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-bold text-[#1d4ed8] bg-white p-3 rounded-xl border border-zinc-200 w-fit shadow-xs">
               <RefreshCw className="w-3.5 h-3.5 animate-spin" />
               <span>Synthesizing intelligence...</span>
             </div>
@@ -183,7 +183,7 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
               key={idx}
               type="button"
               onClick={() => handleSend(p)}
-              className="text-[10px] font-bold text-black bg-zinc-100 hover:bg-[#ea431b] hover:text-white px-2.5 py-1 rounded-full whitespace-nowrap border border-zinc-200 transition-colors cursor-pointer"
+              className="text-[10px] font-bold text-black bg-zinc-100 hover:bg-[#1d4ed8] hover:text-white px-2.5 py-1 rounded-full whitespace-nowrap border border-zinc-200 transition-colors cursor-pointer"
             >
               {p}
             </button>
@@ -203,14 +203,14 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
               }
             }}
             placeholder="Ask Nehemiah about UNAI TECH, AI architecture, My Vidyon, or UEOS..."
-            className="flex-1 px-4 py-2.5 rounded-full bg-zinc-100 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#ea431b] focus:ring-1 focus:ring-[#ea431b]"
+            className="flex-1 px-4 py-2.5 rounded-full bg-zinc-100 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#1d4ed8] focus:ring-1 focus:ring-[#1d4ed8]"
           />
 
           <button
             type="button"
             onClick={() => handleSend()}
             disabled={!input.trim() || loading}
-            className="p-2.5 rounded-full bg-black text-white hover:bg-[#ea431b] disabled:opacity-40 transition-colors cursor-pointer shadow-md"
+            className="p-2.5 rounded-full bg-[#0a1226] text-white hover:bg-[#1d4ed8] disabled:opacity-40 transition-colors cursor-pointer shadow-md"
           >
             <Send className="w-4 h-4" />
           </button>

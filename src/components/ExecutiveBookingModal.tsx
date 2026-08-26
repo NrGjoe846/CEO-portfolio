@@ -57,7 +57,7 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
             sound.playClick();
             onClose();
           }}
-          className="absolute top-4 right-4 p-2 rounded-full bg-black text-white hover:bg-[#ea431b] transition-colors cursor-pointer"
+          className="absolute top-4 right-4 p-2 rounded-full bg-[#0a1226] text-white hover:bg-[#1d4ed8] transition-colors cursor-pointer"
         >
           <X className="w-4 h-4" />
         </button>
@@ -65,8 +65,8 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
         {!submitted ? (
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="h-2 w-6 bg-[#ea431b] rounded-full" />
-              <span className="eyebrow text-xs text-[#ea431b] font-black uppercase">
+              <span className="h-2 w-6 bg-[#1d4ed8] rounded-full" />
+              <span className="eyebrow text-xs text-[#1d4ed8] font-black uppercase">
                 CONNECT WITH NEHEMIAH NESANATHAN
               </span>
             </div>
@@ -88,7 +88,7 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Jane Doe"
-                    className="w-full px-3.5 py-2 rounded-xl bg-zinc-50 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#ea431b] focus:ring-1 focus:ring-[#ea431b]"
+                    className="w-full px-3.5 py-2 rounded-xl bg-zinc-50 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#1d4ed8] focus:ring-1 focus:ring-[#1d4ed8]"
                   />
                 </div>
                 <div>
@@ -99,7 +99,7 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="jane@company.com"
-                    className="w-full px-3.5 py-2 rounded-xl bg-zinc-50 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#ea431b] focus:ring-1 focus:ring-[#ea431b]"
+                    className="w-full px-3.5 py-2 rounded-xl bg-zinc-50 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#1d4ed8] focus:ring-1 focus:ring-[#1d4ed8]"
                   />
                 </div>
               </div>
@@ -113,7 +113,7 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
                     value={organization}
                     onChange={(e) => setOrganization(e.target.value)}
                     placeholder="Company or Venture Name"
-                    className="w-full px-3.5 py-2 rounded-xl bg-zinc-50 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#ea431b] focus:ring-1 focus:ring-[#ea431b]"
+                    className="w-full px-3.5 py-2 rounded-xl bg-zinc-50 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#1d4ed8] focus:ring-1 focus:ring-[#1d4ed8]"
                   />
                 </div>
                 <div>
@@ -121,7 +121,7 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
                   <select
                     value={topic}
                     onChange={(e) => setTopic(e.target.value)}
-                    className="w-full px-3.5 py-2 rounded-xl bg-zinc-50 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#ea431b] focus:ring-1 focus:ring-[#ea431b]"
+                    className="w-full px-3.5 py-2 rounded-xl bg-zinc-50 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#1d4ed8] focus:ring-1 focus:ring-[#1d4ed8]"
                   >
                     {topics.map((t, idx) => (
                       <option key={idx} value={t}>{t}</option>
@@ -137,18 +137,18 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="Share a short note on what you would like to discuss..."
-                  className="w-full px-3.5 py-2 rounded-xl bg-zinc-50 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#ea431b] focus:ring-1 focus:ring-[#ea431b]"
+                  className="w-full px-3.5 py-2 rounded-xl bg-zinc-50 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#1d4ed8] focus:ring-1 focus:ring-[#1d4ed8]"
                 />
               </div>
 
               <div className="pt-2 flex items-center justify-between">
                 <div className="text-[11px] text-zinc-500 font-semibold">
-                  Direct: <span className="text-[#ea431b] font-bold">{CEO_PROFILE.contactEmail}</span>
+                  Direct: <span className="text-[#1d4ed8] font-bold">{CEO_PROFILE.contactEmail}</span>
                 </div>
 
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-full bg-[#ea431b] text-white text-xs font-black uppercase tracking-wider hover:bg-black transition-colors shadow-md cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] text-white text-xs font-black uppercase tracking-wider hover:from-[#2563eb] hover:to-[#38bdf8] transition-all shadow-md cursor-pointer"
                 >
                   TRANSMIT REQUEST &rarr;
                 </button>
@@ -157,28 +157,29 @@ export const ExecutiveBookingModal: React.FC<ExecutiveBookingModalProps> = ({
           </div>
         ) : (
           <div className="py-8 text-center space-y-4">
-            <div className="w-12 h-12 rounded-full bg-[#ea431b] text-white flex items-center justify-center mx-auto shadow-lg">
+            <div className="w-12 h-12 rounded-full bg-[#1d4ed8] text-white flex items-center justify-center mx-auto shadow-lg">
               <Check className="w-6 h-6" />
             </div>
 
             <h3 className="display text-2xl font-black text-black">
-              Collaboration Request Received
+              Request Transmitted
             </h3>
 
-            <p className="body-copy text-sm text-zinc-600 max-w-md mx-auto font-medium">
-              Thank you, <span className="font-bold text-black">{name}</span>. Nehemiah's executive office at UNAI TECH will review your strategic inquiry regarding <span className="font-bold text-[#ea431b]">{topic}</span> and connect with you shortly at <span className="font-bold text-black">{email}</span>.
+            <p className="body-copy text-sm text-zinc-600 max-w-md mx-auto">
+              Thank you for reaching out, <strong>{name}</strong>. Nehemiah's executive team will review your inquiry and follow up within 24-48 hours.
             </p>
 
             <div className="pt-4">
               <button
                 type="button"
                 onClick={() => {
+                  sound.playClick();
                   setSubmitted(false);
                   onClose();
                 }}
-                className="px-6 py-2.5 rounded-full bg-black text-white text-xs font-black uppercase hover:bg-[#ea431b] transition-colors cursor-pointer"
+                className="px-6 py-2 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors cursor-pointer"
               >
-                RETURN TO DOSSIER
+                DONE
               </button>
             </div>
           </div>
