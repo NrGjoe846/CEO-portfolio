@@ -109,105 +109,113 @@ export const HeroCover: React.FC<HeroCoverProps> = () => {
           UNAI
         </div>
 
-        {/* BEGIN: Header Section - Bigger Executive Navbar */}
+        {/* BEGIN: Header Section - Bigger Executive Navbar with Split Center */}
         <header className="w-full flex justify-between items-center px-6 sm:px-12 lg:px-24 py-10 z-50 relative" data-purpose="site-header">
-          {/* UNAI Navbar Logo & Brand */}
-          <a
-            href="#hero-cover"
-            className="flex items-center gap-4 group cursor-pointer"
-            onClick={() => sound.playClick()}
-          >
-            <div className="h-12 sm:h-14 px-3.5 sm:px-4 py-2 bg-white/95 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(56,189,248,0.45)] border border-cyan-400/50 transition-transform group-hover:scale-105">
-              <img
-                src="/images/unai-logo.png"
-                alt="UNAI Logo"
-                className="h-7 sm:h-9 w-auto object-contain"
-              />
-            </div>
-            <span className="text-2xl sm:text-4xl font-black tracking-wider text-white group-hover:text-[#38bdf8] transition-colors" style={{ fontFamily: "'Archivo Black', sans-serif" }}>
-              UNAI
-            </span>
-          </a>
-
-          {/* Nav Links - Bigger Font and Spacing */}
-          <nav className="hidden md:flex space-x-8 lg:space-x-14 text-base lg:text-lg font-bold">
+          {/* Left Brand & Left Nav Group */}
+          <div className="flex items-center gap-8 lg:gap-14">
+            {/* UNAI Navbar Logo Badge */}
             <a
-              className="relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-[#38bdf8] text-white hover:text-[#38bdf8] transition-colors tracking-wide"
               href="#hero-cover"
-              onClick={() => sound.playPaperRustle()}
-            >
-              Hero
-            </a>
-            <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
-              href="#about"
-              onClick={() => sound.playPaperRustle()}
-            >
-              About
-            </a>
-            <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
-              href="#ventures"
-              onClick={() => sound.playPaperRustle()}
-            >
-              Work <span className="opacity-50 text-xs ml-1 text-cyan-300">(12)</span>
-            </a>
-            <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
-              href="#services"
-              onClick={() => sound.playPaperRustle()}
-            >
-              Services <span className="opacity-50 text-xs ml-1 text-cyan-300">(08)</span>
-            </a>
-            <a
-              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
-              href="#contact"
-              onClick={() => sound.playPaperRustle()}
-            >
-              Contact
-            </a>
-          </nav>
-
-          {/* Social Icon CTA Buttons (Icon Only - No numbers or text) */}
-          <div className="flex items-center gap-3">
-            {/* WhatsApp Icon Button */}
-            <a
-              href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
-              target="_blank"
-              rel="noopener noreferrer"
+              className="flex items-center group cursor-pointer"
               onClick={() => sound.playClick()}
-              title="Connect on WhatsApp"
-              aria-label="Connect on WhatsApp"
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#25D366] text-black flex items-center justify-center shadow-[0_0_18px_rgba(37,211,102,0.45)] hover:scale-110 hover:bg-white transition-all cursor-pointer"
+              title="UNAI TECH"
             >
-              <Phone className="w-5 h-5 fill-current" />
+              <div className="h-12 sm:h-14 px-3.5 sm:px-4 py-2 bg-white/95 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(56,189,248,0.45)] border border-cyan-400/50 transition-transform group-hover:scale-105">
+                <img
+                  src="/images/unai-logo.png"
+                  alt="UNAI Logo"
+                  className="h-7 sm:h-9 w-auto object-contain"
+                />
+              </div>
             </a>
 
-            {/* Instagram Icon Button */}
-            <a
-              href="https://www.instagram.com/nehemiah_ai/"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => sound.playClick()}
-              title="Follow on Instagram (@nehemiah_ai)"
-              aria-label="Follow on Instagram"
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center shadow-[0_0_18px_rgba(220,39,67,0.35)] hover:scale-110 transition-all cursor-pointer"
-            >
-              <Globe className="w-5 h-5" />
-            </a>
+            {/* Left Nav Links (Shifted Left - Zero Overlay on Head) */}
+            <nav className="hidden md:flex items-center space-x-6 lg:space-x-10 text-base lg:text-lg font-bold">
+              <a
+                className="relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-[#38bdf8] text-white hover:text-[#38bdf8] transition-colors tracking-wide"
+                href="#hero-cover"
+                onClick={() => sound.playPaperRustle()}
+              >
+                Hero
+              </a>
+              <a
+                className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
+                href="#about"
+                onClick={() => sound.playPaperRustle()}
+              >
+                About
+              </a>
+              <a
+                className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
+                href="#ventures"
+                onClick={() => sound.playPaperRustle()}
+              >
+                Work <span className="opacity-50 text-xs ml-1 text-cyan-300">(12)</span>
+              </a>
+            </nav>
+          </div>
 
-            {/* LinkedIn Icon Button */}
-            <a
-              href="https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => sound.playClick()}
-              title="Connect on LinkedIn"
-              aria-label="Connect on LinkedIn"
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0A66C2] text-white flex items-center justify-center shadow-[0_0_18px_rgba(10,102,194,0.35)] hover:scale-110 transition-all cursor-pointer"
-            >
-              <Linkedin className="w-5 h-5 fill-current" />
-            </a>
+          {/* Right Nav Links & Social Icon CTA Buttons */}
+          <div className="flex items-center gap-6 lg:gap-10">
+            {/* Right Nav Links */}
+            <nav className="hidden md:flex items-center space-x-6 lg:space-x-10 text-base lg:text-lg font-bold">
+              <a
+                className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
+                href="#services"
+                onClick={() => sound.playPaperRustle()}
+              >
+                Services <span className="opacity-50 text-xs ml-1 text-cyan-300">(08)</span>
+              </a>
+              <a
+                className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-[#38bdf8] text-white/80 hover:text-white transition-colors tracking-wide"
+                href="#contact"
+                onClick={() => sound.playPaperRustle()}
+              >
+                Contact
+              </a>
+            </nav>
+
+            {/* Social Icon CTA Buttons (Icon Only) */}
+            <div className="flex items-center gap-3">
+              {/* WhatsApp Icon Button */}
+              <a
+                href="https://wa.me/918428293603?text=Hi%20Nehemiah,%20I'd%20like%20to%20connect%20with%20you%20regarding%20UNAI%20TECH."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => sound.playClick()}
+                title="Connect on WhatsApp"
+                aria-label="Connect on WhatsApp"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#25D366] text-black flex items-center justify-center shadow-[0_0_18px_rgba(37,211,102,0.45)] hover:scale-110 hover:bg-white transition-all cursor-pointer"
+              >
+                <Phone className="w-5 h-5 fill-current" />
+              </a>
+
+              {/* Instagram Icon Button */}
+              <a
+                href="https://www.instagram.com/nehemiah_ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => sound.playClick()}
+                title="Follow on Instagram (@nehemiah_ai)"
+                aria-label="Follow on Instagram"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center shadow-[0_0_18px_rgba(220,39,67,0.35)] hover:scale-110 transition-all cursor-pointer"
+              >
+                <Globe className="w-5 h-5" />
+              </a>
+
+              {/* LinkedIn Icon Button */}
+              <a
+                href="https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => sound.playClick()}
+                title="Connect on LinkedIn"
+                aria-label="Connect on LinkedIn"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0A66C2] text-white flex items-center justify-center shadow-[0_0_18px_rgba(10,102,194,0.35)] hover:scale-110 transition-all cursor-pointer"
+              >
+                <Linkedin className="w-5 h-5 fill-current" />
+              </a>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
