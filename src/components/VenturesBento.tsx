@@ -24,9 +24,8 @@ interface VenturesBentoProps {
   onOpenAdvisorWithVenture: (ventureName: string) => void;
 }
 
-export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithVenture }) => {
+export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithVenture: _onOpenAdvisorWithVenture }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [selectedProduct, setSelectedProduct] = useState<FlagshipProduct | null>(null);
 
   const galleryImages = [
     "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80", // EdTech
@@ -45,17 +44,6 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
     description: prod.description
   }));
 
-  const getProductIcon = (id: string) => {
-    switch (id) {
-      case "my-vidyon": return <GraduationCap className="w-6 h-6" />;
-      case "postsapp": return <MessageSquareShare className="w-6 h-6" />;
-      case "vidyo-ai": return <Cpu className="w-6 h-6" />;
-      case "unai-eleven": return <Server className="w-6 h-6" />;
-      case "ueos": return <Target className="w-6 h-6" />;
-      default: return <Layers className="w-6 h-6" />;
-    }
-  };
-
   const handleSelectProduct = (index: number) => {
     sound.playClick();
     setActiveIndex(index);
@@ -70,13 +58,6 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
     sound.playClick();
     setActiveIndex((prev) => (prev + 1) % PRODUCTS_AND_VENTURES.length);
   };
-
-  const handleOpenModal = (p: FlagshipProduct) => {
-    sound.playCameraShutter();
-    setSelectedProduct(p);
-  };
-
-  const activeProduct = PRODUCTS_AND_VENTURES[activeIndex] || PRODUCTS_AND_VENTURES[0];
 
   return (
     <section
@@ -103,7 +84,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
           {/* Right Header: Subtitle & Navigation Controls */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 justify-between md:justify-end">
             <p className="eyebrow text-xs text-cyan-200/80 max-w-xs font-bold">
-              Hover or click any 3D panel to inspect the active platform dossier.
+              Hover or click any 3D panel to inspect the platform architecture.
             </p>
 
             {/* Arrows */}
@@ -168,107 +149,11 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
             grayscale={true}
             onItemSelect={(_, idx) => {
               setActiveIndex(idx);
-              if (PRODUCTS_AND_VENTURES[idx]) {
-                handleOpenModal(PRODUCTS_AND_VENTURES[idx]);
-              }
             }}
           />
         </div>
 
       </div>
-
-      {/* Modal for In-Depth Venture Details */}
-      {selectedProduct && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#060b19]/90 backdrop-blur-md animate-in fade-in duration-200"
-          onClick={() => setSelectedProduct(null)}
-        >
-          <div
-            className="relative w-full max-w-3xl rounded-2xl bg-[#0a1226]/95 text-white border-2 border-cyan-400/50 shadow-[0_0_60px_rgba(0,0,0,0.85)] p-6 sm:p-10 max-h-[85vh] overflow-y-auto backdrop-blur-xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => {
-                sound.playClick();
-                setSelectedProduct(null);
-              }}
-              className="absolute top-6 right-6 p-2 rounded-full bg-[#0e1a38] text-white border border-cyan-500/30 hover:bg-[#1d4ed8] transition-colors cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="flex items-center gap-2 mb-2">
-              <span className="px-3 py-1 rounded-full text-xs font-black bg-[#1d4ed8] text-white border border-cyan-400/30">
-                {selectedProduct.status}
-              </span>
-              <span className="eyebrow text-xs text-cyan-300 font-bold">
-                UNAI TECH VENTURE ECOSYSTEM
-              </span>
-            </div>
-
-            <h2 className="display text-3xl sm:text-4xl font-black text-white mt-2 mb-1">
-              {selectedProduct.name}
-            </h2>
-            <p className="eyebrow text-xs sm:text-sm text-cyan-400 font-extrabold mb-6">
-              {selectedProduct.tagline}
-            </p>
-
-            <div className="p-5 rounded-xl bg-[#060b19]/90 border border-cyan-500/30 mb-6">
-              <h4 className="eyebrow text-xs font-black text-cyan-300 mb-2 uppercase">OVERVIEW & PURPOSE</h4>
-              <p className="body-copy text-base text-cyan-100/90 font-medium leading-relaxed">
-                {selectedProduct.description}
-              </p>
-            </div>
-
-            {selectedProduct.points && (
-              <div className="mb-6">
-                <h4 className="eyebrow text-xs font-black text-cyan-300 mb-3 uppercase">CORE CAPABILITIES & SCOPE</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {selectedProduct.points.map((pt, i) => (
-                    <div key={i} className="flex items-center gap-2.5 p-3 rounded-lg bg-[#0e1a38] border border-cyan-500/25">
-                      <CheckCircle2 className="w-4 h-4 text-[#38bdf8] shrink-0" />
-                      <span className="body-copy text-xs sm:text-sm font-bold text-white">{pt}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div className="p-5 rounded-xl bg-gradient-to-br from-[#0e1a38] to-[#060b19] border-2 border-cyan-400/40 mb-8">
-              <span className="eyebrow text-xs text-cyan-400 font-black uppercase block mb-1">
-                {selectedProduct.opportunityOrVisionLabel || "OPPORTUNITY / VISION"}
-              </span>
-              <p className="display text-lg sm:text-xl font-black text-cyan-200">
-                "{selectedProduct.opportunityOrVisionText}"
-              </p>
-            </div>
-
-            <div className="pt-4 border-t border-cyan-500/25 flex flex-wrap items-center justify-between gap-4">
-              <button
-                type="button"
-                onClick={() => {
-                  sound.playClick();
-                  onOpenAdvisorWithVenture(selectedProduct.name);
-                  setSelectedProduct(null);
-                }}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#38bdf8] text-[#060b19] text-xs font-black uppercase tracking-wider hover:opacity-90 transition-all shadow-[0_0_20px_rgba(56,189,248,0.4)] cursor-pointer font-bold"
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>DISCUSS {selectedProduct.name} WITH NEHEMIAH AI</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setSelectedProduct(null)}
-                className="px-5 py-2.5 rounded-full bg-[#060b19] text-white border border-cyan-500/30 text-xs font-black uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors cursor-pointer"
-              >
-                CLOSE
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
