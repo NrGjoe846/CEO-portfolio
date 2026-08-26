@@ -58,9 +58,9 @@ export const VideoPlayerSection: React.FC = () => {
         <div className="mt-10">
           <VideoPlayer
             size={selectedSize}
+            src="https://youtu.be/Nbv5zZSlTgU"
             title="UNAI TECH — Autonomous Intelligence Engine"
             subtitle="Executive Demonstration & Platform Architecture"
-            poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600&q=80"
           />
         </div>
 

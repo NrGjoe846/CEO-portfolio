@@ -6,10 +6,9 @@ import {
   VolumeX, 
   Maximize, 
   Minimize, 
-  RotateCcw, 
+  ExternalLink,
   Sparkles,
-  Settings,
-  ShieldCheck
+  RotateCcw
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 
@@ -24,19 +23,34 @@ export interface VideoPlayerProps {
   className?: string;
 }
 
+function getYouTubeDetails(url: string) {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  if (match && match[2].length === 11) {
+    const id = match[2];
+    return {
+      isYouTube: true,
+      videoId: id,
+      embedUrl: `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`,
+      thumbnailUrl: `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
+    };
+  }
+  return { isYouTube: false, videoId: null, embedUrl: null, thumbnailUrl: null };
+}
+
 export const VideoPlayer: React.FC<VideoPlayerProps> = ({
-  src = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-  poster = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600&q=80',
-  title = 'UNAI TECH — Autonomous Intelligence Engine',
-  subtitle = 'Official Architecture & Systems Demo',
-  size = 'md',
+  src = 'https://youtu.be/Nbv5zZSlTgU',
+  poster,
+  title = 'UNAI TECH — Executive Demonstration & Vision',
+  subtitle = 'Autonomous Intelligence Engine & Platform Architecture',
+  size = 'lg',
   autoPlay = false,
   loop = true,
   className = ''
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(autoPlay);
   const [isMuted, setIsMuted] = useState<boolean>(true);
   const [progress, setProgress] = useState<number>(0);
   const [currentTime, setCurrentTime] = useState<string>('0:00');
@@ -44,6 +58,9 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
   const [showControls, setShowControls] = useState<boolean>(true);
   const hideTimeoutRef = useRef<number | null>(null);
+
+  const yt = getYouTubeDetails(src);
+  const effectivePoster = poster || yt.thumbnailUrl || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600&q=80';
 
   const formatTime = (timeInSeconds: number): string => {
     if (isNaN(timeInSeconds)) return '0:00';
@@ -54,6 +71,10 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
   const handleTogglePlay = () => {
     sound.playClick();
+    if (yt.isYouTube) {
+      setIsPlaying(true);
+      return;
+    }
     if (!videoRef.current) return;
     if (isPlaying) {
       videoRef.current.pause();
@@ -120,9 +141,9 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
   }, []);
 
   const sizeClasses = {
-    sm: 'max-w-2xl min-h-[260px]',
-    md: 'max-w-4xl min-h-[380px]',
-    lg: 'max-w-6xl min-h-[500px]'
+    sm: 'max-w-2xl min-h-[280px] aspect-video',
+    md: 'max-w-4xl min-h-[380px] aspect-video',
+    lg: 'max-w-6xl min-h-[480px] aspect-video'
   }[size];
 
   return (
@@ -135,20 +156,42 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
       {/* Ambient Cyber Glow behind the video */}
       <div className="absolute -inset-4 bg-gradient-to-r from-[#1d4ed8]/20 via-[#38bdf8]/15 to-[#1d4ed8]/20 blur-2xl pointer-events-none -z-10" />
 
-      {/* HTML5 Video Element */}
-      <video
-        ref={videoRef}
-        src={src}
-        poster={poster}
-        autoPlay={autoPlay}
-        loop={loop}
-        muted={isMuted}
-        playsInline
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedMetadata={handleLoadedMetadata}
-        onClick={handleTogglePlay}
-        className="w-full h-full object-cover cursor-pointer"
-      />
+      {/* YouTube Player or Native HTML5 Video */}
+      {yt.isYouTube && isPlaying ? (
+        <iframe
+          src={yt.embedUrl || ''}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="w-full h-full border-0 absolute inset-0 z-10"
+        />
+      ) : yt.isYouTube ? (
+        <div 
+          onClick={handleTogglePlay}
+          className="relative w-full h-full cursor-pointer overflow-hidden group/poster"
+        >
+          <img
+            src={effectivePoster}
+            alt={title}
+            className="w-full h-full object-cover group-hover/poster:scale-105 transition-transform duration-700 filter brightness-90 contrast-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#060b19] via-[#060b19]/40 to-transparent" />
+        </div>
+      ) : (
+        <video
+          ref={videoRef}
+          src={src}
+          poster={effectivePoster}
+          autoPlay={autoPlay}
+          loop={loop}
+          muted={isMuted}
+          playsInline
+          onTimeUpdate={handleTimeUpdate}
+          onLoadedMetadata={handleLoadedMetadata}
+          onClick={handleTogglePlay}
+          className="w-full h-full object-cover cursor-pointer"
+        />
+      )}
 
       {/* Top Header Bar Overlay */}
       <div
@@ -169,13 +212,25 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
+          {yt.isYouTube && (
+            <a
+              href={src}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pointer-events-auto px-3 py-1.5 rounded-md text-[10px] font-mono font-black uppercase bg-[#0a1226]/90 hover:bg-[#2563eb] text-cyan-300 hover:text-white border border-cyan-400/40 flex items-center gap-1.5 transition-colors cursor-pointer"
+              title="Open in YouTube"
+            >
+              <span>WATCH ON YOUTUBE</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          )}
           <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-black uppercase bg-[#0a1226]/80 text-cyan-300 border border-cyan-400/40">
             4K ULTRA HD
           </span>
         </div>
       </div>
 
-      {/* Center Big Play Trigger (when paused) */}
+      {/* Center Big Play Trigger (when not playing or preview state) */}
       {!isPlaying && (
         <button
           type="button"
@@ -187,68 +242,70 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
         </button>
       )}
 
-      {/* Bottom Controls Bar Overlay */}
-      <div
-        className={`absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-[#060b19]/95 via-[#060b19]/80 to-transparent transition-opacity duration-300 z-20 ${
-          showControls || !isPlaying ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-      >
-        {/* Progress / Scrub Bar */}
+      {/* Bottom Controls Bar Overlay for HTML5 video (hidden for YouTube active iframe) */}
+      {!yt.isYouTube && (
         <div
-          onClick={handleSeek}
-          className="relative w-full h-2 bg-white/20 hover:h-3 rounded-full cursor-pointer transition-all mb-4 group/bar overflow-hidden"
+          className={`absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-[#060b19]/95 via-[#060b19]/80 to-transparent transition-opacity duration-300 z-20 ${
+            showControls || !isPlaying ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
         >
+          {/* Progress / Scrub Bar */}
           <div
-            className="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-[#1d4ed8] to-[#38bdf8] rounded-full shadow-[0_0_10px_#38bdf8]"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-
-        {/* Controls Row */}
-        <div className="flex items-center justify-between gap-4 text-white">
-          <div className="flex items-center gap-3 sm:gap-4">
-            {/* Play / Pause Toggle */}
-            <button
-              type="button"
-              onClick={handleTogglePlay}
-              className="w-9 h-9 rounded-xl bg-[#0e1a38] text-[#38bdf8] border border-cyan-500/30 hover:bg-[#1d4ed8] hover:text-white flex items-center justify-center transition-all cursor-pointer"
-              title={isPlaying ? 'Pause' : 'Play'}
-              aria-label={isPlaying ? 'Pause' : 'Play'}
-            >
-              {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current translate-x-0.5" />}
-            </button>
-
-            {/* Mute Toggle */}
-            <button
-              type="button"
-              onClick={handleToggleMute}
-              className="w-9 h-9 rounded-xl bg-[#0e1a38] text-cyan-200 border border-cyan-500/30 hover:bg-[#1d4ed8] hover:text-white flex items-center justify-center transition-all cursor-pointer"
-              title={isMuted ? 'Unmute' : 'Mute'}
-              aria-label={isMuted ? 'Unmute' : 'Mute'}
-            >
-              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-            </button>
-
-            {/* Time Indicator */}
-            <span className="text-xs font-mono text-cyan-200/80 font-bold">
-              {currentTime} <span className="text-cyan-500">/</span> {duration}
-            </span>
+            onClick={handleSeek}
+            className="relative w-full h-2 bg-white/20 hover:h-3 rounded-full cursor-pointer transition-all mb-4 group/bar overflow-hidden"
+          >
+            <div
+              className="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-[#1d4ed8] to-[#38bdf8] rounded-full shadow-[0_0_10px_#38bdf8]"
+              style={{ width: `${progress}%` }}
+            />
           </div>
 
-          <div className="flex items-center gap-2">
-            {/* Fullscreen Toggle */}
-            <button
-              type="button"
-              onClick={handleToggleFullscreen}
-              className="w-9 h-9 rounded-xl bg-[#0e1a38] text-cyan-200 border border-cyan-500/30 hover:bg-[#1d4ed8] hover:text-white flex items-center justify-center transition-all cursor-pointer"
-              title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
-              aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
-            >
-              {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
-            </button>
+          {/* Controls Row */}
+          <div className="flex items-center justify-between gap-4 text-white">
+            <div className="flex items-center gap-3 sm:gap-4">
+              {/* Play / Pause Toggle */}
+              <button
+                type="button"
+                onClick={handleTogglePlay}
+                className="w-9 h-9 rounded-xl bg-[#0e1a38] text-[#38bdf8] border border-cyan-500/30 hover:bg-[#1d4ed8] hover:text-white flex items-center justify-center transition-all cursor-pointer"
+                title={isPlaying ? 'Pause' : 'Play'}
+                aria-label={isPlaying ? 'Pause' : 'Play'}
+              >
+                {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current translate-x-0.5" />}
+              </button>
+
+              {/* Mute Toggle */}
+              <button
+                type="button"
+                onClick={handleToggleMute}
+                className="w-9 h-9 rounded-xl bg-[#0e1a38] text-cyan-200 border border-cyan-500/30 hover:bg-[#1d4ed8] hover:text-white flex items-center justify-center transition-all cursor-pointer"
+                title={isMuted ? 'Unmute' : 'Mute'}
+                aria-label={isMuted ? 'Unmute' : 'Mute'}
+              >
+                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+              </button>
+
+              {/* Time Indicator */}
+              <span className="text-xs font-mono text-cyan-200/80 font-bold">
+                {currentTime} <span className="text-cyan-500">/</span> {duration}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              {/* Fullscreen Toggle */}
+              <button
+                type="button"
+                onClick={handleToggleFullscreen}
+                className="w-9 h-9 rounded-xl bg-[#0e1a38] text-cyan-200 border border-cyan-500/30 hover:bg-[#1d4ed8] hover:text-white flex items-center justify-center transition-all cursor-pointer"
+                title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+                aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+              >
+                {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
@@ -266,3 +323,4 @@ export const VideoPlayerLg: React.FC<Omit<VideoPlayerProps, 'size'>> = (props) =
 );
 
 export default VideoPlayer;
+
