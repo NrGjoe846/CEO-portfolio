@@ -234,7 +234,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
       </div>
 
       {/* Noir Copyright Strip */}
-      <div className="bg-[#040711] text-white px-[max(1.5rem,7vw)] py-6 flex flex-wrap items-center justify-between gap-4 text-xs font-mono border-t border-cyan-500/15">
+      <div className="bg-[#040711] text-white px-[max(1.5rem,7vw)] py-6 flex flex-wrap items-center justify-between gap-6 text-xs font-mono border-t border-cyan-500/15">
         <div>
           <p className="m-0 text-white font-bold">
             {CEO_PROFILE.name} &bull; {CEO_PROFILE.subtitle}
@@ -243,7 +243,79 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
             &copy; 2026 UNAI TECH &bull; All Rights Reserved.
           </p>
         </div>
-        <p className="m-0 text-cyan-300 font-semibold text-xs">
+
+        {/* Crafted by UNAI TECH Badge */}
+        <div>
+          <a
+            href="https://www.unaitech.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "14px",
+              background: "#FFFFFF",
+              borderRadius: "18px",
+              padding: "10px 22px",
+              textDecoration: "none",
+              transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+              border: "1px solid #E5E5E5",
+              boxShadow: "0 2px 10px rgba(0,0,0,0.02)"
+            }}
+            className="unai-badge hover:scale-105 transition-transform"
+          >
+            <div style={{ display: "flex", flexDirection: "column", gap: "3px", textAlign: "left" }}>
+              <span
+                style={{
+                  fontSize: "0.6rem",
+                  fontWeight: 700,
+                  color: "#8A8A8A",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.15em",
+                  lineHeight: 1.2
+                }}
+              >
+                Crafted by
+              </span>
+              <span
+                style={{
+                  fontSize: "1.05rem",
+                  fontWeight: 800,
+                  letterSpacing: "0.04em",
+                  lineHeight: 1.1
+                }}
+              >
+                <span style={{ color: "#E10613" }}>UNAI</span> <span style={{ color: "#2A2A2A" }}>TECH</span>
+              </span>
+            </div>
+            <div
+              style={{
+                width: "30px",
+                height: "30px",
+                borderRadius: "50%",
+                background: "#E10613",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+                transition: "all 0.3s ease"
+              }}
+              className="unai-arrow-circle"
+            >
+              <svg width="11" height="11" viewBox="0 0 10 10" fill="none">
+                <path
+                  d="M2 8L8 2M8 2H3M8 2V7"
+                  stroke="#FFFFFF"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <p className="m-0 text-cyan-300 font-semibold text-xs hidden md:block">
           Building Businesses &bull; Engineering Intelligence &bull; Creating What's Next
         </p>
       </div>
