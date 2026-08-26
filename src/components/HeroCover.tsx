@@ -346,7 +346,7 @@ export const HeroCover: React.FC<HeroCoverProps> = () => {
           
           {/* Foreground Name */}
           <div className="flex flex-col justify-end">
-            <span className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 text-cyan-300/80">©2026</span>
+            <span className="text-sm sm:text-base font-bold mb-1 sm:mb-2 text-cyan-300 tracking-wider uppercase font-mono">CEO of UNAI TECH Pvt Ltd</span>
             <h1 className="hero-main-title text-white">NEHEMIAH</h1>
           </div>
 
