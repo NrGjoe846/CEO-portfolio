@@ -153,127 +153,26 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
         </div>
 
         {/* Accordion Gallery Showcase (Aligned 1-to-1 with Ventures) */}
-        <div className="mt-6 mb-8">
+        <div className="mt-6">
           <AccordionGallery
             items={galleryItems}
             selectedIndex={activeIndex}
             accentColor="#38bdf8"
             overlayColor="#060b19"
             textColor="#ffffff"
-            height={440}
+            height={460}
             gap={12}
             radius={20}
             expandRatio={0.55}
             trigger="hover"
             grayscale={true}
-            onItemSelect={(_, idx) => setActiveIndex(idx)}
+            onItemSelect={(_, idx) => {
+              setActiveIndex(idx);
+              if (PRODUCTS_AND_VENTURES[idx]) {
+                handleOpenModal(PRODUCTS_AND_VENTURES[idx]);
+              }
+            }}
           />
-        </div>
-
-        {/* Active Venture Interactive Console (Directly Aligned with Active Accordion Item) */}
-        <div className="mt-6 rounded-2xl bg-gradient-to-br from-[#0a1226] via-[#0e1a38] to-[#0a1226] border-2 border-cyan-500/40 p-6 sm:p-10 shadow-[0_0_40px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all duration-300">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Left Column: Core Dossier Info */}
-            <div className="lg:col-span-7 flex flex-col justify-between h-full space-y-6">
-              <div>
-                {/* Header Badge Row */}
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="p-3 rounded-xl bg-[#060b19] text-[#38bdf8] border border-cyan-500/30 shadow-[0_0_15px_rgba(56,189,248,0.25)]">
-                      {getProductIcon(activeProduct.id)}
-                    </div>
-                    <div>
-                      <span className="text-[11px] font-mono text-cyan-300/70 font-bold block">
-                        FLAGSHIP PLATFORM 0{activeIndex + 1} / 0{PRODUCTS_AND_VENTURES.length}
-                      </span>
-                      <h3 className="display text-2xl sm:text-4xl font-black text-white leading-tight">
-                        {activeProduct.name}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <span className="px-3.5 py-1 rounded-full text-xs font-mono font-black uppercase bg-[#060b19] text-cyan-300 border border-cyan-500/40 shrink-0">
-                    {activeProduct.status}
-                  </span>
-                </div>
-
-                <p className="eyebrow text-sm text-cyan-400 font-extrabold tracking-wider mb-4">
-                  {activeProduct.tagline}
-                </p>
-
-                <p className="body-copy text-base sm:text-lg text-cyan-100/90 font-medium leading-relaxed mb-6">
-                  {activeProduct.description}
-                </p>
-
-                {/* Key Capabilities / Scope Chips */}
-                {activeProduct.points && activeProduct.points.length > 0 && (
-                  <div>
-                    <p className="eyebrow text-[11px] text-cyan-300/80 font-bold uppercase tracking-wider mb-3">
-                      CORE CAPABILITIES & STAKEHOLDERS:
-                    </p>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                      {activeProduct.points.map((pt, pIdx) => (
-                        <div
-                          key={pIdx}
-                          className="flex items-center gap-2 p-2.5 rounded-lg bg-[#060b19]/90 border border-cyan-500/25 text-xs font-bold text-white"
-                        >
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#38bdf8] shrink-0" />
-                          <span className="truncate">{pt}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Action Buttons Row */}
-              <div className="pt-4 border-t border-cyan-500/20 flex flex-wrap items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => handleOpenModal(activeProduct)}
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#1d4ed8] to-[#38bdf8] text-[#060b19] text-xs font-black uppercase tracking-wider hover:scale-105 transition-all shadow-[0_0_20px_rgba(56,189,248,0.4)] cursor-pointer"
-                >
-                  <span>EXPAND FULL DOSSIER</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => onOpenAdvisorWithVenture(activeProduct.name)}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#060b19] text-cyan-300 border border-cyan-500/30 hover:border-cyan-400 hover:text-white text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer"
-                >
-                  <Bot className="w-4 h-4 text-[#38bdf8]" />
-                  <span>CONSULT NEHEMIAH AI</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Right Column: Strategic Vision & Opportunity Highlight */}
-            <div className="lg:col-span-5 flex flex-col justify-between h-full p-6 sm:p-8 rounded-xl bg-[#060b19]/80 border border-cyan-500/30 shadow-inner">
-              <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <Sparkles className="w-4 h-4 text-cyan-400" />
-                  <span className="eyebrow text-xs font-mono font-bold text-cyan-400 uppercase">
-                    {activeProduct.opportunityOrVisionLabel || "STRATEGIC OBJECTIVE"}
-                  </span>
-                </div>
-                <blockquote className="display text-lg sm:text-xl font-bold text-white leading-snug mb-6">
-                  "{activeProduct.opportunityOrVisionText}"
-                </blockquote>
-              </div>
-
-              <div className="p-4 rounded-lg bg-[#0a1226] border border-cyan-500/20">
-                <span className="eyebrow text-[10px] text-cyan-300/80 font-bold block mb-1 uppercase">
-                  UNAI TECH ARCHITECTURAL ALIGNMENT
-                </span>
-                <p className="text-xs text-cyan-100/75 leading-relaxed">
-                  Engineered natively with autonomous agents, cloud inference fabrics, and adaptive intelligence pipelines.
-                </p>
-              </div>
-            </div>
-
-          </div>
         </div>
 
       </div>
