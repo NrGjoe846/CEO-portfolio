@@ -121,16 +121,13 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
             {/* Column 2: About Narrative */}
             <div className="lg:col-span-7 flex flex-col gap-6 lg:pl-4">
               <div>
-                <span className="eyebrow text-xs font-black text-cyan-300 tracking-widest block mb-2">
-                  THE FOUNDATIONAL VISION
-                </span>
                 <h3 className="display text-2xl sm:text-4xl font-black text-white leading-tight">
                   {ABOUT_ME_DATA.headline}
                 </h3>
               </div>
 
-              <div className="p-5 rounded-2xl bg-black/30 border border-cyan-500/20 backdrop-blur-xs">
-                <p className="eyebrow text-xs text-cyan-200/80 font-bold mb-2">
+              <div className="p-5 sm:p-6 rounded-2xl bg-black/30 border border-cyan-500/20 backdrop-blur-xs">
+                <p className="eyebrow text-xs text-cyan-200/80 font-bold mb-2 uppercase tracking-wider">
                   {ABOUT_ME_DATA.leadBelief}
                 </p>
                 <p className="body-copy text-lg sm:text-xl font-black text-white leading-snug">
@@ -139,11 +136,20 @@ export const ExecutiveIntro: React.FC<ExecutiveIntroProps> = ({ onOpenAdvisorWit
               </div>
 
               <div className="space-y-4 text-base sm:text-lg text-white/85 font-medium leading-relaxed">
-                <p>{ABOUT_ME_DATA.journeyText}</p>
-                <p>{ABOUT_ME_DATA.currentWork}</p>
-                <p className="font-bold text-white bg-black/30 p-4 rounded-xl border border-cyan-500/20 shadow-2xs backdrop-blur-xs">
-                  {ABOUT_ME_DATA.unaiTechVision}
+                <p>
+                  I am an <strong className="text-white font-bold">AI & Machine Learning Engineer and aspiring entrepreneur</strong>, passionate about building intelligent systems and turning innovative ideas into practical technology.
                 </p>
+                <p>
+                  {ABOUT_ME_DATA.currentWork}
+                </p>
+                <div className="p-5 rounded-xl bg-gradient-to-r from-[#060b19]/90 to-[#0e1a38]/90 border border-cyan-500/30 shadow-[0_0_20px_rgba(56,189,248,0.15)]">
+                  <span className="eyebrow text-[11px] text-cyan-300 font-bold uppercase tracking-wider block mb-1">
+                    {ABOUT_ME_DATA.visionLabel}
+                  </span>
+                  <p className="body-copy text-base sm:text-lg font-bold text-white leading-relaxed">
+                    {ABOUT_ME_DATA.visionStatement}
+                  </p>
+                </div>
               </div>
             </div>
 

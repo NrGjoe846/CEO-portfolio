@@ -42,15 +42,17 @@ export const CEO_PROFILE = {
 
 export const ABOUT_ME_DATA = {
   badge: "ABOUT ME",
-  headline: "Building Beyond Conventional Technology",
-  leadBelief: "I started with a simple belief:",
+  headline: "AN AIML ENGINEER TO ASPIRING ENTREPRENEUR.",
+  leadBelief: "I STARTED WITH A SIMPLE BELIEF:",
   coreMaxim:
-    "Technology should do more than execute instructions. It should understand, reason, adapt, and act.",
-  journeyText: "That belief has shaped my journey as an entrepreneur and technology leader.",
+    "AI should not just automate tasks. It should help us solve, create, and build better.",
+  introText:
+    "I am an AI & Machine Learning Engineer and aspiring entrepreneur, passionate about building intelligent systems and turning innovative ideas into practical technology.",
   currentWork:
-    "Today, I work on building technology ventures that combine AI, intelligent software architecture, automation, product engineering, and business strategy.",
-  unaiTechVision:
-    "Through UNAI TECH, I am working toward a larger vision: building the intelligent layer that can power the next generation of applications, organizations, and digital ecosystems."
+    "Today, I explore AI/ML, Generative AI, automation, and software engineering, while developing the skills to build technology ventures that create real-world impact.",
+  visionLabel: "MY VISION",
+  visionStatement:
+    "Learn deeply. Build continuously. Think entrepreneurially. Create meaningful technology."
 };
 
 export const LEADERSHIP_PHILOSOPHY = {
