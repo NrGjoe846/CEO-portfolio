@@ -30,7 +30,7 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
   const galleryImages = [
     "/images/my-vidyon.jpg", // My Vidyon - India's First All in one ERP
     "/images/postsapp.jpg", // PostsApp - Political Social & Citizen Journalism Platform
-    "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80", // Neural Engine
+    "/images/vidyo-ai.jpg", // Vidyo AI - 24/7 AI Learning Companion
     "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80"  // Cloud Infrastructure
   ];
 

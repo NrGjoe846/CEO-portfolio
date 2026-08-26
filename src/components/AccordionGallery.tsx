@@ -39,7 +39,7 @@ export interface AccordionGalleryProps {
 const DEFAULT_ITEMS: AccordionGalleryItem[] = [
   { image: '/images/my-vidyon.jpg', label: 'My Vidyon (EdTech AI)', link: '#' },
   { image: '/images/postsapp.jpg', label: 'PostsApp (Intelligent News)', link: '#' },
-  { image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80', label: 'Vidyo AI (Neural Engine)', link: '#' },
+  { image: '/images/vidyo-ai.jpg', label: 'Vidyo AI (Neural Engine)', link: '#' },
   { image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80', label: 'UNAI Eleven (Cloud Infrastructure)', link: '#' }
 ];
 
