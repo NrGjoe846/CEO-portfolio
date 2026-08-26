@@ -258,7 +258,8 @@ export const AccordionGallery: React.FC<AccordionGalleryProps> = ({
           >
             <span className="ag-panel__frame">
               <span className="ag-panel__media" ref={(el) => { mediaRefs.current[i] = el; }}>
-                <img src={item.image} alt={item.alt || item.label || ''} draggable="false" />
+                <img className="ag-panel__bg-blur" src={item.image} alt="" aria-hidden="true" draggable="false" />
+                <img className="ag-panel__main-img" src={item.image} alt={item.alt || item.label || ''} draggable="false" />
               </span>
               <span className="ag-panel__overlay" aria-hidden="true" />
             </span>

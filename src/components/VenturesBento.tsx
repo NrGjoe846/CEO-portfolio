@@ -140,10 +140,10 @@ export const VenturesBento: React.FC<VenturesBentoProps> = ({ onOpenAdvisorWithV
             accentColor="#38bdf8"
             overlayColor="#060b19"
             textColor="#ffffff"
-            height={460}
+            height={580}
             gap={12}
             radius={20}
-            expandRatio={0.55}
+            expandRatio={0.78}
             trigger="hover"
             grayscale={true}
             onItemSelect={(_, idx) => {
