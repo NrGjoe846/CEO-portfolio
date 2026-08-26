@@ -26,7 +26,7 @@ export const TornPaperMarquee: React.FC = () => {
           <path
             d="M 0 66 Q 400 85 800 35 T 1600 60 L 1600 134 L 0 134 Z"
             fill="none"
-            stroke="rgba(73, 84, 250, 0.25)"
+            stroke="rgba(234, 67, 27, 0.25)"
             strokeWidth="9"
             transform="translate(0, -7)"
             filter="url(#soften-top)"
@@ -36,49 +36,48 @@ export const TornPaperMarquee: React.FC = () => {
           <g filter="url(#fray-top)">
             <path
               d="M 0 66 Q 200 85 400 45 T 800 35 T 1200 75 T 1600 60 L 1600 134 L 0 134 Z"
-              fill="#060010"
+              fill="#c7310e"
             />
           </g>
         </svg>
       </div>
 
       {/* Cyber Noir Center Marquee Band */}
-      <div className="relative bg-[#060010] text-white py-12 sm:py-16 overflow-hidden border-y border-[#392e4e]">
+      <div className="relative bg-[#c7310e] text-white py-12 sm:py-16 overflow-hidden border-y border-white/20">
         {/* Subtle noise grain */}
         <div className="paper-grain absolute inset-0 opacity-10" />
 
-        {/* Ambient Purple Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[rgba(73,84,250,0.18)] blur-3xl pointer-events-none rounded-full" />
+        {/* Ambient Orange Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-white/10 blur-3xl pointer-events-none rounded-full" />
 
-        {/* Marquee Ticker Track 1: NEHEMIAH , UNAI TECH , CEO , */}
+        {/* Marquee Ticker Track 1: NEHEMIAH • UNAI TECH • CEO • */}
         <div className="marquee-track flex items-center whitespace-nowrap" style={{ ["--marquee-duration" as any]: "20s" }}>
           {[...Array(6)].map((_, i) => (
             <span
               key={i}
-              className="display inline-block text-[clamp(2.5rem,8vw,9.5rem)] tracking-[-0.04em] font-black px-6 text-white transition-colors hover:text-[rgba(73,84,250,1)]"
+              className="display inline-block text-[clamp(2.5rem,8vw,9.5rem)] tracking-[-0.04em] font-black px-6 text-white transition-colors hover:text-amber-300"
             >
-              NEHEMIAH <span className="text-[rgba(73,84,250,1)]">&bull;</span> UNAI TECH <span className="text-[rgba(73,84,250,1)]">&bull;</span> CEO <span className="text-[rgba(73,84,250,1)]">&bull;</span>&nbsp;
+              NEHEMIAH <span className="text-amber-300">&bull;</span> UNAI TECH <span className="text-amber-300">&bull;</span> CEO <span className="text-amber-300">&bull;</span>&nbsp;
             </span>
           ))}
         </div>
 
-        {/* Centered Floating Pill with Electric Purple Glow */}
+        {/* Centered Floating Pill with Amber/Orange Glow */}
         <div className="relative z-10 mx-auto w-fit my-6 flex flex-col items-center">
           <div className="relative">
-            {/* Purple Ambient Glow */}
-            <div className="absolute -inset-3 bg-[rgba(73,84,250,0.4)] blur-xl rounded-full" />
+            <div className="absolute -inset-3 bg-white/20 blur-xl rounded-full" />
             
-            <div className="relative px-6 py-2 rounded-full border border-[rgba(73,84,250,0.8)] bg-[#060010]/80 backdrop-blur-md flex items-center gap-3 shadow-[0_0_20px_rgba(73,84,250,0.35)]">
-              <span className="h-2.5 w-2.5 rounded-full bg-[rgba(73,84,250,1)] animate-pulse shadow-[0_0_8px_rgba(73,84,250,1)]" />
+            <div className="relative px-6 py-2 rounded-full border border-white/30 bg-black/60 backdrop-blur-md flex items-center gap-3 shadow-[0_0_20px_rgba(0,0,0,0.4)]">
+              <span className="h-2.5 w-2.5 rounded-full bg-amber-300 animate-pulse shadow-[0_0_8px_#fde047]" />
               <span className="eyebrow text-xs sm:text-sm tracking-[0.25em] text-white font-black">
                 NEHEMIAH &bull; UNAI TECH &bull; CEO &bull; SCALE &bull; GOVERNANCE
               </span>
-              <span className="h-2.5 w-2.5 rounded-full bg-[rgba(73,84,250,1)] animate-pulse shadow-[0_0_8px_rgba(73,84,250,1)]" />
+              <span className="h-2.5 w-2.5 rounded-full bg-amber-300 animate-pulse shadow-[0_0_8px_#fde047]" />
             </div>
           </div>
         </div>
 
-        {/* Marquee Ticker Track 2 (Rightwards / Alternate Accent) */}
+        {/* Marquee Ticker Track 2 */}
         <div
           className="marquee-track flex items-center whitespace-nowrap"
           style={{
@@ -89,9 +88,9 @@ export const TornPaperMarquee: React.FC = () => {
           {[...Array(6)].map((_, i) => (
             <span
               key={i}
-              className="display inline-block text-[clamp(1.75rem,5.5vw,5.5rem)] tracking-[-0.03em] font-bold px-6 text-[#b0b8ff]/60 hover:text-white transition-colors"
+              className="display inline-block text-[clamp(1.75rem,5.5vw,5.5rem)] tracking-[-0.03em] font-bold px-6 text-white/80 hover:text-white transition-colors"
             >
-              nehemiah <span className="text-[rgba(73,84,250,0.8)]">,</span> UNAI TECH <span className="text-[rgba(73,84,250,0.8)]">,</span> CEO <span className="text-[rgba(73,84,250,0.8)]">,</span>&nbsp;
+              nehemiah <span className="text-amber-300">,</span> UNAI TECH <span className="text-amber-300">,</span> CEO <span className="text-amber-300">,</span>&nbsp;
             </span>
           ))}
         </div>
@@ -119,7 +118,7 @@ export const TornPaperMarquee: React.FC = () => {
           <path
             d="M 0 -24 L 1600 -24 L 1600 50 Q 1200 25 800 65 T 0 50 Z"
             fill="none"
-            stroke="rgba(73, 84, 250, 0.25)"
+            stroke="rgba(234, 67, 27, 0.25)"
             strokeWidth="9"
             transform="translate(0, 7)"
             filter="url(#soften-bot)"
@@ -129,7 +128,7 @@ export const TornPaperMarquee: React.FC = () => {
           <g filter="url(#fray-bot)">
             <path
               d="M 0 -24 L 1600 -24 L 1600 50 Q 1200 25 800 65 T 0 50 Z"
-              fill="#060010"
+              fill="#c7310e"
             />
           </g>
         </svg>

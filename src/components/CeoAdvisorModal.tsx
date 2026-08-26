@@ -110,19 +110,23 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-4 sm:p-5 bg-[#060010] text-white flex items-center justify-between border-b border-[#392e4e]">
+        <div className="p-4 sm:p-5 bg-[#0a0403] text-white flex items-center justify-between border-b border-[#ea431b]/40">
           <div className="flex items-center gap-3">
-            <div className="relative flex items-center justify-center w-9 h-9 rounded-full bg-[rgba(73,84,250,1)] text-white font-bold shadow-[0_0_12px_rgba(73,84,250,0.7)]">
-              <Bot className="w-5 h-5" />
+            <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-[#ea431b] shadow-[0_0_12px_rgba(234,67,27,0.7)] shrink-0">
+              <img
+                src="/images/nehemiah-avatar.png"
+                alt="Nehemiah AI"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="display text-base font-black text-white m-0">NEHEMIAH AI</h3>
-                <span className="eyebrow text-[9px] bg-[rgba(73,84,250,0.3)] text-[rgba(73,84,250,1)] px-2 py-0.5 rounded-full font-bold border border-[rgba(73,84,250,0.5)]">
+                <span className="eyebrow text-[9px] bg-[#ea431b] text-white px-2 py-0.5 rounded-full font-bold border border-white/20">
                   CEO DIGITAL TWIN
                 </span>
               </div>
-              <p className="eyebrow text-[10px] text-white/60 m-0">UNAI TECH &bull; STRATEGY & ADVISORY DESK</p>
+              <p className="eyebrow text-[10px] text-zinc-300 m-0">UNAI TECH &bull; STRATEGY & ADVISORY DESK</p>
             </div>
           </div>
 
@@ -132,14 +136,14 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
               sound.playClick();
               onClose();
             }}
-            className="p-2 rounded-full bg-white/10 hover:bg-[rgba(73,84,250,1)] text-white transition-colors cursor-pointer"
+            className="p-2 rounded-full bg-white/10 hover:bg-[rgba(234, 67, 27,1)] text-white transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Message Stream */}
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 bg-[#fafafa]">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 bg-zinc-50">
           {messages.map((msg, i) => (
             <div
               key={i}
@@ -148,8 +152,8 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
               <div
                 className={`max-w-[85%] rounded-2xl p-4 text-xs sm:text-sm leading-relaxed shadow-xs ${
                   msg.role === "user"
-                    ? "bg-[rgba(73,84,250,1)] text-white rounded-br-xs"
-                    : "bg-white text-[#060010] border-2 border-[rgba(73,84,250,0.2)] rounded-bl-xs shadow-sm font-medium"
+                    ? "bg-[#ea431b] text-white rounded-br-xs"
+                    : "bg-white text-black border-2 border-zinc-200 rounded-bl-xs shadow-sm font-medium"
                 }`}
               >
                 <div className="flex items-center justify-between gap-4 mb-1 text-[10px] opacity-75">
@@ -164,7 +168,7 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
           ))}
 
           {loading && (
-            <div className="flex items-center gap-2 text-xs font-bold text-[rgba(73,84,250,1)] bg-white p-3 rounded-xl border border-[rgba(73,84,250,0.2)] w-fit shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-bold text-[#ea431b] bg-white p-3 rounded-xl border border-zinc-200 w-fit shadow-xs">
               <RefreshCw className="w-3.5 h-3.5 animate-spin" />
               <span>Synthesizing intelligence...</span>
             </div>
@@ -172,14 +176,14 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
         </div>
 
         {/* Suggested Prompts Pill Tray */}
-        <div className="px-4 py-2 bg-white border-t border-[rgba(73,84,250,0.15)] flex items-center gap-2 overflow-x-auto no-scrollbar">
-          <span className="eyebrow text-[9px] text-[#4b4661] whitespace-nowrap font-bold">SUGGESTED:</span>
+        <div className="px-4 py-2 bg-white border-t border-zinc-200 flex items-center gap-2 overflow-x-auto no-scrollbar">
+          <span className="eyebrow text-[9px] text-zinc-500 whitespace-nowrap font-bold">SUGGESTED:</span>
           {suggestedPrompts.map((p, idx) => (
             <button
               key={idx}
               type="button"
               onClick={() => handleSend(p)}
-              className="text-[10px] font-bold text-[#060010] bg-[#f5f5f5] hover:bg-[rgba(73,84,250,1)] hover:text-white px-2.5 py-1 rounded-full whitespace-nowrap border border-[rgba(73,84,250,0.15)] transition-colors cursor-pointer"
+              className="text-[10px] font-bold text-black bg-zinc-100 hover:bg-[#ea431b] hover:text-white px-2.5 py-1 rounded-full whitespace-nowrap border border-zinc-200 transition-colors cursor-pointer"
             >
               {p}
             </button>
@@ -187,7 +191,7 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
         </div>
 
         {/* Input Bar */}
-        <div className="p-3 sm:p-4 bg-white border-t-2 border-[#060010] flex items-center gap-2">
+        <div className="p-3 sm:p-4 bg-white border-t-2 border-zinc-200 flex items-center gap-2">
           <input
             type="text"
             value={input}
@@ -199,14 +203,14 @@ export const CeoAdvisorModal: React.FC<CeoAdvisorModalProps> = ({
               }
             }}
             placeholder="Ask Nehemiah about UNAI TECH, AI architecture, My Vidyon, or UEOS..."
-            className="flex-1 px-4 py-2.5 rounded-full bg-[#f5f5f5] border border-[rgba(73,84,250,0.2)] text-xs font-medium text-[#060010] focus:outline-none focus:border-[rgba(73,84,250,1)] focus:ring-1 focus:ring-[rgba(73,84,250,0.5)]"
+            className="flex-1 px-4 py-2.5 rounded-full bg-zinc-100 border border-zinc-300 text-xs font-medium text-black focus:outline-none focus:border-[#ea431b] focus:ring-1 focus:ring-[#ea431b]"
           />
 
           <button
             type="button"
             onClick={() => handleSend()}
             disabled={!input.trim() || loading}
-            className="p-2.5 rounded-full bg-[#060010] text-white hover:bg-[rgba(73,84,250,1)] disabled:opacity-40 transition-colors cursor-pointer shadow-sm"
+            className="p-2.5 rounded-full bg-black text-white hover:bg-[#ea431b] disabled:opacity-40 transition-colors cursor-pointer shadow-md"
           >
             <Send className="w-4 h-4" />
           </button>

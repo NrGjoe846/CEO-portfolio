@@ -31,11 +31,11 @@ export const TechThinkingAndIndustries: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full">
+    <div id="services" className="relative w-full">
       {/* SECTION 1: HOW I THINK ABOUT TECHNOLOGY & MOAT */}
       <section
         id="tech-moat"
-        className="relative w-full pt-[clamp(3.5rem,8vh,6rem)] pb-[clamp(3.5rem,8vh,6rem)] bg-[#fafafa] border-b border-[rgba(73,84,250,0.15)]"
+        className="relative w-full pt-[clamp(3.5rem,8vh,6rem)] pb-[clamp(3.5rem,8vh,6rem)] bg-[#d83d16] text-white border-b border-white/15"
         aria-label="Technology Thinking & Moat"
       >
         <div className="relative z-10 mx-auto max-w-[112rem] px-[max(1.5rem,7vw)]">
@@ -44,10 +44,10 @@ export const TechThinkingAndIndustries: React.FC = () => {
             {/* Left Column: Technology Evolution Waterfall */}
             <div className="lg:col-span-6 flex flex-col gap-6">
               <div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-[rgba(73,84,250,1)] text-xs font-black tracking-widest uppercase mb-3 border border-[rgba(73,84,250,0.3)]">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/25 text-white text-xs font-black tracking-widest uppercase mb-3 border border-white/20">
                   {TECH_THINKING.badge}
                 </div>
-                <h2 className="display m-0 text-[#060010] text-[clamp(2.2rem,4vw,4rem)] tracking-[-0.04em] leading-tight">
+                <h2 className="display m-0 text-white text-[clamp(2.2rem,4vw,4rem)] tracking-[-0.04em] leading-tight">
                   {TECH_THINKING.headline}
                 </h2>
               </div>
@@ -58,35 +58,35 @@ export const TechThinkingAndIndustries: React.FC = () => {
                     <div
                       className={`w-full p-4 rounded-xl border flex items-center justify-between transition-all ${
                         idx === TECH_THINKING.evolutionSteps.length - 1
-                          ? "bg-[rgba(73,84,250,1)] text-white border-[rgba(73,84,250,1)] shadow-md"
-                          : "bg-white text-[#060010] border-gray-200"
+                          ? "bg-white text-[#ea431b] border-white shadow-xl"
+                          : "bg-black/25 text-white border-white/15 backdrop-blur-xs"
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span
                           className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black ${
                             idx === TECH_THINKING.evolutionSteps.length - 1
-                              ? "bg-white text-[rgba(73,84,250,1)]"
-                              : "bg-[#f0f0f0] text-[#060010]"
+                              ? "bg-[#ea431b] text-white"
+                              : "bg-white/20 text-white"
                           }`}
                         >
                           {idx + 1}
                         </span>
                         <span className="display text-base font-black">{step.name}</span>
                       </div>
-                      <span className={`text-xs font-semibold ${idx === TECH_THINKING.evolutionSteps.length - 1 ? "text-white/85" : "text-[#4b4661]"}`}>
+                      <span className={`text-xs font-semibold ${idx === TECH_THINKING.evolutionSteps.length - 1 ? "text-zinc-700" : "text-white/80"}`}>
                         {step.desc}
                       </span>
                     </div>
 
                     {idx < TECH_THINKING.evolutionSteps.length - 1 && (
-                      <ArrowDown className="w-4 h-4 text-[rgba(73,84,250,1)] my-1" />
+                      <ArrowDown className="w-4 h-4 text-white/80 my-1" />
                     )}
                   </div>
                 ))}
               </div>
 
-              <p className="body-copy text-sm sm:text-base text-[#4b4661] font-medium leading-relaxed mt-2">
+              <p className="body-copy text-sm sm:text-base text-white/90 font-medium leading-relaxed mt-2">
                 {TECH_THINKING.conclusion}
               </p>
             </div>
@@ -94,15 +94,15 @@ export const TechThinkingAndIndustries: React.FC = () => {
             {/* Right Column: Technology Moat */}
             <div className="lg:col-span-6 flex flex-col gap-6 lg:pl-4">
               <div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#060010] text-white text-xs font-black tracking-widest uppercase mb-3 border border-[rgba(73,84,250,0.5)]">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0a0403] text-white text-xs font-black tracking-widest uppercase mb-3 border border-white/20">
                   {TECH_MOAT.badge}
                 </div>
-                <h3 className="display text-2xl sm:text-3xl font-black text-[#060010] leading-snug">
+                <h3 className="display text-2xl sm:text-3xl font-black text-white leading-snug">
                   {TECH_MOAT.title}
                 </h3>
               </div>
 
-              <p className="body-copy text-base text-[#4b4661] font-medium leading-relaxed">
+              <p className="body-copy text-base text-white/85 font-medium leading-relaxed">
                 {TECH_MOAT.lead}
               </p>
 
@@ -111,20 +111,20 @@ export const TechThinkingAndIndustries: React.FC = () => {
                 {TECH_MOAT.pillars.map((pil, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-white border border-[rgba(73,84,250,0.2)] text-center shadow-2xs hover:border-[rgba(73,84,250,0.8)] hover:shadow-md transition-all flex flex-col items-center justify-center gap-2"
+                    className="p-4 rounded-xl bg-black/30 border border-white/20 text-center shadow-md hover:border-white/60 hover:bg-black/40 transition-all flex flex-col items-center justify-center gap-2 backdrop-blur-xs"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-[rgba(73,84,250,0.1)] text-[rgba(73,84,250,1)] flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-white/15 text-amber-300 flex items-center justify-center">
                       <ShieldCheck className="w-4 h-4" />
                     </div>
-                    <span className="display text-xs font-black text-[#060010]">
+                    <span className="display text-xs font-black text-white">
                       {pil}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="p-5 rounded-2xl bg-white border-2 border-[rgba(73,84,250,0.8)] text-center shadow-sm mt-2">
-                <p className="font-serif-italic text-lg text-[#060010] font-bold">
+              <div className="p-5 rounded-2xl bg-white text-black border-2 border-white text-center shadow-xl mt-2">
+                <p className="font-serif-italic text-lg text-[#ea431b] font-bold">
                   "{TECH_MOAT.punchline}"
                 </p>
               </div>
@@ -137,18 +137,18 @@ export const TechThinkingAndIndustries: React.FC = () => {
       {/* SECTION 2: INDUSTRIES OF IMPACT */}
       <section
         id="industries"
-        className="relative w-full pt-[clamp(3.5rem,8vh,6rem)] pb-[clamp(3.5rem,8vh,6rem)] border-b border-[rgba(73,84,250,0.15)]"
+        className="relative w-full pt-[clamp(3.5rem,8vh,6rem)] pb-[clamp(3.5rem,8vh,6rem)] bg-[#ea431b] text-white border-b border-white/15"
         aria-label="Industries Where Intelligent Systems Create Impact"
       >
         <div className="relative z-10 mx-auto max-w-[112rem] px-[max(1.5rem,7vw)]">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[rgba(73,84,250,0.08)] text-[rgba(73,84,250,1)] text-xs font-black tracking-widest uppercase mb-3 border border-[rgba(73,84,250,0.3)]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/25 text-white text-xs font-black tracking-widest uppercase mb-3 border border-white/25">
               INDUSTRIES
             </div>
-            <h2 className="display m-0 text-[#060010] text-[clamp(2.2rem,4.5vw,4.5rem)] tracking-[-0.04em]">
+            <h2 className="display m-0 text-white text-[clamp(2.2rem,4.5vw,4.5rem)] tracking-[-0.04em]">
               Where Intelligent Systems Can Create Impact
             </h2>
-            <p className="body-copy text-base text-[#4b4661] mt-3 font-medium">
+            <p className="body-copy text-base text-white/85 mt-3 font-medium">
               Transforming major sectors through contextual intelligence, autonomous operations, and decision systems.
             </p>
           </div>
@@ -158,17 +158,17 @@ export const TechThinkingAndIndustries: React.FC = () => {
             {INDUSTRIES_DATA.map((ind, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-white border border-[rgba(73,84,250,0.18)] shadow-2xs hover:border-[rgba(73,84,250,0.8)] hover:shadow-lg transition-all flex flex-col justify-between"
+                className="p-5 rounded-2xl bg-black/30 border border-white/20 shadow-md hover:border-white/60 hover:bg-black/40 transition-all flex flex-col justify-between backdrop-blur-xs"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-[rgba(73,84,250,0.08)] text-[rgba(73,84,250,1)] flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/15 text-amber-300 flex items-center justify-center mb-3">
                     {getIndustryIcon(ind.title)}
                   </div>
-                  <h3 className="display text-base font-black text-[#060010] mb-2 tracking-wider">
+                  <h3 className="display text-base font-black text-white mb-2 tracking-wider">
                     {ind.title}
                   </h3>
                 </div>
-                <p className="body-copy text-xs sm:text-sm text-[#4b4661] font-medium leading-relaxed">
+                <p className="body-copy text-xs sm:text-sm text-white/80 font-medium leading-relaxed">
                   {ind.description}
                 </p>
               </div>

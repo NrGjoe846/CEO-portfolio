@@ -32,26 +32,26 @@ export const UnaiTechSection: React.FC<UnaiTechSectionProps> = ({ onOpenAdvisorW
   return (
     <section
       id="unai-tech"
-      className="relative w-full pt-[clamp(3.5rem,8vh,6rem)] pb-[clamp(3.5rem,8vh,6rem)] bg-[#060010] text-white overflow-hidden"
+      className="relative w-full pt-[clamp(3.5rem,8vh,6rem)] pb-[clamp(3.5rem,8vh,6rem)] bg-[#d83d16] text-white overflow-hidden border-b border-white/15"
       aria-label="UNAI TECH Overview"
     >
       {/* Background glow effects */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[400px] bg-[rgba(73,84,250,0.12)] blur-3xl pointer-events-none rounded-full" />
-      <div className="absolute bottom-0 left-1/4 w-[600px] h-[400px] bg-[rgba(73,84,250,0.08)] blur-3xl pointer-events-none rounded-full" />
+      <div className="absolute top-0 right-1/4 w-[600px] h-[400px] bg-[#ea431b]/20 blur-3xl pointer-events-none rounded-full" />
+      <div className="absolute bottom-0 left-1/4 w-[600px] h-[400px] bg-[#ea431b]/15 blur-3xl pointer-events-none rounded-full" />
 
       <div className="relative z-10 mx-auto max-w-[112rem] px-[max(1.5rem,7vw)]">
         
         {/* Section 1: UNAI TECH Core Overview */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pb-14 border-b border-[#392e4e]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pb-14 border-b border-white/15">
           
           <div className="lg:col-span-6 flex flex-col gap-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[rgba(73,84,250,0.15)] text-[rgba(73,84,250,1)] text-xs font-black tracking-widest uppercase border border-[rgba(73,84,250,0.4)] w-fit">
-              <Cpu className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ea431b]/20 text-white text-xs font-black tracking-widest uppercase border border-[#ea431b]/50 w-fit shadow-xs">
+              <Cpu className="w-3.5 h-3.5 text-amber-300" />
               {UNAI_TECH_DATA.badge}
             </div>
 
             <div>
-              <p className="eyebrow text-xs sm:text-sm text-[rgba(73,84,250,1)] font-extrabold tracking-widest uppercase mb-1">
+              <p className="eyebrow text-xs sm:text-sm text-amber-300 font-extrabold tracking-widest uppercase mb-1">
                 {UNAI_TECH_DATA.title}
               </p>
               <h2 className="display m-0 text-white text-[clamp(2.5rem,5vw,5rem)] tracking-[-0.04em] leading-tight">
@@ -59,12 +59,12 @@ export const UnaiTechSection: React.FC<UnaiTechSectionProps> = ({ onOpenAdvisorW
               </h2>
             </div>
 
-            <p className="body-copy text-base sm:text-lg text-white/80 font-medium leading-relaxed">
+            <p className="body-copy text-base sm:text-lg text-white/85 font-medium leading-relaxed">
               {UNAI_TECH_DATA.description}
             </p>
 
-            <div className="p-5 rounded-2xl bg-[#0e0720] border-2 border-[rgba(73,84,250,0.5)] shadow-lg">
-              <span className="eyebrow text-[10px] text-[rgba(73,84,250,1)] tracking-widest font-black block mb-1">
+            <div className="p-5 rounded-2xl bg-black/40 border-2 border-[#ea431b]/60 shadow-xl backdrop-blur-xs">
+              <span className="eyebrow text-[10px] text-amber-300 tracking-widest font-black block mb-1">
                 CORE PHILOSOPHY
               </span>
               <p className="font-serif-italic text-lg sm:text-xl text-white font-semibold leading-snug">
@@ -75,7 +75,7 @@ export const UnaiTechSection: React.FC<UnaiTechSectionProps> = ({ onOpenAdvisorW
 
           {/* Operating Areas Grid */}
           <div className="lg:col-span-6">
-            <h3 className="eyebrow text-xs font-black text-white/70 tracking-widest uppercase mb-4">
+            <h3 className="eyebrow text-xs font-black text-white/80 tracking-widest uppercase mb-4">
               THE COMPANY OPERATES ACROSS:
             </h3>
 
@@ -83,9 +83,9 @@ export const UnaiTechSection: React.FC<UnaiTechSectionProps> = ({ onOpenAdvisorW
               {UNAI_TECH_DATA.operatingAreas.map((area, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-[#0e0720] border border-[#392e4e] hover:border-[rgba(73,84,250,1)] hover:bg-[#130b2c] transition-all flex items-center gap-3.5"
+                  className="p-4 rounded-xl bg-black/35 border border-white/15 hover:border-[#ea431b] hover:bg-black/50 transition-all flex items-center gap-3.5 shadow-sm"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-[rgba(73,84,250,0.15)] text-[rgba(73,84,250,1)] flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-[#ea431b]/25 text-white flex items-center justify-center shrink-0">
                     {operatingIcons[idx % operatingIcons.length]}
                   </div>
                   <span className="display text-sm font-bold text-white tracking-wide">
@@ -101,8 +101,8 @@ export const UnaiTechSection: React.FC<UnaiTechSectionProps> = ({ onOpenAdvisorW
         {/* Section 2: What We Are Building - Ecosystem Pipeline */}
         <div className="pt-14">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-white text-xs font-black tracking-widest uppercase mb-3 border border-white/20">
-              <Network className="w-3.5 h-3.5 text-[rgba(73,84,250,1)]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ea431b]/20 text-white text-xs font-black tracking-widest uppercase mb-3 border border-white/20">
+              <Network className="w-3.5 h-3.5 text-amber-300" />
               {WHAT_WE_ARE_BUILDING.badge}
             </div>
 
@@ -110,32 +110,32 @@ export const UnaiTechSection: React.FC<UnaiTechSectionProps> = ({ onOpenAdvisorW
               {WHAT_WE_ARE_BUILDING.headline}
             </h3>
 
-            <p className="body-copy text-sm sm:text-base text-white/75 mt-3 font-medium leading-relaxed">
+            <p className="body-copy text-sm sm:text-base text-white/80 mt-3 font-medium leading-relaxed">
               {WHAT_WE_ARE_BUILDING.lead}
             </p>
           </div>
 
           {/* Interactive Ecosystem Pipeline Flow */}
-          <div className="my-8 p-6 sm:p-8 rounded-2xl bg-[#0e0720] border border-[#392e4e] shadow-2xl">
-            <p className="eyebrow text-xs text-[rgba(73,84,250,1)] tracking-widest font-black uppercase text-center mb-6">
+          <div className="my-8 p-6 sm:p-8 rounded-2xl bg-black/40 border border-white/15 shadow-2xl backdrop-blur-xs">
+            <p className="eyebrow text-xs text-amber-300 tracking-widest font-black uppercase text-center mb-6">
               THE REUSABLE INTELLIGENCE ARCHITECTURE PIPELINE
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
               {WHAT_WE_ARE_BUILDING.ecosystemPipeline.map((node, idx) => (
                 <React.Fragment key={idx}>
-                  <div className="px-4 py-2.5 rounded-xl bg-[#060010] border border-[rgba(73,84,250,0.4)] text-white text-xs sm:text-sm font-black tracking-wider flex items-center gap-2 shadow-sm hover:border-[rgba(73,84,250,1)] hover:text-[#b0b8ff] transition-colors">
-                    <span className="w-2 h-2 rounded-full bg-[rgba(73,84,250,1)]" />
+                  <div className="px-4 py-2.5 rounded-xl bg-black/60 border border-[#ea431b]/50 text-white text-xs sm:text-sm font-black tracking-wider flex items-center gap-2 shadow-sm hover:border-white hover:text-amber-200 transition-colors">
+                    <span className="w-2 h-2 rounded-full bg-[#ea431b]" />
                     <span>{node}</span>
                   </div>
                   {idx < WHAT_WE_ARE_BUILDING.ecosystemPipeline.length - 1 && (
-                    <ArrowRight className="w-4 h-4 text-[rgba(73,84,250,1)] shrink-0 hidden sm:inline-block" />
+                    <ArrowRight className="w-4 h-4 text-[#ea431b] shrink-0 hidden sm:inline-block" />
                   )}
                 </React.Fragment>
               ))}
             </div>
 
-            <p className="text-center text-xs sm:text-sm text-white/70 font-medium mt-6 max-w-2xl mx-auto">
+            <p className="text-center text-xs sm:text-sm text-white/75 font-medium mt-6 max-w-2xl mx-auto">
               {WHAT_WE_ARE_BUILDING.closing}
             </p>
           </div>

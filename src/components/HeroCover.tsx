@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { InteractiveAvatar } from "./InteractiveAvatar";
-import { CEO_PROFILE } from "../data/portfolioData";
+import React, { useState } from "react";
 import { sound } from "../utils/audio";
-import { Sparkles, Calendar, Volume2, VolumeX, ArrowDown, Mail, Phone, ExternalLink } from "lucide-react";
+import { Volume2, VolumeX, Sparkles } from "lucide-react";
 
 interface HeroCoverProps {
   onOpenAdvisor: () => void;
@@ -17,281 +15,281 @@ export const HeroCover: React.FC<HeroCoverProps> = ({
   soundEnabled,
   onToggleSound,
 }) => {
-  const [parallax, setParallax] = useState({ px: 0, py: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const px = (e.clientX / window.innerWidth - 0.5) * 2;
-      const py = (e.clientY / window.innerHeight - 0.5) * 2;
-      setParallax({ px, py });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  const [isWidgetVisible, setIsWidgetVisible] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <section
       id="hero-cover"
-      className="relative min-h-[92vh] lg:min-h-svh w-full flex flex-col justify-between overflow-hidden px-[4vw] pt-6 pb-10 select-none"
-      aria-label="Executive Hero Cover"
+      className="relative min-h-screen overflow-hidden flex flex-col items-center justify-center bg-[#E54823] text-white select-none font-['Inter',sans-serif]"
+      aria-label="Nehemiah Portfolio Hero Section"
     >
-      {/* Background Paper Texture & Grid */}
-      <div
-        className="absolute inset-x-[-2.5%] inset-y-0 -z-10 paper-sheet pointer-events-none"
-        style={{
-          transform: `translate3d(${parallax.px * 8}px, ${parallax.py * 6}px, 0)`,
-          transition: "transform 0.1s ease-out"
-        }}
-      >
-        <div className="paper-grid h-full w-full opacity-60" />
-        <div className="paper-grain absolute inset-0 opacity-40" />
-        {/* Subtle Purple Radial Atmosphere Glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[rgba(73,84,250,0.07)] blur-3xl rounded-full pointer-events-none" />
-      </div>
+      {/* Custom Styles for Hero Grid & Effects */}
+      <style>{`
+        .hero-grid-bg {
+          background-image: 
+            linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px);
+          background-size: calc(33.33vw) calc(33.33vh);
+          background-position: center;
+        }
+        .hero-crosshair {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          color: rgba(255,255,255,0.5);
+          font-weight: 300;
+          font-size: 14px;
+          line-height: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform: translate(-50%, -50%);
+          pointer-events: none;
+        }
+        .hero-crosshair:nth-child(1) { top: 12%; left: 8%; }
+        .hero-crosshair:nth-child(2) { top: 12%; left: 35%; }
+        .hero-crosshair:nth-child(3) { top: 12%; left: 63%; }
+        .hero-crosshair:nth-child(4) { top: 12%; left: 91%; }
+        
+        .hero-crosshair:nth-child(5) { top: 37%; left: 8%; }
+        .hero-crosshair:nth-child(6) { top: 37%; left: 91%; }
+        
+        .hero-crosshair:nth-child(7) { top: 64%; left: 8%; }
+        .hero-crosshair:nth-child(8) { top: 64%; left: 91%; }
+        
+        .hero-crosshair:nth-child(9) { top: 90%; left: 8%; }
+        .hero-crosshair:nth-child(10) { top: 90%; left: 91%; }
 
-      {/* Top Utility Header Bar */}
-      <header className="relative z-20 mx-auto w-full max-w-[112rem] flex items-center justify-between gap-4">
-        {/* Left: Location & Status */}
-        <div className="flex items-center gap-3">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[rgba(73,84,250,0.75)] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[rgba(73,84,250,1)]"></span>
-          </span>
-          <p className="eyebrow m-0 text-xs tracking-widest text-[#0d0a1a]/80">
-            UNAI TECH • <span className="text-[rgba(73,84,250,1)] font-bold">NEHEMIAH NESANATHAN • CEO</span>
-          </p>
+        .hero-bg-text {
+          color: rgba(255, 255, 255, 0.08);
+          font-size: 20vw;
+          font-weight: 900;
+          line-height: 0.8;
+          position: absolute;
+          top: 5%;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 0;
+          white-space: nowrap;
+          pointer-events: none;
+        }
+        .hero-main-title {
+          font-size: clamp(3.5rem, 10vw, 10.5rem);
+          font-weight: 900;
+          letter-spacing: -0.05em;
+          line-height: 0.9;
+        }
+      `}</style>
+
+      {/* Main Container with Grid Background */}
+      <div className="relative w-full max-w-[1920px] min-h-screen hero-grid-bg overflow-hidden flex flex-col justify-between z-10">
+        
+        {/* Crosshairs for Grid Intersections */}
+        <div className="hero-crosshair">+</div>
+        <div className="hero-crosshair">+</div>
+        <div className="hero-crosshair">+</div>
+        <div className="hero-crosshair">+</div>
+        <div className="hero-crosshair">+</div>
+        <div className="hero-crosshair">+</div>
+        <div className="hero-crosshair">+</div>
+        <div className="hero-crosshair">+</div>
+        <div className="hero-crosshair">+</div>
+        <div className="hero-crosshair">+</div>
+
+        {/* Background Large Watermark Text 'NEHEMIAH' */}
+        <div className="hero-bg-text tracking-tighter select-none" aria-hidden="true">
+          NEHEMIAH
         </div>
 
-        {/* Right: Sound FX & Quick AI Desk Trigger */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          <button
-            id="sound-toggle-btn"
-            type="button"
-            onClick={onToggleSound}
-            className="group flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[rgba(73,84,250,0.25)] bg-white/90 backdrop-blur-sm text-xs font-bold tracking-wider hover:border-[rgba(73,84,250,0.9)] hover:text-[rgba(73,84,250,1)] transition-all shadow-xs"
-            title={soundEnabled ? "Tactile Audio Active (Click to Mute)" : "Audio Muted (Click to Unmute)"}
-          >
-            {soundEnabled ? (
-              <>
-                <Volume2 className="w-3.5 h-3.5 text-[rgba(73,84,250,1)]" />
-                <span className="hidden sm:inline text-[#0d0a1a]">TACTILE AUDIO</span>
-              </>
-            ) : (
-              <>
-                <VolumeX className="w-3.5 h-3.5 text-gray-400" />
-                <span className="hidden sm:inline text-gray-500">MUTED</span>
-              </>
-            )}
-          </button>
-
-          <button
-            id="quick-advisor-trigger"
-            type="button"
-            onClick={() => {
-              sound.playClick();
-              onOpenAdvisor();
-            }}
-            className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#060010] text-white text-xs font-bold tracking-wider hover:bg-[rgba(73,84,250,1)] transition-colors shadow-sm cursor-pointer"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#b0b8ff]" />
-            <span>ASK NEHEMIAH AI</span>
-          </button>
-        </div>
-      </header>
-
-      {/* Main Massive Lockup */}
-      <div
-        className="relative z-10 my-auto flex flex-col items-center justify-center py-6 sm:py-10"
-        style={{
-          transform: `translate3d(${parallax.px * -4}px, ${parallax.py * -3}px, 0)`,
-          transition: "transform 0.12s ease-out"
-        }}
-      >
-        <div className="relative mx-auto w-fit text-center">
-          {/* Eyebrow and Subtitle */}
-          <div className="flex items-center justify-between w-full px-1 pb-1 sm:pb-2 text-ink">
-            <p className="eyebrow m-0 text-left text-xs sm:text-sm md:text-base lg:text-lg tracking-[0.2em] font-extrabold text-[#0d0a1a]">
-              {CEO_PROFILE.subtitle}
-            </p>
-            <p className="eyebrow m-0 text-right text-xs sm:text-sm md:text-base lg:text-lg font-bold tracking-widest text-[rgba(73,84,250,1)]">
-              {CEO_PROFILE.year}
-            </p>
+        {/* BEGIN: Header Section */}
+        <header className="w-full flex justify-between items-center px-6 sm:px-12 lg:px-24 py-8 z-50 relative" data-purpose="site-header">
+          <div className="text-2xl font-bold tracking-tight">
+            Portfolioa<sup className="text-xs font-medium ml-0.5">®</sup>
           </div>
 
-          {/* Massive Typographic Headline: "PORTFOLIO" with avatar embedded */}
-          <h1
-            aria-label="PORTFOLIO"
-            className="display relative m-0 select-none text-[15vw] sm:text-[14.5vw] md:text-[13.5vw] lg:text-[12.5vw] tracking-[-0.04em] leading-[0.88] text-[#0d0a1a]"
-            style={{ fontStretch: "115%" }}
-          >
-            <span className="inline-block transition-transform duration-300 hover:-translate-y-1">P</span>
-            <span className="inline-block transition-transform duration-300 hover:-translate-y-1">O</span>
-            <span className="inline-block transition-transform duration-300 hover:-translate-y-1">R</span>
-            <span className="inline-block transition-transform duration-300 hover:-translate-y-1">T</span>
-            <span className="inline-block transition-transform duration-300 hover:-translate-y-1">F</span>
-
-            {/* Embedded Avatar inside letter O slot */}
-            <span
-              className="relative inline-block align-baseline"
-              style={{ width: "1.08em", height: "0.95em", verticalAlign: "middle" }}
+          <nav className="hidden md:flex space-x-8 lg:space-x-12 text-sm font-medium">
+            <a
+              className="relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[1px] after:bg-white hover:opacity-80 transition-opacity"
+              href="#hero-cover"
+              onClick={() => sound.playPaperRustle()}
             >
-              <span className="absolute inset-0 -top-[0.08em] flex items-center justify-center">
-                <div className="w-[112%] h-[112%]">
-                  <InteractiveAvatar />
-                </div>
-              </span>
-            </span>
+              Hero
+            </a>
+            <a
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-white transition-opacity"
+              href="#about"
+              onClick={() => sound.playPaperRustle()}
+            >
+              About
+            </a>
+            <a
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-white transition-opacity"
+              href="#ventures"
+              onClick={() => sound.playPaperRustle()}
+            >
+              Work <span className="opacity-50 text-xs ml-1">(12)</span>
+            </a>
+            <a
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-white transition-opacity"
+              href="#services"
+              onClick={() => sound.playPaperRustle()}
+            >
+              Services <span className="opacity-50 text-xs ml-1">(08)</span>
+            </a>
+            <a
+              className="relative hover:after:content-[''] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:w-full hover:after:h-[1px] hover:after:bg-white transition-opacity"
+              href="#contact"
+              onClick={() => sound.playPaperRustle()}
+            >
+              Contact
+            </a>
+          </nav>
 
-            <span className="inline-block transition-transform duration-300 hover:-translate-y-1">L</span>
-            <span className="inline-block transition-transform duration-300 hover:-translate-y-1">I</span>
-            <span className="inline-block transition-transform duration-300 hover:-translate-y-1">O</span>
-          </h1>
-
-          {/* Underline Rule with Purple Signal Notch */}
-          <div className="relative mt-2 w-full h-[3px] bg-[rgba(73,84,250,0.15)]">
-            <div className="absolute left-[38%] top-0 h-full w-[24%] bg-[rgba(73,84,250,1)] shadow-[0_0_8px_rgba(73,84,250,0.5)]" />
+          <div className="flex items-center gap-3">
+            {/* Mobile Menu Button */}
+            <button
+              aria-label="Menu"
+              className="flex flex-col space-y-[6px] group cursor-pointer p-1 md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              data-purpose="mobile-menu-button"
+            >
+              <span className="w-8 h-[2px] bg-white group-hover:bg-gray-200 transition-colors"></span>
+              <span className="w-8 h-[2px] bg-white group-hover:bg-gray-200 transition-colors"></span>
+            </button>
           </div>
-        </div>
+        </header>
 
-        {/* Hand-drawn vector pointer arrow to Nehemiah Nesanathan identity */}
-        <div
-          className="pointer-events-none relative sm:absolute sm:left-[54%] sm:top-[68%] z-10 select-none mt-6 sm:mt-0 flex flex-col items-center sm:items-start"
-          aria-hidden="true"
-        >
-          <svg
-            viewBox="0 0 190 210"
-            fill="none"
-            className="block w-24 sm:w-32 md:w-36 overflow-visible drop-shadow-sm"
-          >
-            <path
-              d="M 176 6 C 173 48, 156 78, 127 98 C 95 120, 55 133, 40 170 M 21 147 C 28 155, 35 161, 40 173 C 48 163, 57 156, 66 151"
-              stroke="#060010"
-              strokeWidth="3.4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden relative z-50 mx-6 mb-4 p-5 bg-[#c7310e] rounded-2xl border border-white/20 shadow-xl flex flex-col gap-4">
+            <a
+              href="#hero-cover"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-base font-bold text-white"
+            >
+              Hero
+            </a>
+            <a
+              href="#about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-base font-medium text-white/90"
+            >
+              About
+            </a>
+            <a
+              href="#ventures"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-base font-medium text-white/90"
+            >
+              Work (12)
+            </a>
+            <a
+              href="#services"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-base font-medium text-white/90"
+            >
+              Services (08)
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-base font-medium text-white/90"
+            >
+              Contact
+            </a>
+          </div>
+        )}
+
+        {/* BEGIN: Main Content Area */}
+        <section className="flex-grow relative flex w-full max-w-[1600px] mx-auto px-6 sm:px-12 lg:px-24 z-20 py-4" data-purpose="main-content">
+          
+          {/* Central Character Image Container: Nehemiah */}
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[700px] h-[82vh] max-h-[780px] z-10 pointer-events-none flex items-end justify-center" data-purpose="hero-image-container">
+            <img
+              alt="Nehemiah - CEO & Founder @ UNAI TECH"
+              className="w-auto h-full max-h-[82vh] object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+              src="/images/nehemiah-hero.png"
+              style={{
+                maskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 82%, transparent 100%)"
+              }}
             />
-            <path d="M 29 186 L 51 186 L 40 202 Z" fill="rgba(73, 84, 250, 1)" />
-          </svg>
-
-          <div className="mt-1 flex flex-col items-start bg-white/95 px-3.5 py-1.5 rounded-md border border-[rgba(73, 84, 250, 0.3)] shadow-md backdrop-blur-xs">
-            <p className="eyebrow m-0 text-base sm:text-lg md:text-xl font-black text-[#060010] tracking-[0.16em]">
-              {CEO_PROFILE.nameUppercase}
-            </p>
-            <span className="font-hand text-sm sm:text-base text-[rgba(73,84,250,1)] font-bold">
-              {CEO_PROFILE.tagline}
-            </span>
           </div>
+
+          {/* Left Side Text Content */}
+          <div className="w-full md:w-1/3 flex flex-col justify-center mt-12 md:mt-24 z-20" data-purpose="intro-text">
+            <p className="text-xs sm:text-sm tracking-wide leading-relaxed font-medium uppercase max-w-xs text-white/90">
+              I DESIGN USER-CENTERED DIGITAL<br />
+              EXPERIENCES THAT ARE SIMPLE<br />
+              SMART AND IMPACTFUL
+            </p>
+          </div>
+
+          {/* Right Side Empty Spacer so character is unobstructed */}
+          <div className="hidden md:flex md:w-2/3" aria-hidden="true" />
+        </section>
+
+        {/* BEGIN: Bottom Section */}
+        <div className="relative w-full px-6 sm:px-12 lg:px-24 pb-8 flex flex-col md:flex-row justify-between items-start md:items-end z-40 gap-6" data-purpose="bottom-bar">
+          
+          {/* Foreground Name */}
+          <div className="flex flex-col justify-end">
+            <span className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 text-white/80">©2026</span>
+            <h1 className="hero-main-title text-white">NEHEMIAH</h1>
+          </div>
+
+          {/* UNAI TECH Hyperlink Floating Element (Replaces Let's Talk Button) */}
+          <a
+            href="https://unaitech.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => sound.playClick()}
+            className="group block bg-black/80 hover:bg-black text-white p-3.5 rounded-2xl border border-white/25 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:border-[#ea431b] w-full sm:w-[320px] self-end cursor-pointer"
+            title="Visit UNAI TECH Official Platform (unaitech.com)"
+            data-purpose="unai-floating-widget"
+          >
+            <div className="flex items-center space-x-3.5">
+              {/* UNAI TECH Logo Badge */}
+              <div className="w-13 h-13 rounded-xl bg-gradient-to-tr from-[#ea431b] to-[#ff7347] flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(234,67,27,0.7)] border border-white/20">
+                <svg viewBox="0 0 48 48" fill="none" className="w-7 h-7 text-white">
+                  <polygon points="24,6 42,16 42,32 24,42 6,32 6,16" stroke="white" strokeWidth="2.5" strokeLinejoin="round" fill="none" opacity="0.9" />
+                  <circle cx="24" cy="24" r="5" fill="white" />
+                  <line x1="24" y1="6" x2="24" y2="18" stroke="white" strokeWidth="2" strokeDasharray="2 2" />
+                  <line x1="42" y1="32" x2="30" y2="28" stroke="white" strokeWidth="2" strokeDasharray="2 2" />
+                  <line x1="6" y1="32" x2="18" y2="28" stroke="white" strokeWidth="2" strokeDasharray="2 2" />
+                </svg>
+              </div>
+
+              {/* Info Text */}
+              <div className="flex-grow min-w-0">
+                <div className="flex items-center gap-1.5 mb-0.5">
+                  <span className="w-2 h-2 rounded-full bg-[#ea431b] animate-pulse" />
+                  <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider">OFFICIAL PLATFORM</span>
+                </div>
+                <p className="font-black text-sm text-white tracking-wide truncate" style={{ fontFamily: "'Archivo Black', sans-serif" }}>
+                  UNAI TECH
+                </p>
+                <p className="text-[11px] font-mono text-amber-300 group-hover:text-white transition-colors truncate flex items-center gap-1">
+                  <span>unaitech.com</span>
+                  <span className="text-xs">↗</span>
+                </p>
+              </div>
+
+              {/* Arrow Action Button */}
+              <div className="w-9 h-9 bg-white/10 group-hover:bg-[#ea431b] text-white rounded-xl flex items-center justify-center transition-colors shrink-0 border border-white/15">
+                <svg fill="none" height="16" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" viewBox="0 0 24 24" width="16">
+                  <line x1="7" x2="17" y1="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </a>
+
         </div>
 
-        {/* Core Hero Overview Card */}
-        <div className="mt-8 max-w-3xl mx-auto text-center px-4">
-          <p className="body-copy text-lg sm:text-xl text-[#2b2738] font-medium leading-relaxed">
-            {CEO_PROFILE.introParagraph}
-          </p>
-
-          {/* Intersections Chips */}
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-            {CEO_PROFILE.intersections.map((item, idx) => (
-              <span
-                key={idx}
-                className="px-3 py-1 rounded-full text-xs font-black tracking-wider uppercase bg-white border border-[rgba(73,84,250,0.25)] text-[#060010] shadow-2xs hover:border-[rgba(73,84,250,0.8)] hover:text-[rgba(73,84,250,1)] transition-colors"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-
-          {/* Key Callout Banner */}
-          <div className="mt-6 p-4 rounded-2xl bg-[rgba(73,84,250,0.06)] border border-[rgba(73,84,250,0.25)] text-center">
-            <p className="eyebrow text-xs sm:text-sm text-[#4b4661] font-bold">
-              {CEO_PROFILE.coreBeliefCallout}
-            </p>
-            <p className="display text-xl sm:text-2xl font-black text-[rgba(73,84,250,1)] mt-1">
-              "{CEO_PROFILE.coreBeliefPunchline}"
-            </p>
-          </div>
-
-          {/* Direct Contact Bar */}
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-[#4b4661]">
-            <a
-              href={`tel:${CEO_PROFILE.contactPhone}`}
-              className="inline-flex items-center gap-1.5 hover:text-[rgba(73,84,250,1)] transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-[rgba(73,84,250,1)]" />
-              <span>Contact: {CEO_PROFILE.contactPhone}</span>
-            </a>
-            <span>•</span>
-            <a
-              href={`mailto:${CEO_PROFILE.contactEmail}`}
-              className="inline-flex items-center gap-1.5 hover:text-[rgba(73,84,250,1)] transition-colors"
-            >
-              <Mail className="w-3.5 h-3.5 text-[rgba(73,84,250,1)]" />
-              <span>{CEO_PROFILE.contactEmail}</span>
-            </a>
-          </div>
-        </div>
       </div>
-
-      {/* Bottom Navigation & Anchor Links */}
-      <footer className="relative z-20 mx-auto w-full max-w-[112rem] flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[rgba(73,84,250,0.15)]">
-        <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-          <a
-            href="#about"
-            onClick={() => sound.playPaperRustle()}
-            className="group inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-[#060010] hover:text-[rgba(73,84,250,1)] transition-colors"
-          >
-            <span>ABOUT ME</span>
-            <ArrowDown className="w-3.5 h-3.5 transition-transform group-hover:translate-y-1" />
-          </a>
-
-          <a
-            href="#leadership"
-            onClick={() => sound.playPaperRustle()}
-            className="text-xs font-extrabold uppercase tracking-widest text-[#4b4661] hover:text-[rgba(73,84,250,1)] transition-colors"
-          >
-            LEADERSHIP & VISION
-          </a>
-
-          <a
-            href="#unai-tech"
-            onClick={() => sound.playPaperRustle()}
-            className="text-xs font-extrabold uppercase tracking-widest text-[#4b4661] hover:text-[rgba(73,84,250,1)] transition-colors"
-          >
-            UNAI TECH
-          </a>
-
-          <a
-            href="#ventures"
-            onClick={() => sound.playPaperRustle()}
-            className="text-xs font-extrabold uppercase tracking-widest text-[#4b4661] hover:text-[rgba(73,84,250,1)] transition-colors hidden sm:inline-block"
-          >
-            PRODUCTS & VENTURES
-          </a>
-
-          <a
-            href="#roadmap"
-            onClick={() => sound.playPaperRustle()}
-            className="text-xs font-extrabold uppercase tracking-widest text-[#4b4661] hover:text-[rgba(73,84,250,1)] transition-colors hidden md:inline-block"
-          >
-            ROADMAP (2026-2030+)
-          </a>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={() => {
-              sound.playClick();
-              onOpenBooking();
-            }}
-            className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-[#060010] bg-transparent text-xs font-black uppercase tracking-wider text-[#060010] hover:bg-[rgba(73,84,250,1)] hover:border-[rgba(73,84,250,1)] hover:text-white transition-all cursor-pointer"
-          >
-            <Calendar className="w-3.5 h-3.5 text-[rgba(73,84,250,1)]" />
-            <span>CONNECT & SCHEDULE</span>
-          </button>
-        </div>
-      </footer>
     </section>
   );
 };
+

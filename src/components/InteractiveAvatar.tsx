@@ -206,7 +206,7 @@ export const InteractiveAvatar: React.FC<InteractiveAvatarProps> = ({
         </g>
 
         {/* Purple Lapel Pin / Badge */}
-        <circle cx="48" cy="195" r="4.5" fill="rgba(73, 84, 250, 1)" />
+        <circle cx="48" cy="195" r="4.5" fill="rgba(234, 67, 27, 1)" />
       </svg>
 
       {/* Floating Mode Tooltip on Hover */}

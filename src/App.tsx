@@ -44,7 +44,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-white text-[#060010] overflow-x-hidden selection:bg-[rgba(73,84,250,1)] selection:text-white">
+    <div className="relative min-h-screen bg-[#ea431b] text-white overflow-x-hidden selection:bg-white selection:text-[#ea431b]">
       {/* Custom Interactive Cursor */}
       <CustomCursor />
 
@@ -59,7 +59,7 @@ export default function App() {
       {/* Main Portfolio Sections */}
       <main className="relative">
         {/* 1. Hero Cover with Nehemiah Nesanathan Identity, Intersections & Core Maxim */}
-        <RevealSection delay={0.05} threshold={0.05}>
+        <RevealSection delay={0.02} threshold={0.02} direction="fade">
           <HeroCover
             onOpenAdvisor={() => {
               setAdvisorPrompt("");
@@ -72,37 +72,37 @@ export default function App() {
         </RevealSection>
 
         {/* 2. Executive Bio, About Me, Leadership Principles, Beliefs & Vision */}
-        <RevealSection delay={0.1} threshold={0.08}>
+        <RevealSection delay={0.08} threshold={0.08} direction="up">
           <ExecutiveIntro onOpenAdvisorWithPrompt={handleOpenAdvisorWithPrompt} />
         </RevealSection>
 
         {/* 3. Cyber Noir Marquee Ribbon */}
-        <RevealSection delay={0.08} threshold={0.1}>
+        <RevealSection delay={0.05} threshold={0.08} direction="fade">
           <TornPaperMarquee />
         </RevealSection>
 
         {/* 4. UNAI TECH Overview & Intelligence Architecture Pipeline */}
-        <RevealSection delay={0.1} threshold={0.08}>
+        <RevealSection delay={0.08} threshold={0.08} direction="up">
           <UnaiTechSection onOpenAdvisorWithPrompt={handleOpenAdvisorWithPrompt} />
         </RevealSection>
 
         {/* 5. Products & Ventures: My Vidyon, PostsApp, Vidyo AI, UNAI Eleven/UEOS */}
-        <RevealSection delay={0.1} threshold={0.08}>
+        <RevealSection delay={0.08} threshold={0.08} direction="scale">
           <VenturesBento onOpenAdvisorWithVenture={handleOpenAdvisorWithVenture} />
         </RevealSection>
 
         {/* 6. Technology Thinking, Moat & Industries of Impact */}
-        <RevealSection delay={0.1} threshold={0.08}>
+        <RevealSection delay={0.08} threshold={0.08} direction="up">
           <TechThinkingAndIndustries />
         </RevealSection>
 
         {/* 7. Business Philosophy, Roadmap (2026-2030+), CEO Principles & Mission */}
-        <RevealSection delay={0.1} threshold={0.08}>
+        <RevealSection delay={0.08} threshold={0.08} direction="up">
           <PhilosophyRoadmapPrinciples />
         </RevealSection>
 
         {/* 8. Connect With Me, Contact Details & Footer */}
-        <RevealSection delay={0.1} threshold={0.08}>
+        <RevealSection delay={0.08} threshold={0.08} direction="scale">
           <FooterContact onOpenBooking={() => setIsBookingOpen(true)} />
         </RevealSection>
       </main>

@@ -4,8 +4,9 @@ interface RevealSectionProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
-  delay?: number; // optional delay in ms
+  delay?: number; // can be in seconds or ms
   threshold?: number;
+  direction?: "up" | "down" | "fade" | "scale";
 }
 
 export const RevealSection: React.FC<RevealSectionProps> = ({
@@ -13,24 +14,26 @@ export const RevealSection: React.FC<RevealSectionProps> = ({
   className = "",
   id,
   delay = 0,
-  threshold = 0.12
+  threshold = 0.08,
+  direction = "up"
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
+
+  const delayMs = delay < 15 ? delay * 1000 : delay;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          if (delay > 0) {
+          if (delayMs > 0) {
             const timer = setTimeout(() => {
               setIsVisible(true);
-            }, delay);
+            }, delayMs);
             return () => clearTimeout(timer);
           } else {
             setIsVisible(true);
           }
-          // Once animated in, we can unobserve if we want a permanent reveal
           if (domRef.current) {
             observer.unobserve(domRef.current);
           }
@@ -38,7 +41,7 @@ export const RevealSection: React.FC<RevealSectionProps> = ({
       },
       {
         threshold,
-        rootMargin: "0px 0px -40px 0px"
+        rootMargin: "0px 0px -60px 0px"
       }
     );
 
@@ -52,19 +55,34 @@ export const RevealSection: React.FC<RevealSectionProps> = ({
         observer.unobserve(currentRef);
       }
     };
-  }, [delay, threshold]);
+  }, [delayMs, threshold]);
+
+  const getHiddenStyles = () => {
+    switch (direction) {
+      case "scale":
+        return "opacity-0 scale-[0.96] translate-y-8";
+      case "down":
+        return "opacity-0 -translate-y-10";
+      case "fade":
+        return "opacity-0";
+      case "up":
+      default:
+        return "opacity-0 translate-y-12";
+    }
+  };
 
   return (
     <div
       ref={domRef}
       id={id}
-      className={`transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${
+      className={`transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] transform will-change-[transform,opacity] ${
         isVisible
-          ? "opacity-100 translate-y-0 filter-none"
-          : "opacity-0 translate-y-12 blur-[1.5px]"
+          ? "opacity-100 translate-y-0 scale-100 filter-none"
+          : `${getHiddenStyles()} blur-[1px]`
       } ${className}`}
     >
       {children}
     </div>
   );
 };
+

@@ -1,32 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --hue: 27;
-  --sat: 69%;
+  --hue: 18;
+  --sat: 95%;
   --white: hsl(0, 0%, 100%);
-  --purple-primary: rgba(73, 84, 250, 1);
-  --purple-glow: rgba(73, 84, 250, 0.2);
-  --purple-border: rgba(73, 84, 250, 0.8);
-  --border-color: #392e4e;
-  --background-dark: #060010;
-  --swiper-theme-color: #007aff;
+  --purple-primary: #ea431b;
+  --purple-glow: rgba(234, 67, 27, 0.25);
+  --purple-border: rgba(234, 67, 27, 0.8);
+  --border-color: #4a2820;
+  --background-dark: #0d0604;
+  --swiper-theme-color: #ea431b;
   --white-pure: 0 0% 100%;
   --white-soft: 0 0% 98%;
   --white-muted: 0 0% 96%;
   --white-elevated: 0 0% 94%;
-  --purple-900: 236 95% 35%;
-  --purple-700: 236 95% 50%;
-  --purple-500: 236 95% 64%;
-  --purple-400: 236 95% 72%;
-  --purple-300: 236 95% 80%;
-  --purple-200: 236 95% 90%;
-  --purple-100: 236 95% 97%;
-  --accent-purple-light: 236 95% 75%;
-  --accent-purple-dark: 236 95% 55%;
-  --accent-glow: 236 95% 64%;
-  --lavender-300: 270 60% 85%;
-  --lavender-200: 270 60% 90%;
-  --lavender-100: 270 60% 95%;
+  --purple-900: 18 90% 30%;
+  --purple-700: 18 90% 45%;
+  --purple-500: 18 90% 52%;
+  --purple-400: 18 90% 64%;
+  --purple-300: 18 90% 76%;
+  --purple-200: 18 90% 88%;
+  --purple-100: 18 90% 96%;
+  --accent-purple-light: 18 90% 68%;
+  --accent-purple-dark: 18 90% 46%;
+  --accent-glow: 18 90% 52%;
+  --lavender-300: 25 70% 85%;
+  --lavender-200: 25 70% 90%;
+  --lavender-100: 25 70% 96%;
   --background: var(--white-pure);
   --foreground: 0 0% 15%;
   --card: var(--white-soft);
@@ -48,13 +48,13 @@
   --ring: var(--purple-500);
   --radius: 0.5rem;
   
-  --color-paper: #ffffff;
-  --color-paper-soft: #fafafa;
-  --color-paper-elevated: #f5f5f5;
-  --color-ink: #0d0a1a;
-  --color-graphite: #4b4661;
-  --color-signal: #4954fa;
-  --color-noir: #060010;
+  --color-paper: #ea431b;
+  --color-paper-soft: #d83d16;
+  --color-paper-elevated: #c7310e;
+  --color-ink: #ffffff;
+  --color-graphite: #ffddd4;
+  --color-signal: #ffffff;
+  --color-noir: #0a0403;
   --font-display: 'Archivo', 'Archivo Black', 'Syne', sans-serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-hand: 'Caveat', cursive;
@@ -62,8 +62,8 @@
 }
 
 body {
-  background-color: var(--color-paper);
-  color: var(--color-ink);
+  background-color: #ea431b;
+  color: #ffffff;
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -129,11 +129,11 @@ body {
   left: 0;
   width: 14px;
   height: 14px;
-  background-color: var(--purple-primary);
+  background-color: #ea431b;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  box-shadow: 0 0 14px rgba(73, 84, 250, 0.6);
+  box-shadow: 0 0 14px rgba(234, 67, 27, 0.7);
   transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
               height 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
               background-color 0.25s ease,
@@ -146,7 +146,7 @@ body {
   width: 52px;
   height: 52px;
   background-color: #ffffff;
-  box-shadow: 0 0 24px rgba(73, 84, 250, 0.9);
+  box-shadow: 0 0 24px rgba(234, 67, 27, 0.9);
   mix-blend-mode: difference;
 }
 
@@ -166,8 +166,8 @@ body {
   pointer-events: none;
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(73, 84, 250, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(73, 84, 250, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
 }
 
 .paper-grain {
@@ -178,10 +178,10 @@ body {
 .polaroid-card {
   background: #ffffff;
   padding: 14px 14px 28px 14px;
-  border: 1px solid rgba(73, 84, 250, 0.15);
+  border: 1px solid rgba(234, 67, 27, 0.18);
   box-shadow: 
     0 1px 3px rgba(6, 0, 16, 0.06),
-    0 8px 24px -4px rgba(73, 84, 250, 0.08),
+    0 8px 24px -4px rgba(234, 67, 27, 0.1),
     0 20px 40px -10px rgba(6, 0, 16, 0.05);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
   position: relative;
@@ -189,11 +189,11 @@ body {
 
 .polaroid-card:hover {
   transform: translateY(-8px) scale(1.03) rotate(var(--hover-rot, 0deg)) !important;
-  border-color: rgba(73, 84, 250, 0.6);
+  border-color: rgba(234, 67, 27, 0.7);
   box-shadow: 
     0 4px 8px rgba(6, 0, 16, 0.08),
-    0 16px 36px -4px rgba(73, 84, 250, 0.22),
-    0 30px 60px -12px rgba(73, 84, 250, 0.28);
+    0 16px 36px -4px rgba(234, 67, 27, 0.25),
+    0 30px 60px -12px rgba(234, 67, 27, 0.3);
   z-index: 30;
 }
 
@@ -204,8 +204,8 @@ body {
   transform: translateX(-50%) rotate(-1deg);
   width: 80px;
   height: 24px;
-  background: rgba(220, 225, 255, 0.7);
-  box-shadow: 0 1px 2px rgba(73, 84, 250, 0.15);
+  background: rgba(255, 220, 210, 0.75);
+  box-shadow: 0 1px 2px rgba(234, 67, 27, 0.2);
   backdrop-filter: blur(2px);
   z-index: 2;
 }
@@ -220,7 +220,7 @@ body {
 }
 
 .connect-cta:hover {
-  color: var(--purple-primary);
+  color: #ea431b;
 }
 
 .connect-cta__arrow {
@@ -244,9 +244,9 @@ body {
   background: var(--color-paper);
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4d7f5;
+  background: #fed7cc;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--purple-primary);
+  background: #ea431b;
 }

@@ -20,7 +20,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
   };
 
   return (
-    <footer id="contact" className="relative w-full overflow-hidden select-none" aria-label="Connect With Me">
+    <footer id="contact" className="relative w-full overflow-hidden select-none bg-[#ea431b] text-white" aria-label="Connect With Me">
       
       {/* Footer Marquee Banner */}
       <div className="relative overflow-hidden pt-[clamp(4rem,10vw,8rem)] pb-[clamp(2.5rem,6vw,4.5rem)]">
@@ -29,7 +29,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
             {[...Array(4)].map((_, idx) => (
               <span
                 key={idx}
-                className="display inline-block text-[clamp(2.5rem,8vw,10rem)] tracking-[-0.03em] px-8 text-[#060010]"
+                className="display inline-block text-[clamp(2.5rem,8vw,10rem)] tracking-[-0.03em] px-8 text-white"
               >
                 NEHEMIAH NESANATHAN &bull; UNAI TECH &bull; CEO &bull;&nbsp;
               </span>
@@ -41,7 +41,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
         <div className="relative z-10 mx-auto max-w-[112rem] px-[max(1.5rem,7vw)]">
           
           {/* Section Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[rgba(73,84,250,0.08)] text-[rgba(73,84,250,1)] text-xs font-black tracking-widest uppercase mb-4 border border-[rgba(73,84,250,0.3)]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/25 text-white text-xs font-black tracking-widest uppercase mb-4 border border-white/25">
             {CONNECT_WITH_ME.badge}
           </div>
 
@@ -50,7 +50,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
             <a
               href={`mailto:${CONNECT_WITH_ME.email}`}
               onClick={() => sound.playPaperRustle()}
-              className="connect-cta display m-0 text-[clamp(2.8rem,7vw,8.5rem)] tracking-[-0.045em] leading-[0.92] text-[#060010] hover:text-[rgba(73,84,250,1)] transition-colors"
+              className="connect-cta display m-0 text-[clamp(2.8rem,7vw,8.5rem)] tracking-[-0.045em] leading-[0.92] text-white hover:text-amber-300 transition-colors"
             >
               <span>
                 {CONNECT_WITH_ME.headline}
@@ -62,7 +62,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
             </a>
           </div>
 
-          <p className="eyebrow m-0 mt-6 text-[#060010] text-xs sm:text-sm tracking-[0.2em] font-extrabold">
+          <p className="eyebrow m-0 mt-6 text-white/90 text-xs sm:text-sm tracking-[0.2em] font-extrabold">
             {CONNECT_WITH_ME.lead.toUpperCase()}
           </p>
 
@@ -71,7 +71,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
             {CONNECT_WITH_ME.topics.map((topic, idx) => (
               <span
                 key={idx}
-                className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white border border-[rgba(73,84,250,0.25)] text-[#060010] shadow-2xs hover:border-[rgba(73,84,250,0.8)] hover:text-[rgba(73,84,250,1)] transition-colors"
+                className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-black border border-white/40 shadow-sm hover:bg-black hover:text-white transition-colors"
               >
                 &bull; {topic}
               </span>
@@ -79,9 +79,9 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
           </div>
 
           {/* CTA Box */}
-          <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-[#060010] text-white border-2 border-[#392e4e] max-w-2xl shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-black/40 text-white border-2 border-white/20 max-w-2xl shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 backdrop-blur-xs">
             <div>
-              <p className="eyebrow text-xs text-gray-400 font-bold mb-1">
+              <p className="eyebrow text-xs text-amber-300 font-bold mb-1">
                 {CONNECT_WITH_ME.ctaHeadline}
               </p>
               <p className="display text-2xl sm:text-3xl font-black text-white">
@@ -95,7 +95,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
                 sound.playClick();
                 onOpenBooking();
               }}
-              className="px-6 py-3 rounded-full bg-[rgba(73,84,250,1)] text-white text-xs font-black uppercase tracking-widest hover:bg-white hover:text-[#060010] transition-all shadow-md cursor-pointer shrink-0"
+              className="px-6 py-3 rounded-full bg-white text-[#ea431b] text-xs font-black uppercase tracking-widest hover:bg-black hover:text-white transition-all shadow-md cursor-pointer shrink-0"
             >
               START A CONVERSATION &rarr;
             </button>
@@ -103,66 +103,66 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
 
           {/* Contact Details Grid */}
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl">
-            <div className="p-4 rounded-xl bg-white border border-[rgba(73,84,250,0.2)]">
-              <span className="eyebrow text-[10px] text-gray-400 block mb-1 font-bold">EMAIL</span>
+            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-white/40">
+              <span className="eyebrow text-[10px] text-zinc-500 block mb-1 font-bold">EMAIL</span>
               <a
                 href={`mailto:${CONNECT_WITH_ME.email}`}
-                className="body-copy text-sm font-black text-[#060010] hover:text-[rgba(73,84,250,1)] transition-colors inline-flex items-center gap-1.5"
+                className="body-copy text-sm font-black text-black hover:text-[#ea431b] transition-colors inline-flex items-center gap-1.5"
               >
-                <Mail className="w-3.5 h-3.5 text-[rgba(73,84,250,1)]" />
+                <Mail className="w-3.5 h-3.5 text-[#ea431b]" />
                 <span>{CONNECT_WITH_ME.email}</span>
               </a>
             </div>
 
-            <div className="p-4 rounded-xl bg-white border border-[rgba(73,84,250,0.2)]">
-              <span className="eyebrow text-[10px] text-gray-400 block mb-1 font-bold">PHONE</span>
+            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-white/40">
+              <span className="eyebrow text-[10px] text-zinc-500 block mb-1 font-bold">PHONE</span>
               <a
                 href={`tel:${CEO_PROFILE.contactPhone}`}
-                className="body-copy text-sm font-black text-[#060010] hover:text-[rgba(73,84,250,1)] transition-colors inline-flex items-center gap-1.5"
+                className="body-copy text-sm font-black text-black hover:text-[#ea431b] transition-colors inline-flex items-center gap-1.5"
               >
-                <Phone className="w-3.5 h-3.5 text-[rgba(73,84,250,1)]" />
+                <Phone className="w-3.5 h-3.5 text-[#ea431b]" />
                 <span>{CONNECT_WITH_ME.phone}</span>
               </a>
             </div>
 
-            <div className="p-4 rounded-xl bg-white border border-[rgba(73,84,250,0.2)]">
-              <span className="eyebrow text-[10px] text-gray-400 block mb-1 font-bold">WEBSITE</span>
+            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-white/40">
+              <span className="eyebrow text-[10px] text-zinc-500 block mb-1 font-bold">WEBSITE</span>
               <a
                 href={`https://${CONNECT_WITH_ME.website}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="body-copy text-sm font-black text-[#060010] hover:text-[rgba(73,84,250,1)] transition-colors inline-flex items-center gap-1.5"
+                className="body-copy text-sm font-black text-black hover:text-[#ea431b] transition-colors inline-flex items-center gap-1.5"
               >
-                <Globe className="w-3.5 h-3.5 text-[rgba(73,84,250,1)]" />
+                <Globe className="w-3.5 h-3.5 text-[#ea431b]" />
                 <span>{CONNECT_WITH_ME.website}</span>
               </a>
             </div>
 
-            <div className="p-4 rounded-xl bg-white border border-[rgba(73,84,250,0.2)]">
-              <span className="eyebrow text-[10px] text-gray-400 block mb-1 font-bold">LINKEDIN</span>
+            <div className="p-4 rounded-xl bg-white text-black shadow-xl border border-white/40">
+              <span className="eyebrow text-[10px] text-zinc-500 block mb-1 font-bold">LINKEDIN</span>
               <a
                 href={CEO_PROFILE.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="body-copy text-sm font-black text-[#060010] hover:text-[rgba(73,84,250,1)] transition-colors inline-flex items-center gap-1.5"
+                className="body-copy text-sm font-black text-black hover:text-[#ea431b] transition-colors inline-flex items-center gap-1.5"
               >
-                <Linkedin className="w-3.5 h-3.5 text-[rgba(73,84,250,1)]" />
+                <Linkedin className="w-3.5 h-3.5 text-[#ea431b]" />
                 <span>{CONNECT_WITH_ME.linkedin}</span>
               </a>
             </div>
           </div>
 
           {/* Socials & Signature Row */}
-          <div className="mt-[clamp(3rem,8vw,6rem)] flex flex-wrap items-end justify-between gap-6 pt-8 border-t border-[rgba(73,84,250,0.2)]">
+          <div className="mt-[clamp(3rem,8vw,6rem)] flex flex-wrap items-end justify-between gap-6 pt-8 border-t border-white/20">
             <div className="flex flex-col items-start gap-1">
-              <span className="block h-[3px] w-10 bg-[rgba(73,84,250,1)] rounded-full" aria-hidden="true" />
-              <span className="text-[#060010] font-hand text-3xl sm:text-4xl font-bold leading-tight">
+              <span className="block h-[3px] w-10 bg-white rounded-full" aria-hidden="true" />
+              <span className="text-white font-hand text-3xl sm:text-4xl font-bold leading-tight">
                 {CEO_PROFILE.name}
               </span>
-              <span className="eyebrow text-xs text-[#060010] tracking-widest font-black">
+              <span className="eyebrow text-xs text-white/90 tracking-widest font-black">
                 {CEO_PROFILE.subtitle}
               </span>
-              <p className="font-serif-italic text-sm text-[rgba(73,84,250,1)] font-bold mt-1">
+              <p className="font-serif-italic text-sm text-amber-200 font-bold mt-1">
                 Building Businesses. Engineering Intelligence. Creating What's Next.
               </p>
             </div>
@@ -171,10 +171,10 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
               <button
                 type="button"
                 onClick={handleDownloadDossier}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-[#060010] bg-white text-xs font-black uppercase tracking-wider text-[#060010] hover:bg-[#060010] hover:text-white transition-all shadow-sm cursor-pointer"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-white bg-white text-xs font-black uppercase tracking-wider text-[#ea431b] hover:bg-black hover:text-white hover:border-black transition-all shadow-md cursor-pointer"
                 title="Print or Save Executive Portfolio"
               >
-                <Download className="w-3.5 h-3.5 text-[rgba(73,84,250,1)]" />
+                <Download className="w-3.5 h-3.5 text-[#ea431b]" />
                 <span>EXPORT PORTFOLIO DOSSIER</span>
               </button>
             </div>
@@ -193,13 +193,13 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
         >
           <path
             d="M 0 40 Q 400 15 800 50 T 1600 35 L 1600 100 L 0 100 Z"
-            fill="#060010"
+            fill="#140502"
           />
         </svg>
       </div>
 
       {/* Noir Copyright Strip */}
-      <div className="bg-[#060010] text-white px-[max(1.5rem,7vw)] py-6 flex flex-wrap items-center justify-between gap-4 text-xs font-mono border-t border-[#392e4e]">
+      <div className="bg-[#140502] text-white px-[max(1.5rem,7vw)] py-6 flex flex-wrap items-center justify-between gap-4 text-xs font-mono border-t border-white/10">
         <div>
           <p className="m-0 text-white font-bold">
             {CEO_PROFILE.name} &bull; {CEO_PROFILE.subtitle}
@@ -208,7 +208,7 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
             &copy; 2026 UNAI TECH &bull; All Rights Reserved.
           </p>
         </div>
-        <p className="m-0 text-[rgba(73,84,250,1)] font-semibold text-xs">
+        <p className="m-0 text-amber-300 font-semibold text-xs">
           Building Businesses &bull; Engineering Intelligence &bull; Creating What's Next
         </p>
       </div>
