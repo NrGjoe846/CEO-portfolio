@@ -244,69 +244,30 @@ export const FooterContact: React.FC<FooterContactProps> = ({ onOpenBooking }) =
           </p>
         </div>
 
-        {/* Crafted by UNAI TECH Badge */}
+        {/* Crafted by UNAI TECH Badge - Themed in Website Dark Cyan Style */}
         <div>
           <a
             href="https://www.unaitech.com/"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "14px",
-              background: "#FFFFFF",
-              borderRadius: "18px",
-              padding: "10px 22px",
-              textDecoration: "none",
-              transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-              border: "1px solid #E5E5E5",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.02)"
-            }}
-            className="unai-badge hover:scale-105 transition-transform"
+            onClick={() => sound.playClick()}
+            className="group inline-flex items-center gap-3.5 bg-[#0a1226]/90 hover:bg-[#0e1a38] px-5 py-2.5 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(56,189,248,0.35)] backdrop-blur-md transition-all duration-300 hover:scale-105 cursor-pointer no-underline"
+            title="Crafted by UNAI TECH (unaitech.com)"
           >
-            <div style={{ display: "flex", flexDirection: "column", gap: "3px", textAlign: "left" }}>
-              <span
-                style={{
-                  fontSize: "0.6rem",
-                  fontWeight: 700,
-                  color: "#8A8A8A",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.15em",
-                  lineHeight: 1.2
-                }}
-              >
+            <div className="flex flex-col gap-0.5 text-left">
+              <span className="text-[10px] font-mono font-bold text-cyan-300 uppercase tracking-widest leading-none">
                 Crafted by
               </span>
-              <span
-                style={{
-                  fontSize: "1.05rem",
-                  fontWeight: 800,
-                  letterSpacing: "0.04em",
-                  lineHeight: 1.1
-                }}
-              >
-                <span style={{ color: "#E10613" }}>UNAI</span> <span style={{ color: "#2A2A2A" }}>TECH</span>
+              <span className="text-base sm:text-lg font-black tracking-wide leading-tight text-white group-hover:text-[#38bdf8] transition-colors" style={{ fontFamily: "'Archivo Black', sans-serif" }}>
+                UNAI <span className="text-[#38bdf8]">TECH</span>
               </span>
             </div>
-            <div
-              style={{
-                width: "30px",
-                height: "30px",
-                borderRadius: "50%",
-                background: "#E10613",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-                transition: "all 0.3s ease"
-              }}
-              className="unai-arrow-circle"
-            >
-              <svg width="11" height="11" viewBox="0 0 10 10" fill="none">
+            <div className="w-8 h-8 rounded-full bg-cyan-500/20 border border-cyan-400/40 group-hover:bg-[#38bdf8] group-hover:text-black text-cyan-300 flex items-center justify-center shrink-0 transition-all duration-300 shadow-[0_0_12px_rgba(56,189,248,0.25)]">
+              <svg width="12" height="12" viewBox="0 0 10 10" fill="none" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                 <path
                   d="M2 8L8 2M8 2H3M8 2V7"
-                  stroke="#FFFFFF"
-                  strokeWidth="1.8"
+                  stroke="currentColor"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
