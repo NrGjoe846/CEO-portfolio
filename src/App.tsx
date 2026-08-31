@@ -5,11 +5,14 @@
 
 import React, { useState } from "react";
 import { CustomCursor } from "./components/CustomCursor";
+import { ScrollProgressBar } from "./components/ScrollProgressBar";
 import { HeroCover } from "./components/HeroCover";
 import { ExecutiveIntro } from "./components/ExecutiveIntro";
+import { StatsNumbersSection } from "./components/StatsNumbersSection";
 import { TornPaperMarquee } from "./components/TornPaperMarquee";
 import { UnaiTechSection } from "./components/UnaiTechSection";
 import { VenturesBento } from "./components/VenturesBento";
+import { WorkHistorySection } from "./components/WorkHistorySection";
 import { TechThinkingAndIndustries } from "./components/TechThinkingAndIndustries";
 import { VideoPlayerSection } from "./components/VideoPlayerSection";
 import { PhilosophyRoadmapPrinciples } from "./components/PhilosophyRoadmapPrinciples";
@@ -46,6 +49,9 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#0a1226] text-white overflow-x-hidden selection:bg-[#2563eb] selection:text-white">
+      {/* Scroll Progress & Grain Texture */}
+      <ScrollProgressBar />
+
       {/* Custom Interactive Cursor */}
       <CustomCursor />
 
@@ -77,37 +83,47 @@ export default function App() {
           <ExecutiveIntro onOpenAdvisorWithPrompt={handleOpenAdvisorWithPrompt} />
         </RevealSection>
 
-        {/* 3. Cyber Noir Marquee Ribbon */}
+        {/* 3. By the Numbers / Stats Section */}
+        <RevealSection delay={0.08} threshold={0.08} direction="up">
+          <StatsNumbersSection />
+        </RevealSection>
+
+        {/* 4. Cyber Noir Marquee Ribbon */}
         <RevealSection delay={0.05} threshold={0.08} direction="fade">
           <TornPaperMarquee />
         </RevealSection>
 
-        {/* 4. UNAI TECH Overview & Intelligence Architecture Pipeline */}
+        {/* 5. UNAI TECH Overview & Intelligence Architecture Pipeline */}
         <RevealSection delay={0.08} threshold={0.08} direction="up">
           <UnaiTechSection onOpenAdvisorWithPrompt={handleOpenAdvisorWithPrompt} />
         </RevealSection>
 
-        {/* 5. Executive Vision & Systems Video Player Demo */}
+        {/* 6. Executive Vision & Systems Video Player Demo */}
         <RevealSection delay={0.08} threshold={0.08} direction="up">
           <VideoPlayerSection />
         </RevealSection>
 
-        {/* 6. Products & Ventures: My Vidyon, PostsApp, Vidyo AI, UNAI Eleven/UEOS */}
+        {/* 7. Products & Ventures: My Vidyon, PostsApp, Vidyo AI, UNAI 11/UEOS */}
         <RevealSection delay={0.08} threshold={0.08} direction="scale">
           <VenturesBento onOpenAdvisorWithVenture={handleOpenAdvisorWithVenture} />
         </RevealSection>
 
-        {/* 7. Technology Thinking, Moat & Industries of Impact */}
+        {/* 8. Work History & Career Trajectory */}
+        <RevealSection delay={0.08} threshold={0.08} direction="up">
+          <WorkHistorySection />
+        </RevealSection>
+
+        {/* 9. Technology Thinking, Moat & Industries of Impact */}
         <RevealSection delay={0.08} threshold={0.08} direction="up">
           <TechThinkingAndIndustries />
         </RevealSection>
 
-        {/* 8. Business Philosophy, Roadmap (2026-2030+), CEO Principles & Mission */}
+        {/* 10. Business Philosophy, Roadmap (2026-2030+), CEO Principles & Mission */}
         <RevealSection delay={0.08} threshold={0.08} direction="up">
           <PhilosophyRoadmapPrinciples />
         </RevealSection>
 
-        {/* 8. Connect With Me, Contact Details & Footer */}
+        {/* 11. Connect With Me, Contact Details & Footer */}
         <RevealSection delay={0.08} threshold={0.08} direction="scale">
           <FooterContact onOpenBooking={() => setIsBookingOpen(true)} />
         </RevealSection>
