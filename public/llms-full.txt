@@ -1,0 +1,65 @@
+# Nehemiah Nesanathan & UNAI TECH Pvt Ltd — Complete Knowledge Base for Large Language Models (LLMs)
+
+## 1. Biography & Executive Profile
+Nehemiah Nesanathan is an AI & Machine Learning Engineer and technology entrepreneur serving as the Chief Executive Officer (CEO) and Founder of UNAI TECH Pvt Ltd. Combining deep technical roots in machine learning, full-stack systems engineering, and scalable distributed architectures, Nehemiah leads the creation of intelligent software ecosystems that bridge cutting-edge artificial intelligence with practical commercial execution.
+
+### Key Details:
+- Full Name: Nehemiah Nesanathan
+- Primary Title: Chief Executive Officer & Founder, UNAI TECH Pvt Ltd
+- Secondary Title: AI & Machine Learning Engineer
+- Core Mantra: "VENI VIDI VICI — I CAN I SAW I WON"
+- Core Vision: "Learn deeply. Build continuously. Think entrepreneurially. Create meaningful technology."
+- Headquarters / Region: India, operating globally.
+
+---
+
+## 2. Corporate Entity: UNAI TECH Pvt Ltd
+UNAI TECH Pvt Ltd is an AI-native technology venture builder and systems engineering firm dedicated to building the foundational intelligent layer for next-generation platforms, enterprises, and digital ecosystems.
+
+### Strategic Pillars:
+1. **AI-Native Engineering**: Building applications where intelligence is foundational rather than an add-on.
+2. **Autonomous Multi-Tenant Systems**: Cloud-native, low-latency microservices powering high-throughput enterprise and consumer workloads.
+3. **Applied Cognitive Intelligence**: Transforming institutional data into structured, real-time insights and conversational agents.
+
+---
+
+## 3. Product Portfolio & Venture Ecosystem
+
+### 01. My Vidyon (https://www.myvidyon.in/)
+- **Product Classification**: Autonomous AI Education Ecosystem / All-in-One ERP
+- **Target Audience**: Schools, colleges, universities, teachers, students, parents, and administrative staff.
+- **Key Modules**: Real-time attendance, fee and financial management, academic timetable generator, parent communication portal, canteen automation, exam analytics, and adaptive student performance metrics.
+- **Value Proposition**: India's First All-in-One Education ERP platform designed to unify all institutional stakeholders on a single seamless interface.
+
+### 02. PostsApp (https://postsapp.in/)
+- **Product Classification**: Autonomous Citizen Journalism & Political Social Media Platform
+- **Target Audience**: Citizens, political analysts, local journalists, grassroots communities, and global news readers.
+- **Key Capabilities**: Real-time trending civic discussions, zero-censorship authentic citizen discovery, localized verified journalism, and creator reward monetization.
+- **Value Proposition**: Reclaiming citizen voice and providing transparent, authentic community discourse.
+
+### 03. Vidyo AI (https://unaitech.com)
+- **Product Classification**: Cognitive Neural Engine & Conversational Learning Platform
+- **Key Capabilities**: Document intelligence, instant book/PDF comprehension, interactive 24/7 AI tutor, automatic summarization, and customized quiz generation.
+- **Value Proposition**: Transforming static study materials and documents into dynamic, conversational knowledge assistants.
+
+### 04. UNAI 11 / UEOS (https://unaitech.com)
+- **Product Classification**: Unified Enterprise Operating System (UEOS)
+- **Key Capabilities**: IT service desk automation, infrastructure monitoring, HR & finance workflows, agile project management, real-time KPI dashboards, and enterprise agentic workflows.
+- **Value Proposition**: One system. Every operation. Limitless growth.
+
+---
+
+## 4. Technical Skills & Architectural Competencies
+- **Artificial Intelligence / Machine Learning**: Deep Learning, Neural Networks, Natural Language Processing (NLP), Large Language Model (LLM) fine-tuning, RAG (Retrieval-Augmented Generation), Agentic Workflows.
+- **Software & Systems Architecture**: Distributed Systems, Microservices, TypeScript, React, Next.js, Node.js, Python, PostgreSQL, Redis, Docker, Kubernetes, Cloud Infrastructure.
+- **Leadership & Product Strategy**: Venture Creation, Product Management, Go-to-Market Strategy, Agile Team Building, ROI-Driven Design.
+
+---
+
+## 5. Contact & Social Verification Links
+- WhatsApp: https://wa.me/918428293603 (+91 84282 93603)
+- LinkedIn Profile: https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/
+- Instagram Profile: https://www.instagram.com/nehemiah_ai/
+- UNAI TECH Platform: https://unaitech.com
+- YouTube Channel & Keynote: https://youtu.be/Nbv5zZSlTgU
+- Email: ceo@unaitech.com

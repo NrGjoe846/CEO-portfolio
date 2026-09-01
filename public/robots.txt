@@ -1,0 +1,50 @@
+# Robots.txt for Nehemiah Nesanathan Portfolio & UNAI TECH
+# https://unaitech.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Specific AI & LLM Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+# Sitemap & LLM Discovery
+Sitemap: https://unaitech.com/sitemap.xml
+Sitemap: https://nrgjoe846.github.io/CEO-portfolio/sitemap.xml
+# LLMs knowledge documentation
+# https://unaitech.com/llms.txt

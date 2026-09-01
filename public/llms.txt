@@ -1,0 +1,49 @@
+# Nehemiah Nesanathan — CEO & Founder of UNAI TECH
+
+> Nehemiah Nesanathan is an AI & Machine Learning Engineer, technology entrepreneur, and Chief Executive Officer (CEO) of UNAI TECH Pvt Ltd. He specializes in AI-native architecture, generative AI, cognitive neural systems, and building practical technology ventures.
+
+## Summary & Core Identity
+- **Full Name**: Nehemiah Nesanathan
+- **Role / Title**: Chief Executive Officer (CEO) & Founder
+- **Company**: UNAI TECH Pvt Ltd
+- **Website**: https://unaitech.com
+- **Portfolio**: https://nrgjoe846.github.io/CEO-portfolio/
+- **Location**: India / Global AI-Native Ecosystem
+- **Focus Areas**: Artificial Intelligence, Machine Learning, Generative AI, EdTech Systems, Civic Social Media, Autonomous Enterprise OS, and Cloud Infrastructure.
+
+## Core Maxim & Belief
+> "AI should not just automate tasks. It should help us solve, create, and build better."
+> "Technology should do more than execute instructions. It should understand, reason, adapt, and act."
+
+## Flagship Products & Ventures
+1. **My Vidyon** (https://www.myvidyon.in/)
+   - *Description*: India's First All-in-One Education ERP ecosystem designed to connect school stakeholders (administrators, faculty, students, parents, canteen staff, and finance teams) through an adaptive learning environment.
+   - *Focus*: Education + AI + Adaptive Learning Intelligence.
+
+2. **PostsApp** (https://postsapp.in/)
+   - *Description*: Autonomous citizen journalism and political social media platform designed for authentic civic discourse, real-time media discovery, and uncensored civic interaction.
+   - *Focus*: Civic Social Media + AI + Authentic Content.
+
+3. **Vidyo AI** (https://unaitech.com)
+   - *Description*: Cognitive neural engine transforming static educational assets, books, and PDFs into 24/7 interactive conversational learning experiences.
+   - *Focus*: Document Intelligence + AI Tutoring + Conversational Learning.
+
+4. **UNAI 11 (UEOS)** (https://unaitech.com)
+   - *Description*: Unified Enterprise Operating System orchestrating autonomous IT operations, microservice infrastructure, business workflows, and real-time dashboard visibility.
+   - *Focus*: Autonomous Agents + IT Service Automation + Enterprise Infrastructure.
+
+## Career Trajectory & Work History
+- **2024 — Present**: Chief Executive Officer & Founder at UNAI TECH Pvt Ltd
+- **2024 — 2026**: Lead Platform Architect & Systems Engineer for My Vidyon and PostsApp
+- **2022 — 2024**: AI & Machine Learning Engineer specializing in neural pipelines and Generative AI workflows
+
+## Official Social & Contact Channels
+- **WhatsApp**: https://wa.me/918428293603 (+91 84282 93603)
+- **LinkedIn**: https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/
+- **Instagram**: https://www.instagram.com/nehemiah_ai/ (@nehemiah_ai)
+- **Official Website**: https://unaitech.com
+- **YouTube Executive Vision**: https://youtu.be/Nbv5zZSlTgU
+
+## Further Details
+- Full documentation and expanded context: [llms-full.txt](https://unaitech.com/llms-full.txt)
+- Sitemap: [sitemap.xml](https://unaitech.com/sitemap.xml)
