@@ -53,54 +53,99 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
-    <!-- Structured Data (JSON-LD) for Google Knowledge Graph, Rich Snippets & LLM Reasoners -->
+    <!-- Geographic & Regional Entity Signals -->
+    <meta name="geo.region" content="IN" />
+    <meta name="geo.placename" content="India" />
+    <meta name="target" content="all" />
+    <meta name="audience" content="all" />
+    <meta name="coverage" content="Worldwide" />
+    <meta name="distribution" content="Global" />
+    <meta name="rating" content="General" />
+    <meta name="revisit-after" content="3 days" />
+
+    <!-- Structured Data (JSON-LD) for Google Knowledge Graph, ProfilePage, and LLM Engines -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Person",
-          "@id": "https://unaitech.com/#person",
-          "name": "Nehemiah Nesanathan",
-          "alternateName": ["Nehemiah", "Nehemiah AI"],
+          "@type": "ProfilePage",
+          "@id": "https://unaitech.com/#profilepage",
           "url": "https://unaitech.com/",
-          "image": "https://unaitech.com/images/nehemiah-hero.png",
-          "jobTitle": "Chief Executive Officer (CEO) & Founder",
-          "worksFor": {
-            "@type": "Organization",
-            "@id": "https://unaitech.com/#organization",
-            "name": "UNAI TECH Pvt Ltd",
-            "url": "https://unaitech.com"
+          "name": "Nehemiah Nesanathan — Official Executive Portfolio & CEO Profile",
+          "description": "Official profile of Nehemiah Nesanathan, Chief Executive Officer (CEO) of UNAI TECH Pvt Ltd and AI & ML Engineer.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://unaitech.com/#website",
+            "url": "https://unaitech.com/",
+            "name": "Nehemiah Nesanathan Portfolio | UNAI TECH",
+            "publisher": {
+              "@id": "https://unaitech.com/#organization"
+            }
           },
-          "description": "Nehemiah Nesanathan is an AI & Machine Learning Engineer and technology entrepreneur serving as the Chief Executive Officer of UNAI TECH Pvt Ltd.",
-          "knowsAbout": [
-            "Artificial Intelligence",
-            "Machine Learning",
-            "Generative AI",
-            "Software Architecture",
-            "EdTech Systems",
-            "Civic Media Platforms",
-            "Enterprise Operating Systems",
-            "Venture Building"
-          ],
-          "sameAs": [
-            "https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/",
-            "https://www.instagram.com/nehemiah_ai/",
-            "https://github.com/NrGjoe846",
-            "https://wa.me/918428293603",
-            "https://unaitech.com"
-          ]
+          "mainEntity": {
+            "@type": "Person",
+            "@id": "https://unaitech.com/#person",
+            "name": "Nehemiah Nesanathan",
+            "givenName": "Nehemiah",
+            "familyName": "Nesanathan",
+            "alternateName": [
+              "Nehemiah",
+              "Nehemiah AI",
+              "Nehemiah Nesanathan CEO",
+              "CEO of UNAI TECH",
+              "Nehemiah UNAI TECH"
+            ],
+            "jobTitle": "Chief Executive Officer (CEO) & Founder",
+            "description": "Nehemiah Nesanathan is an AI & Machine Learning Engineer and technology entrepreneur serving as the Chief Executive Officer (CEO) of UNAI TECH Pvt Ltd, building My Vidyon, PostsApp, Vidyo AI, and UNAI 11 (UEOS).",
+            "image": "https://unaitech.com/images/nehemiah-hero.png",
+            "url": "https://unaitech.com/",
+            "email": "ceo@unaitech.com",
+            "telephone": "+918428293603",
+            "worksFor": {
+              "@type": "Organization",
+              "@id": "https://unaitech.com/#organization",
+              "name": "UNAI TECH Pvt Ltd",
+              "url": "https://unaitech.com",
+              "logo": "https://unaitech.com/images/unai-logo.png"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/in/nehemiah-nesanathan-45a655258/",
+              "https://www.instagram.com/nehemiah_ai/",
+              "https://github.com/NrGjoe846",
+              "https://wa.me/918428293603",
+              "https://unaitech.com",
+              "https://www.myvidyon.in/",
+              "https://postsapp.in/"
+            ],
+            "knowsAbout": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Generative AI",
+              "Software Engineering",
+              "Cloud Infrastructure",
+              "EdTech Ecosystems",
+              "Civic Social Media",
+              "Enterprise Operating Systems",
+              "Venture Building",
+              "Executive Leadership"
+            ]
+          }
         },
         {
           "@type": "Organization",
           "@id": "https://unaitech.com/#organization",
           "name": "UNAI TECH Pvt Ltd",
+          "alternateName": "UNAI TECH",
           "url": "https://unaitech.com",
           "logo": "https://unaitech.com/images/unai-logo.png",
           "founder": {
             "@id": "https://unaitech.com/#person"
           },
-          "description": "UNAI TECH Pvt Ltd builds autonomous AI ecosystems, intelligent software architectures, and scalable digital platforms.",
+          "ceo": {
+            "@id": "https://unaitech.com/#person"
+          },
+          "description": "UNAI TECH Pvt Ltd is an AI-native venture ecosystem and enterprise architecture firm building intelligent platforms and autonomous systems.",
           "owns": [
             {
               "@type": "SoftwareApplication",
@@ -120,7 +165,7 @@
               "@type": "SoftwareApplication",
               "name": "Vidyo AI",
               "url": "https://unaitech.com",
-              "applicationCategory": "BusinessApplication",
+              "applicationCategory": "EducationalApplication",
               "description": "Cognitive neural engine transforming books, notes, and PDFs into 24/7 conversational learning experiences."
             },
             {
@@ -133,20 +178,68 @@
           ]
         },
         {
-          "@type": "WebSite",
-          "@id": "https://unaitech.com/#website",
-          "url": "https://unaitech.com/",
-          "name": "Nehemiah Nesanathan | Official CEO Portfolio",
-          "publisher": {
-            "@id": "https://unaitech.com/#organization"
-          },
-          "inLanguage": "en-US"
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://unaitech.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About Nehemiah Nesanathan",
+              "item": "https://unaitech.com/#about"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Ventures & Products",
+              "item": "https://unaitech.com/#ventures"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Work History",
+              "item": "https://unaitech.com/#experience"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Contact CEO",
+              "item": "https://unaitech.com/#contact"
+            }
+          ]
         }
       ]
     }
     </script>
   </head>
   <body class="bg-[#0a1226] text-white antialiased selection:bg-[#2563eb] selection:text-white overflow-x-hidden">
+    <!-- Server-Side Crawler Semantic Landmark for Search Engine Ranking -->
+    <noscript>
+      <header>
+        <h1>Nehemiah Nesanathan — CEO of UNAI TECH Pvt Ltd</h1>
+        <p>AI &amp; Machine Learning Engineer, Technology Entrepreneur, and Founder of UNAI TECH.</p>
+      </header>
+      <main>
+        <section>
+          <h2>About Nehemiah Nesanathan</h2>
+          <p>AI &amp; Machine Learning Engineer and aspiring entrepreneur building intelligent systems and practical technology ventures including My Vidyon, PostsApp, Vidyo AI, and UNAI 11 (UEOS).</p>
+        </section>
+        <section>
+          <h2>Flagship Ventures</h2>
+          <ul>
+            <li><strong>My Vidyon</strong>: India's First All-in-One Education ERP platform.</li>
+            <li><strong>PostsApp</strong>: Autonomous citizen journalism and political social media.</li>
+            <li><strong>Vidyo AI</strong>: Cognitive neural learning engine.</li>
+            <li><strong>UNAI 11 (UEOS)</strong>: Unified Enterprise Operating System.</li>
+          </ul>
+        </section>
+      </main>
+    </noscript>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
